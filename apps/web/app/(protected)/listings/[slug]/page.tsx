@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { BathIcon, BedIcon, LayoutGrid, RulerIcon } from "lucide-react";
+import { BathIcon, BedIcon, LayoutGrid, RulerIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import {
   Breadcrumb,
@@ -21,7 +21,12 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { PhotosCarousel } from "../photos-carousel";
 import { Gallery } from "./gallery";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 type ListingDetailsProps = {
   params: {
@@ -99,14 +104,16 @@ export default async function ListingDetails({ params }: ListingDetailsProps) {
               </DialogTrigger>
 
               <DialogContent className="h-full max-w-3xl bg-transparent outline-none shadow-none border-none">
-                <div className="relative h-auto rounded-lg overflow-hidden">
-                  <Image
-                    src={listing.image}
-                    fill
-                    className="object-cover"
-                    alt="Main property image"
-                  />
-                </div>
+                <DialogClose className="bg-white rounded h-fit w-fit z-50 ml-auto">
+                  <XIcon />
+                </DialogClose>
+
+                <Image
+                  src={listing.image}
+                  fill
+                  className="object-cover"
+                  alt="Foto de um imovel"
+                />
               </DialogContent>
             </Dialog>
 
@@ -130,17 +137,16 @@ export default async function ListingDetails({ params }: ListingDetailsProps) {
                     </DialogTrigger>
 
                     <DialogContent className="h-full max-w-3xl bg-transparent outline-none shadow-none border-none">
-                      <div
-                        key={photo.listingItemId}
-                        className="relative h-auto w-full rounded-lg overflow-hidden"
-                      >
-                        <Image
-                          src={photo.href}
-                          fill
-                          className="object-cover"
-                          alt={`Imagem do imovel ${photo.listingItemId}`}
-                        />
-                      </div>
+                      <DialogClose className="bg-white rounded h-fit w-fit z-50 ml-auto">
+                        <XIcon />
+                      </DialogClose>
+
+                      <Image
+                        src={photo.href}
+                        fill
+                        className="object-cover"
+                        alt={`Imagem do imovel ${photo.listingItemId}`}
+                      />
                     </DialogContent>
                   </Dialog>
                 ))}
