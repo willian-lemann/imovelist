@@ -9,7 +9,7 @@ export default function Layout({ children }: PropsWithChildren) {
       </div>
       <div className="hidden bg-muted lg:block">
         <Image
-          src="/placeholder.svg"
+          src="/background.jpeg"
           alt="Image"
           width="1920"
           height="1080"

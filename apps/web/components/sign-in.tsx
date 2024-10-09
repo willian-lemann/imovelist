@@ -26,6 +26,7 @@ export function SignIn() {
           card: {
             border: "none",
             boxShadow: "none",
+            padding: isMobile() ? "2rem 0rem" : "",
           },
           footer: {
             background: "#fff",
