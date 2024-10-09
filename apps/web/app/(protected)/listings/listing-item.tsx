@@ -7,6 +7,7 @@ import { login } from "@/app/utils/redirects";
 import { createSlug } from "@/lib/utils";
 
 import { PhotosCarousel } from "./photos-carousel";
+import { Button } from "@/components/ui/button";
 
 type ListingItemProps = {
   isLogged: boolean;
@@ -24,6 +25,8 @@ type ListingItemProps = {
     type: string;
     ref: string;
     placeholderImage: string;
+    agent_id: number;
+    isOnwer: boolean;
   };
 };
 
@@ -70,6 +73,14 @@ export async function ListingItem({ listing, isLogged }: ListingItemProps) {
           </div>
           <div className="flex items-center justify-between">
             <div className="text-2xl font-bold">R$ {listing.price}</div>
+
+            {listing.isOnwer ? (
+              <div>
+                <Button variant="ghost" className="h-6">
+                  Editar
+                </Button>
+              </div>
+            ) : null}
           </div>
         </div>
       </Card>

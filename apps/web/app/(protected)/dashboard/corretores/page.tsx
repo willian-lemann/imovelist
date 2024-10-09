@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 import { Phone, UserCheck, UserX } from "lucide-react";
-import { getAgents } from "@/data-access/get-agents";
+import { getAgents } from "@/data-access/user/get-agents";
 import { Pagination } from "@/components/pagination";
 import { userAgent } from "next/server";
 import { auth } from "@clerk/nextjs/server";
@@ -47,7 +47,7 @@ export default async function AgentsList({
   const shouldShowPagination = isLogged && count! > 0;
 
   return (
-    <div className="p-8">
+    <div className="px-8">
       <Card className="w-full">
         <CardHeader>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">

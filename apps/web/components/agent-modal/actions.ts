@@ -1,7 +1,7 @@
 "use server";
 
-import { getUser } from "@/data-access/get-user";
-import { signInAgent } from "@/data-access/sign-in-agent";
+import { getUser } from "@/data-access/user/get-user";
+import { signInAgent } from "@/data-access/user/sign-in-agent";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 

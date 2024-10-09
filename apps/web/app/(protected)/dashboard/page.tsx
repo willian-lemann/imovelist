@@ -10,8 +10,9 @@ import {
   UsersIcon,
 } from "lucide-react";
 
-import { getUser } from "@/data-access/get-user";
+import { getUser } from "@/data-access/user/get-user";
 import { auth, clerkClient } from "@clerk/nextjs/server";
+import { ListingItem } from "../listings/listing-item";
 
 const mockTopProperties = [
   {
@@ -82,7 +83,7 @@ export default async function Dashboard() {
 
   return (
     <div className="max-w-7xl mx-auto space-y-8">
-      <div className="bg-white shadow rounded-lg p-6 ">
+      <div className="bg-white shadow rounded-lg px-6 py-4">
         <h1 className="text-2xl font-bold mb-4">Meus dados</h1>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -184,12 +185,12 @@ export default async function Dashboard() {
   </Card> */}
 
       {/* Top Clicked Properties Grid */}
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle>Imóveis mais vistos</CardTitle>
         </CardHeader>
         <CardContent>
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {mockTopProperties.map((property) => (
               <ListingItem
                 key={property.id}
@@ -197,38 +198,9 @@ export default async function Dashboard() {
                 isLogged={true}
               />
             ))}
-          </div> */}
+          </div>
         </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-function Sidebar() {
-  const sidebarItems = [
-    { icon: UsersIcon, label: "Corretores", href: "/dashboard/corretores" },
-  ];
-
-  return (
-    <div className="w-64 bg-white shadow-md h-screen">
-      <div className="p-4">
-        <h2 className="text-xl font-bold mb-4">Dashboard</h2>
-        <nav>
-          <ul>
-            {sidebarItems.map((item, index) => (
-              <li key={index} className="mb-2">
-                <Link
-                  href={item.href}
-                  className="flex items-center p-2 rounded-lg hover:bg-gray-100 transition-colors"
-                >
-                  <item.icon className="w-5 h-5 mr-3 text-gray-500" />
-                  <span>{item.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+      </Card> */}
     </div>
   );
 }

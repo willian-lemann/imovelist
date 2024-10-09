@@ -1,4 +1,4 @@
-import { Database, LayoutDashboard, UsersIcon } from "lucide-react";
+import { Database, House, LayoutDashboard, UsersIcon } from "lucide-react";
 import Link from "next/link";
 
 export function Sidebar() {

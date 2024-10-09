@@ -4,7 +4,7 @@ import Link from "next/link";
 import { AgentModal } from "./agent-modal";
 import { Button } from "./ui/button";
 import { auth } from "@clerk/nextjs/server";
-import { getUser } from "@/data-access/get-user";
+import { getUser } from "@/data-access/user/get-user";
 import { login } from "@/app/utils/redirects";
 
 export async function Header() {
@@ -26,13 +26,9 @@ export async function Header() {
 
     return (
       <>
-        {/* <Link href="/anunciar">
+        <Link href="/anunciar">
           <Button variant="secondary">Anunciar</Button>
-        </Link> */}
-
-        {/* <Link href="/anunciar">
-          <Button variant="ghost">Anunciar</Button>
-        </Link> */}
+        </Link>
       </>
     );
   }

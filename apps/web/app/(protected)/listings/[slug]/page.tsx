@@ -14,7 +14,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 import { Metadata, ResolvingMetadata } from "next";
 import { createSlug, extractIdFromSlug } from "@/lib/utils";
-import { getListing } from "@/data-access/get-listing";
+import { getListing } from "@/data-access/listings/get-listing";
 import { Share } from "./share";
 import { GoToSite } from "./go-to-side";
 import { Label } from "@/components/ui/label";

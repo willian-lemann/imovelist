@@ -8,9 +8,11 @@ import { List } from "lucide-react";
 import { SeeMore } from "./see-more";
 import { userAgent } from "next/server";
 import { headers } from "next/headers";
-import { getListings } from "@/data-access/get-listings";
+import { getListings } from "@/data-access/listings/get-listings";
 import { ScrollToTopButton } from "@/components/scroll-top-button";
 import { Label } from "@/components/ui/label";
+import { getUser } from "@/data-access/user/get-user";
+import { getListingsFromAgent } from "@/data-access/listings/get-listings-from-agent";
 
 const pageSize = 12;
 
