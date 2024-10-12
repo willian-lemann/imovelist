@@ -7,7 +7,10 @@ import { login } from "@/app/utils/redirects";
 import { createSlug } from "@/lib/utils";
 
 import { PhotosCarousel } from "./photos-carousel";
-import { Button } from "@/components/ui/button";
+
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { EditButton } from "./edit-button";
 
 type ListingItemProps = {
   isLogged: boolean;
@@ -40,10 +43,20 @@ export async function ListingItem({ listing, isLogged }: ListingItemProps) {
   return (
     <Link href={getListingURL(listing)} key={listing.id}>
       <Card className="w-full max-w-md animate-fadeIn relative shadow-none overflow-hidden rounded-lg border-none transition-all">
-        <PhotosCarousel
-          photos={listing.photos}
-          placeholderImage={listing.placeholderImage}
-        />
+        <div>
+          {listing.isOnwer ? (
+            <Badge className="absolute rounded-full hover:bg-white top-3 left-2 z-50 bg-white">
+              <Label className="text-sm text-primary font-bold">
+                Meu anúncio
+              </Label>
+            </Badge>
+          ) : null}
+
+          <PhotosCarousel
+            photos={listing.photos}
+            placeholderImage={listing.placeholderImage}
+          />
+        </div>
 
         <div className="py-4 bg-background">
           <div className="flex items-center justify-between mb-2">
@@ -74,13 +87,7 @@ export async function ListingItem({ listing, isLogged }: ListingItemProps) {
           <div className="flex items-center justify-between">
             <div className="text-2xl font-bold">R$ {listing.price}</div>
 
-            {listing.isOnwer ? (
-              <div>
-                <Button variant="ghost" className="h-6">
-                  Editar
-                </Button>
-              </div>
-            ) : null}
+            {listing.isOnwer ? <EditButton id={listing.id} /> : null}
           </div>
         </div>
       </Card>
