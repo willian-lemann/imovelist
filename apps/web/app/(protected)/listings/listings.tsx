@@ -1,23 +1,16 @@
-import { supabaseDB } from "@/lib/supabase";
-
 import { auth } from "@clerk/nextjs/server";
-import { cache } from "react";
+
 import { Pagination } from "@/components/pagination";
 import { ListingItem } from "./listing-item";
 import { List } from "lucide-react";
-import { SeeMore } from "./see-more";
+
 import { getListings } from "@/data-access/listings/get-listings";
 import { ScrollToTopButton } from "@/components/scroll-top-button";
 import { Label } from "@/components/ui/label";
-import { getUser } from "@/data-access/user/get-user";
-import { getListingsFromAgent } from "@/data-access/listings/get-listings-from-agent";
+
 import { isMobile } from "@/app/utils/check-responsive";
 
 const pageSize = 12;
-
-const getListingsLimited = cache(async () => {
-  return await supabaseDB.from("listings").select("*").limit(10);
-});
 
 type ListingsProps = {
   searchParams: { page: number; q: string; filter: string; type: string };
