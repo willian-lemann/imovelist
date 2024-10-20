@@ -18,13 +18,13 @@ type HomePageProps = {
 };
 
 export default function HomePage({ searchParams }: HomePageProps) {
-  const { userId: isLogged } = auth();
-
   return (
     <>
       <div className="flex flex-col md:flex-row">
         <div className="container p-0">
-          <div className="py-4">{isLogged ? <Search /> : null}</div>
+          <div className="py-4">
+            <Search />
+          </div>
 
           <div className="mt-0">
             <Suspense fallback={<Skeleton />}>
