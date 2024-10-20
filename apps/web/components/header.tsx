@@ -53,7 +53,7 @@ export async function Header() {
           ) : (
             <Button asChild className="h-auto px-5 ">
               <Link href={login} className="text-sm font-bold" prefetch={false}>
-                Login
+                Sou corretor
               </Link>
             </Button>
           )}

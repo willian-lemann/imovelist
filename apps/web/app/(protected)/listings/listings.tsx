@@ -33,12 +33,15 @@ export async function Listings({
 
   const { filter, type } = filters;
 
-  const { data, count: listingCount } = isLogged
-    ? await getListings({ page: +page, filter, query: q, type })
-    : await getListingsLimited();
+  const { data, count: listingCount } = await getListings({
+    page: +page,
+    filter,
+    query: q,
+    type,
+  });
 
   const numberOfPages = Math.ceil(Number(listingCount) / pageSize);
-  const shouldShowPagination = isLogged && data?.length! > 0;
+  const shouldShowPagination = data?.length! > 0;
 
   return (
     <div>
@@ -86,7 +89,7 @@ export async function Listings({
         />
       ) : null}
 
-      {!isLogged ? <SeeMore /> : null}
+      {/* <SeeMore /> */}
 
       <ScrollToTopButton />
     </div>
