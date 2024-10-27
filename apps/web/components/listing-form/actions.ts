@@ -58,7 +58,6 @@ export async function createListingAction(prevState: any, formData: FormData) {
       errorMap[errorKey] = error.message;
     });
 
-    console.log(errorMap);
     return {
       success: false,
       errors: errorMap,
