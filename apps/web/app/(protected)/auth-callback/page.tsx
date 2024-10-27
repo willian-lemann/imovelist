@@ -1,5 +1,5 @@
 import { getUser } from "@/data-access/user/get-user";
-import { saveUser } from "@/data-access/save-user";
+import { saveUser } from "@/data-access/user/save-user";
 
 import { auth, clerkClient } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";

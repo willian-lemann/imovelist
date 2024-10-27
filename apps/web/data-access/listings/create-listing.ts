@@ -1,7 +1,6 @@
 import { supabaseDB } from "@/lib/supabase";
 
-type Input = {
-  id: string;
+export type Input = {
   image: string;
   name: string;
   address: string;
@@ -9,12 +8,12 @@ type Input = {
   bathrooms: number;
   area: string;
   price: number;
-  photos: { href: string }[];
   forSale: boolean;
   type: string;
   ref: string;
   placeholderImage: string;
   agent_id: number;
+  content: string;
 };
 
 export async function createListing(input: Input) {
