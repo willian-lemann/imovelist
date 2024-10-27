@@ -12,7 +12,6 @@ export function UploadImages() {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files) {
-      console.log(files);
       const newImages = Array.from(files).map((file) =>
         URL.createObjectURL(file)
       );
@@ -26,12 +25,13 @@ export function UploadImages() {
 
   return (
     <div className="w-full space-y-4">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col">
         <h2 className="text-xl font-semibold">Fotos do Imóvel</h2>
         <Button
+          className="w-fit mt-4"
           type="button"
           onClick={() => fileInputRef.current?.click()}
-          variant="outline"
+          variant="secondary"
         >
           Adicionar Fotos
         </Button>
