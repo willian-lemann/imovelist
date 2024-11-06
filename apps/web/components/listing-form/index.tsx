@@ -76,13 +76,13 @@ export function ListingForm() {
       <div>
         <Label htmlFor="type">Tipo do imóvel</Label>
         <Select name="type">
-          <SelectTrigger>
+          <SelectTrigger error={state.errors.type}>
             <SelectValue placeholder="Selecione o tipo do imóvel" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="apartamento">Apartamento</SelectItem>
-            <SelectItem value="casa">Casa</SelectItem>
-            <SelectItem value="terreno">Terreno</SelectItem>
+            <SelectItem value="Apartamento">Apartamento</SelectItem>
+            <SelectItem value="Casa">Casa</SelectItem>
+            <SelectItem value="Terreno">Terreno</SelectItem>
           </SelectContent>
         </Select>
       </div>

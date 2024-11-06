@@ -24,11 +24,10 @@ type ListingsProps = {
   searchParams: { page: number; q: string; filter: string; type: string };
 };
 
-export async function Listings({
-  searchParams: { page = 1, q = "", ...filters },
-}: ListingsProps) {
+export async function Listings({ searchParams }: ListingsProps) {
+  const { page = 1, q = "", ...filters } = searchParams;
   const { userId } = auth();
-  const agent = userAgent({ headers: headers() });
+  const agent = userAgent({ headers: await headers() });
 
   const isLogged = !!userId;
   const isMobile = agent.device.type === "mobile";

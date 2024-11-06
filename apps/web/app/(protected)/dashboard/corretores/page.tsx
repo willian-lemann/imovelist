@@ -30,7 +30,7 @@ export default async function AgentsList({
   searchParams,
 }: AgentsListPageParams) {
   const { userId } = auth();
-  const agent = userAgent({ headers: headers() });
+  const agent = userAgent({ headers: await headers() });
 
   const isLogged = !!userId;
   const isMobile = agent.device.type === "mobile";

@@ -1,7 +1,9 @@
 import { isMobile } from "@/app/utils/check-responsive";
 import { SignIn as SigninComponent } from "@clerk/nextjs";
 
-export function SignIn() {
+export async function SignIn() {
+  const mobile = await isMobile();
+
   return (
     <SigninComponent
       fallbackRedirectUrl={process.env.NEXT_PUBLIC_AUTH_CALLBACK}
@@ -13,20 +15,20 @@ export function SignIn() {
           },
 
           rootBox: {
-            width: isMobile() ? "auto" : "100%",
+            width: mobile ? "auto" : "100%",
             border: "none",
             boxShadow: "none",
             background: "#fff",
           },
           cardBox: {
-            width: isMobile() ? "" : "100%",
+            width: mobile ? "" : "100%",
             border: "none",
             boxShadow: "none",
           },
           card: {
             border: "none",
             boxShadow: "none",
-            padding: isMobile() ? "2rem 0rem" : "",
+            padding: mobile ? "2rem 0rem" : "",
           },
           footer: {
             background: "#fff",
