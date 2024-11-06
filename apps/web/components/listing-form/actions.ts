@@ -10,9 +10,7 @@ const listingSchema = z.object({
     .array(z.string())
     .min(1, { message: "Pelo menos uma foto é obrigatória" }),
   name: z.string().min(1, { message: "Nome é obrigatório" }),
-  type: z.enum(["apartamento", "casa", "terreno"], {
-    errorMap: () => ({ message: "Selecione um tipo de imóvel válido" }),
-  }),
+  type: z.string().min(1, { message: "Selecione um tipo de imóvel válido" }),
   address: z.string().min(1, { message: "Endereço é obrigatório" }),
   bedrooms: z
     .number()
