@@ -4,10 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import { Phone, UserCheck, UserX } from "lucide-react";
 import { getAgents } from "@/data-access/user/get-agents";
 import { Pagination } from "@/components/pagination";
-import { userAgent } from "next/server";
+
 import { auth } from "@clerk/nextjs/server";
-import { headers } from "next/headers";
+
 import { SearchAgents } from "./search-agents";
+import { isMobile } from "@/app/utils/check-responsive";
 
 const agentTypes = {
   1: "Pessoa Física",
@@ -21,19 +22,17 @@ function getFirstLetters(name: string) {
 }
 
 type AgentsListPageParams = {
-  searchParams: { page: number; query: string };
+  searchParams: Promise<{ page: number; query: string }>;
 };
 
 const pageSize = 12;
 
-export default async function AgentsList({
-  searchParams,
-}: AgentsListPageParams) {
+export default async function AgentsList(props: AgentsListPageParams) {
+  const searchParams = await props.searchParams;
   const { userId } = auth();
-  const agent = userAgent({ headers: await headers() });
 
   const isLogged = !!userId;
-  const isMobile = agent.device.type === "mobile";
+  const inMobile = await isMobile();
 
   const page = +searchParams.page || 1;
 
@@ -115,7 +114,7 @@ export default async function AgentsList({
 
         {shouldShowPagination ? (
           <Pagination
-            isMobile={isMobile}
+            isMobile={inMobile}
             numberOfPages={numberOfPages}
             page={page}
           />

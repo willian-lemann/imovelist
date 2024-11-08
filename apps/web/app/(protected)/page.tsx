@@ -1,3 +1,4 @@
+// @next-codemod-ignore
 import { Listings } from "@/app/(protected)/listings/listings";
 
 import { Search } from "@/components/search";
@@ -8,16 +9,19 @@ import { LoginModal } from "@/components/login-modal";
 import { SignIn } from "@/components/sign-in";
 
 type HomePageProps = {
-  searchParams: {
+  searchParams: Promise<{
     page: number;
     q: string;
     filter: string;
     type: string;
     show_login: string;
-  };
+  }>;
 };
 
-export default function HomePage({ searchParams }: HomePageProps) {
+export default async function HomePage(props: HomePageProps) {
+  const searchParams = await props.searchParams;
+  const { userId: isLogged } = auth();
+
   return (
     <>
       <div className="flex flex-col md:flex-row">
