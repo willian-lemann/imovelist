@@ -29,15 +29,13 @@ import {
 } from "@/components/ui/dialog";
 
 type ListingDetailsProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export async function generateMetadata(
-  { params }: ListingDetailsProps,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata(props: ListingDetailsProps, parent: ResolvingMetadata): Promise<Metadata> {
+  const params = await props.params;
   const id = extractIdFromSlug(params.slug);
   const listing = await getListing(id);
 
@@ -51,7 +49,8 @@ export async function generateMetadata(
   };
 }
 
-export default async function ListingDetails({ params }: ListingDetailsProps) {
+export default async function ListingDetails(props: ListingDetailsProps) {
+  const params = await props.params;
   const id = extractIdFromSlug(params.slug);
   const listing = await getListing(id!);
 

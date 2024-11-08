@@ -1,8 +1,12 @@
 import { headers } from "next/headers";
-import { userAgent } from "next/server";
 
 export async function isMobile() {
-  const agent = userAgent({ headers: await headers() });
-  const isMobile = agent.device.type === "mobile";
+  const headersStore = await headers();
+  const agent = headersStore.get("user-agent") as any;
+
+  const mobileRegex =
+    /Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Mobile|Windows Phone|webOS/i;
+
+  const isMobile = mobileRegex.test(agent);
   return isMobile;
 }
