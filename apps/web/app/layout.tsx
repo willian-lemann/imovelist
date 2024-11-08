@@ -1,4 +1,3 @@
-// @next-codemod-ignore
 import "@/app/globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
@@ -37,7 +36,7 @@ export const metadata: Metadata = {
 
 export default async function Layout({ children }: LayoutProps) {
   return (
-    <ClerkProvider localization={ptBR}>
+    <ClerkProvider dynamic localization={ptBR}>
       <html lang="pt-BR">
         <body
           className={cn("antialiased", fontHeading.variable, fontBody.variable)}

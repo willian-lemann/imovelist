@@ -10,7 +10,7 @@ async function getUserFromDatabase(userId: string) {
 }
 
 export default async function CallbackAuthPage() {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (userId) {
     const hasUserInDatabase = await getUserFromDatabase(userId);

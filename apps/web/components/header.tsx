@@ -8,7 +8,7 @@ import { getUser } from "@/data-access/user/get-user";
 import { login } from "@/app/utils/redirects";
 
 export async function Header() {
-  const { userId: isAuthenticated } = auth();
+  const { userId: isAuthenticated } = await auth();
   const user = await getUser({ id: isAuthenticated! });
 
   function renderAgentButton() {

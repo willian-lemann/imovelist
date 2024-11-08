@@ -74,7 +74,7 @@ const mockTopProperties = [
 ];
 
 export default async function Dashboard() {
-  const { userId } = auth();
+  const { userId } = await auth();
   const loggedUser = await clerkClient.users.getUser(userId!);
 
   const user = await getUser({ id: userId! });

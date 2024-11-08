@@ -26,7 +26,7 @@ type ListingsProps = {
 export async function Listings({ searchParams }: ListingsProps) {
   const { page = 1, q = "", ...filters } = searchParams;
 
-  const { userId } = auth();
+  const { userId } = await auth();
 
   const isLogged = !!userId;
   const mobile = await isMobile();
@@ -45,16 +45,15 @@ export async function Listings({ searchParams }: ListingsProps) {
 
   return (
     <div>
-      {isLogged ? (
-        <div className="container pb-4">
-          <Label className="text-lg  font-medium">
-            <Label className="font-bold text-lg text-muted-foreground">
-              {listingCount}
-            </Label>{" "}
-            Resultados encontrados para esta pesquisa
-          </Label>
-        </div>
-      ) : null}
+      <div className="container pb-4">
+        <Label className="text-lg  font-medium">
+          <Label className="font-bold text-lg text-muted-foreground">
+            {listingCount}
+          </Label>{" "}
+          Resultados encontrados para esta pesquisa
+        </Label>
+      </div>
+
       {data?.length === 0 ? (
         <div className="flex flex-col items-center justify-center gap-6 py-16 md:py-24 lg:py-32">
           <div className="flex h-20 w-20 items-center justify-center rounded-full bg-muted">
