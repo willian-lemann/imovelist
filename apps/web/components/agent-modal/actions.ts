@@ -6,7 +6,7 @@ import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
 export async function checkAgent(prevState: any, formData: FormData) {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   const loggedUser = await getUser({ id: userId! });
 

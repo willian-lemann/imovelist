@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { CloseButton } from "./close-button";
 import { useSearchParams } from "next/navigation";
 
@@ -14,7 +14,9 @@ export function LoginModal({ children }: PropsWithChildren) {
   return (
     <Dialog open={open}>
       <DialogContent>
-        <CloseButton />
+        <DialogTitle>
+          <CloseButton />
+        </DialogTitle>
 
         {children}
       </DialogContent>

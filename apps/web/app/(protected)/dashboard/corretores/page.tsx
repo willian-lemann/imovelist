@@ -29,7 +29,7 @@ const pageSize = 12;
 
 export default async function AgentsList(props: AgentsListPageParams) {
   const searchParams = await props.searchParams;
-  const { userId } = auth();
+  const { userId } = await auth();
 
   const isLogged = !!userId;
   const inMobile = await isMobile();

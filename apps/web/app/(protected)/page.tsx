@@ -20,7 +20,7 @@ type HomePageProps = {
 
 export default async function HomePage(props: HomePageProps) {
   const searchParams = await props.searchParams;
-  const { userId: isLogged } = auth();
+  const { userId: isLogged } = await auth();
 
   return (
     <>

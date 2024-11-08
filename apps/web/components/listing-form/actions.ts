@@ -37,7 +37,7 @@ const listingSchema = z.object({
 export type ListingData = z.infer<typeof listingSchema>;
 
 export async function createListingAction(prevState: any, formData: FormData) {
-  const { userId } = auth();
+  const { userId } = await auth();
   const loggedUser = await getUser({ id: userId! });
 
   const rawData = Object.fromEntries(formData.entries());
