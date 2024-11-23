@@ -1,81 +1,16 @@
-import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-import {
-  Building2,
-  MousePointer,
-  TrendingUp,
-  Users,
-  UsersIcon,
-} from "lucide-react";
+import { Building2, MousePointer, TrendingUp, Users } from "lucide-react";
 
 import { getUser } from "@/data-access/user/get-user";
 import { auth, clerkClient } from "@clerk/nextjs/server";
-import { ListingItem } from "../listings/listing-item";
-
-const mockTopProperties = [
-  {
-    id: "1",
-    image: "/placeholder.svg?height=300&width=500",
-    name: "Luxury Apartment",
-    address: "123 Main St",
-    bedrooms: 3,
-    bathrooms: 2,
-    area: "150m²",
-    price: 500000,
-    photos: [{ href: "/placeholder.svg?height=300&width=500" }],
-    forSale: true,
-    type: "Apartment",
-    clicks: 1500,
-  },
-  {
-    id: "2",
-    image: "/placeholder.svg?height=300&width=500",
-    name: "Cozy House",
-    address: "456 Elm St",
-    bedrooms: 4,
-    bathrooms: 3,
-    area: "200m²",
-    price: 750000,
-    photos: [{ href: "/placeholder.svg?height=300&width=500" }],
-    forSale: true,
-    type: "House",
-    clicks: 1200,
-  },
-  {
-    id: "3",
-    image: "/placeholder.svg?height=300&width=500",
-    name: "Modern Studio",
-    address: "789 Oak St",
-    bedrooms: 1,
-    bathrooms: 1,
-    area: "50m²",
-    price: 250000,
-    photos: [{ href: "/placeholder.svg?height=300&width=500" }],
-    forSale: false,
-    type: "Studio",
-    clicks: 1000,
-  },
-  {
-    id: "4",
-    image: "/placeholder.svg?height=300&width=500",
-    name: "Spacious Villa",
-    address: "101 Pine St",
-    bedrooms: 5,
-    bathrooms: 4,
-    area: "300m²",
-    price: 1200000,
-    photos: [{ href: "/placeholder.svg?height=300&width=500" }],
-    forSale: true,
-    type: "Villa",
-    clicks: 950,
-  },
-];
 
 export default async function Dashboard() {
   const { userId } = await auth();
-  const loggedUser = await clerkClient.users.getUser(userId!);
+  const clerkResponse = await clerkClient();
+
+  const loggedUser = await clerkResponse.users.getUser(userId!);
 
   const user = await getUser({ id: userId! });
 
