@@ -4,13 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { Building2, MousePointer, TrendingUp, Users } from "lucide-react";
 
 import { getUser } from "@/data-access/user/get-user";
-import { auth, clerkClient } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
+import { getClerkUser } from "@/data-access/user/get-clerk-user";
 
 export default async function Dashboard() {
   const { userId } = await auth();
-  const clerkResponse = await clerkClient();
 
-  const loggedUser = await clerkResponse.users.getUser(userId!);
+  const loggedUser = await getClerkUser(userId!);
 
   const user = await getUser({ id: userId! });
 
