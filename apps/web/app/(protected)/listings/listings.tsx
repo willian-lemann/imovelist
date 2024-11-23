@@ -81,8 +81,6 @@ export async function Listings({ searchParams }: ListingsProps) {
         />
       ) : null}
 
-      {/* <SeeMore /> */}
-
       <ScrollToTopButton />
     </div>
   );

@@ -14,9 +14,9 @@ export function LoginModal({ children }: PropsWithChildren) {
   return (
     <Dialog open={open}>
       <DialogContent>
-        <DialogTitle>
-          <CloseButton />
-        </DialogTitle>
+        <DialogTitle hidden />
+
+        <CloseButton />
 
         {children}
       </DialogContent>

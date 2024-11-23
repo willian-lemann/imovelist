@@ -15,14 +15,14 @@ import {
 import { UploadImages } from "../upload-images";
 
 import { createListingAction } from "./actions";
-import { useFormState } from "react-dom";
+
 import { useToast } from "../ui/use-toast";
-import { useEffect } from "react";
+import { useActionState, useEffect } from "react";
 
 export function ListingForm() {
   const { toast } = useToast();
 
-  const [state, action, isPending] = useFormState(createListingAction, {
+  const [state, action, isPending] = useActionState(createListingAction, {
     errors: {},
     success: true,
   });

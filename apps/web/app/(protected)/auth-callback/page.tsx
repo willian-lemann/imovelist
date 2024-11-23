@@ -16,7 +16,9 @@ export default async function CallbackAuthPage() {
     const hasUserInDatabase = await getUserFromDatabase(userId);
 
     if (!hasUserInDatabase) {
-      const loggedUser = await clerkClient.users.getUser(userId);
+      const clerkClientResponse = await clerkClient();
+      const loggedUser = await clerkClientResponse.users.getUser(userId);
+
       const [emailData] = loggedUser.emailAddresses;
       const email = emailData?.emailAddress!;
       const fullName = loggedUser.fullName!;

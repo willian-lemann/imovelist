@@ -2,11 +2,12 @@
 import { Listings } from "@/app/(protected)/listings/listings";
 
 import { Search } from "@/components/search";
-import { auth } from "@clerk/nextjs/server";
+
 import { Suspense } from "react";
 import { Skeleton } from "./listings/skeleton";
 import { LoginModal } from "@/components/login-modal";
 import { SignIn } from "@/components/sign-in";
+import { isMobile } from "../utils/check-responsive";
 
 type HomePageProps = {
   searchParams: Promise<{
@@ -20,15 +21,13 @@ type HomePageProps = {
 
 export default async function HomePage(props: HomePageProps) {
   const searchParams = await props.searchParams;
-  const { userId: isLogged } = await auth();
+  const mobile = await isMobile();
 
   return (
     <>
       <div className="flex flex-col md:flex-row">
         <div className="container p-0">
-          <div className="py-4">
-            <Search />
-          </div>
+          <div className="py-4">{<Search />}</div>
 
           <div className="mt-0">
             <Suspense fallback={<Skeleton />}>
@@ -38,7 +37,7 @@ export default async function HomePage(props: HomePageProps) {
         </div>
       </div>
       <LoginModal>
-        <SignIn />
+        <SignIn mobile={mobile} />
       </LoginModal>
     </>
   );

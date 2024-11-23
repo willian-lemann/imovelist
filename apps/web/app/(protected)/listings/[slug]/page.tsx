@@ -25,6 +25,7 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
+  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 
@@ -34,7 +35,10 @@ type ListingDetailsProps = {
   }>;
 };
 
-export async function generateMetadata(props: ListingDetailsProps, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(
+  props: ListingDetailsProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const params = await props.params;
   const id = extractIdFromSlug(params.slug);
   const listing = await getListing(id);
@@ -107,6 +111,8 @@ export default async function ListingDetails(props: ListingDetailsProps) {
                   <XIcon />
                 </DialogClose>
 
+                <DialogTitle hidden />
+
                 <Image
                   src={listing.image}
                   fill
@@ -120,7 +126,7 @@ export default async function ListingDetails(props: ListingDetailsProps) {
               {listing.photos
                 .slice(0, 4)
                 .map((photo: { href: string; listingItemId: string }) => (
-                  <Dialog>
+                  <Dialog key={photo.href}>
                     <DialogTrigger asChild>
                       <div
                         key={photo.listingItemId}
@@ -140,6 +146,7 @@ export default async function ListingDetails(props: ListingDetailsProps) {
                         <XIcon />
                       </DialogClose>
 
+                      <DialogTitle hidden />
                       <Image
                         src={photo.href}
                         fill

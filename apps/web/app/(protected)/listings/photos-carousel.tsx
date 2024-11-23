@@ -5,7 +5,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
+
+import { PhotoCarouselItem } from "./photo-carousel-item";
 
 type PhotosCarouselProps = {
   photos: { href: string }[];
@@ -23,13 +24,9 @@ export function PhotosCarousel({
         {photos.map(({ href }) => (
           <CarouselItem key={href} className="">
             <div className="w-auto h-[300px] brightness-90 hover:brightness-100 transition-all duration-300 relative rounded-lg overflow-hidden">
-              <Image
-                src={href!}
-                blurDataURL={placeholderImage}
-                placeholder="blur"
-                alt="Property Image"
-                fill
-                className="object-cover rounded-lg"
+              <PhotoCarouselItem
+                href={href}
+                placeholderImage={placeholderImage}
               />
             </div>
           </CarouselItem>

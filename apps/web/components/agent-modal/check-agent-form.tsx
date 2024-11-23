@@ -13,15 +13,15 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 
 import { checkAgent } from "./actions";
-import { useFormState } from "react-dom";
+
 import { Button } from "../ui/button";
 
 import { useToast } from "../ui/use-toast";
-import { useEffect } from "react";
+import { useActionState, useEffect } from "react";
 
 export function CheckAgentForm() {
   const { toast } = useToast();
-  const [state, action, isPending] = useFormState(checkAgent, {
+  const [state, action, isPending] = useActionState(checkAgent, {
     error: "",
     success: true,
   });
@@ -51,7 +51,7 @@ export function CheckAgentForm() {
         <Input autoFocus id="agent-id" type="number" name="agent-id" />
 
         <DialogFooter className="flex items-center justify-between w-full">
-          <Button type="submit">{isLoading ? "Logando..." : "Logar"}</Button>
+          <Button type="submit">{isLoading ? "Logando..." : "Anunciar"}</Button>
         </DialogFooter>
       </form>
     </DialogContent>

@@ -2,8 +2,7 @@ import Link from "next/link";
 
 import { BathIcon, BedIcon, RulerIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { Card } from "@/components/ui/card";
-import { login } from "@/app/utils/redirects";
+import { Card } from "@/components/ui/card"; 
 import { createSlug } from "@/lib/utils";
 
 import { PhotosCarousel } from "./photos-carousel";
@@ -33,11 +32,9 @@ type ListingItemProps = {
   };
 };
 
-export async function ListingItem({ listing, isLogged }: ListingItemProps) {
+export async function ListingItem({ listing }: ListingItemProps) {
   function getListingURL(listingItem: any) {
-    return isLogged
-      ? `/listings/${listingItem.id}-${createSlug(listingItem.address)}`
-      : login;
+    return `/listings/${listingItem.id}-${createSlug(listingItem.address)}`;
   }
 
   return (

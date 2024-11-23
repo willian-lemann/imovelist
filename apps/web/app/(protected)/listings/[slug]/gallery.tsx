@@ -3,6 +3,7 @@ import {
   DialogTrigger,
   DialogContent,
   DialogClose,
+  DialogTitle,
 } from "@/components/ui/dialog";
 import { XIcon } from "lucide-react";
 import Image from "next/image";
@@ -35,6 +36,9 @@ export function Gallery({ photos }: GalleryProps) {
                 <DialogClose className="bg-white rounded h-fit w-fit z-50 ml-auto">
                   <XIcon />
                 </DialogClose>
+
+                <DialogTitle hidden />
+
                 <Image
                   src={photo}
                   fill

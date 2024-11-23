@@ -17,7 +17,7 @@ export function Search() {
       const scrollPercentage =
         (scrollPosition / (documentHeight - windowHeight)) * 100;
 
-      if (scrollPercentage >= 2) {
+      if (scrollPercentage >= 18) {
         setIsFloating(true);
       } else {
         setIsFloating(false);
@@ -44,7 +44,7 @@ export function Search() {
 
   return (
     <>
-      {renderFloatingSearch()}
+      {isFloating ? renderFloatingSearch() : null}
       <div className="transition-all flex md:flex-row flex-col md:items-center justify-end px-4 md:container w-full gap-2 bg-background rounded-lg ">
         <SearchContent />
       </div>
