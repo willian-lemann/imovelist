@@ -1,80 +1,16 @@
-import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-import {
-  Building2,
-  MousePointer,
-  TrendingUp,
-  Users,
-  UsersIcon,
-} from "lucide-react";
+import { Building2, MousePointer, TrendingUp, Users } from "lucide-react";
 
-import { getUser } from "@/data-access/get-user";
-import { auth, clerkClient } from "@clerk/nextjs/server";
-
-const mockTopProperties = [
-  {
-    id: "1",
-    image: "/placeholder.svg?height=300&width=500",
-    name: "Luxury Apartment",
-    address: "123 Main St",
-    bedrooms: 3,
-    bathrooms: 2,
-    area: "150m²",
-    price: 500000,
-    photos: [{ href: "/placeholder.svg?height=300&width=500" }],
-    forSale: true,
-    type: "Apartment",
-    clicks: 1500,
-  },
-  {
-    id: "2",
-    image: "/placeholder.svg?height=300&width=500",
-    name: "Cozy House",
-    address: "456 Elm St",
-    bedrooms: 4,
-    bathrooms: 3,
-    area: "200m²",
-    price: 750000,
-    photos: [{ href: "/placeholder.svg?height=300&width=500" }],
-    forSale: true,
-    type: "House",
-    clicks: 1200,
-  },
-  {
-    id: "3",
-    image: "/placeholder.svg?height=300&width=500",
-    name: "Modern Studio",
-    address: "789 Oak St",
-    bedrooms: 1,
-    bathrooms: 1,
-    area: "50m²",
-    price: 250000,
-    photos: [{ href: "/placeholder.svg?height=300&width=500" }],
-    forSale: false,
-    type: "Studio",
-    clicks: 1000,
-  },
-  {
-    id: "4",
-    image: "/placeholder.svg?height=300&width=500",
-    name: "Spacious Villa",
-    address: "101 Pine St",
-    bedrooms: 5,
-    bathrooms: 4,
-    area: "300m²",
-    price: 1200000,
-    photos: [{ href: "/placeholder.svg?height=300&width=500" }],
-    forSale: true,
-    type: "Villa",
-    clicks: 950,
-  },
-];
+import { getUser } from "@/data-access/user/get-user";
+import { auth } from "@clerk/nextjs/server";
+import { getClerkUser } from "@/data-access/user/get-clerk-user";
 
 export default async function Dashboard() {
-  const { userId } = auth();
-  const loggedUser = await clerkClient.users.getUser(userId!);
+  const { userId } = await auth();
+
+  const loggedUser = await getClerkUser(userId!);
 
   const user = await getUser({ id: userId! });
 
@@ -82,7 +18,7 @@ export default async function Dashboard() {
 
   return (
     <div className="max-w-7xl mx-auto space-y-8">
-      <div className="bg-white shadow rounded-lg p-6 ">
+      <div className="bg-white shadow rounded-lg px-6 py-4">
         <h1 className="text-2xl font-bold mb-4">Meus dados</h1>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -184,12 +120,12 @@ export default async function Dashboard() {
   </Card> */}
 
       {/* Top Clicked Properties Grid */}
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle>Imóveis mais vistos</CardTitle>
         </CardHeader>
         <CardContent>
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {mockTopProperties.map((property) => (
               <ListingItem
                 key={property.id}
@@ -197,38 +133,9 @@ export default async function Dashboard() {
                 isLogged={true}
               />
             ))}
-          </div> */}
+          </div>
         </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-function Sidebar() {
-  const sidebarItems = [
-    { icon: UsersIcon, label: "Corretores", href: "/dashboard/corretores" },
-  ];
-
-  return (
-    <div className="w-64 bg-white shadow-md h-screen">
-      <div className="p-4">
-        <h2 className="text-xl font-bold mb-4">Dashboard</h2>
-        <nav>
-          <ul>
-            {sidebarItems.map((item, index) => (
-              <li key={index} className="mb-2">
-                <Link
-                  href={item.href}
-                  className="flex items-center p-2 rounded-lg hover:bg-gray-100 transition-colors"
-                >
-                  <item.icon className="w-5 h-5 mr-3 text-gray-500" />
-                  <span>{item.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+      </Card> */}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { BathIcon, BedIcon, LayoutGrid, RulerIcon } from "lucide-react";
+import { BathIcon, BedIcon, LayoutGrid, RulerIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import {
   Breadcrumb,
@@ -14,25 +14,32 @@ import { Card, CardContent } from "@/components/ui/card";
 
 import { Metadata, ResolvingMetadata } from "next";
 import { createSlug, extractIdFromSlug } from "@/lib/utils";
-import { getListing } from "@/data-access/get-listing";
+import { getListing } from "@/data-access/listings/get-listing";
 import { Share } from "./share";
 import { GoToSite } from "./go-to-side";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { PhotosCarousel } from "../photos-carousel";
 import { Gallery } from "./gallery";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 type ListingDetailsProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export async function generateMetadata(
-  { params }: ListingDetailsProps,
+  props: ListingDetailsProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const params = await props.params;
   const id = extractIdFromSlug(params.slug);
   const listing = await getListing(id);
 
@@ -46,7 +53,8 @@ export async function generateMetadata(
   };
 }
 
-export default async function ListingDetails({ params }: ListingDetailsProps) {
+export default async function ListingDetails(props: ListingDetailsProps) {
+  const params = await props.params;
   const id = extractIdFromSlug(params.slug);
   const listing = await getListing(id!);
 
@@ -99,14 +107,18 @@ export default async function ListingDetails({ params }: ListingDetailsProps) {
               </DialogTrigger>
 
               <DialogContent className="h-full max-w-3xl bg-transparent outline-none shadow-none border-none">
-                <div className="relative h-auto rounded-lg overflow-hidden">
-                  <Image
-                    src={listing.image}
-                    fill
-                    className="object-cover"
-                    alt="Main property image"
-                  />
-                </div>
+                <DialogClose className="bg-white rounded h-fit w-fit z-50 ml-auto">
+                  <XIcon />
+                </DialogClose>
+
+                <DialogTitle hidden />
+
+                <Image
+                  src={listing.image}
+                  fill
+                  className="object-cover"
+                  alt="Foto de um imovel"
+                />
               </DialogContent>
             </Dialog>
 
@@ -114,7 +126,7 @@ export default async function ListingDetails({ params }: ListingDetailsProps) {
               {listing.photos
                 .slice(0, 4)
                 .map((photo: { href: string; listingItemId: string }) => (
-                  <Dialog>
+                  <Dialog key={photo.href}>
                     <DialogTrigger asChild>
                       <div
                         key={photo.listingItemId}
@@ -130,17 +142,17 @@ export default async function ListingDetails({ params }: ListingDetailsProps) {
                     </DialogTrigger>
 
                     <DialogContent className="h-full max-w-3xl bg-transparent outline-none shadow-none border-none">
-                      <div
-                        key={photo.listingItemId}
-                        className="relative h-auto w-full rounded-lg overflow-hidden"
-                      >
-                        <Image
-                          src={photo.href}
-                          fill
-                          className="object-cover"
-                          alt={`Imagem do imovel ${photo.listingItemId}`}
-                        />
-                      </div>
+                      <DialogClose className="bg-white rounded h-fit w-fit z-50 ml-auto">
+                        <XIcon />
+                      </DialogClose>
+
+                      <DialogTitle hidden />
+                      <Image
+                        src={photo.href}
+                        fill
+                        className="object-cover"
+                        alt={`Imagem do imovel ${photo.listingItemId}`}
+                      />
                     </DialogContent>
                   </Dialog>
                 ))}

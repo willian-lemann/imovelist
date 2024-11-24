@@ -21,7 +21,10 @@ export const getListings = cache(
       .range(offset, offset + pageSize - 1);
 
     if (type) {
-      queryRaw = queryRaw.eq("type", type.charAt(0).toUpperCase() + type.slice(1));
+      queryRaw = queryRaw.eq(
+        "type",
+        type.charAt(0).toUpperCase() + type.slice(1)
+      );
     }
 
     if (filter) {
@@ -41,6 +44,10 @@ export const getListings = cache(
     }
 
     const response = await queryRaw;
-    return response;
+
+    return {
+      count: response.count,
+      data: response.data,
+    };
   }
 );

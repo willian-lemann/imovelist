@@ -14,7 +14,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
 import { Capitalize } from "@/lib/utils";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import {
+  usePathname,
+  useRouter,
+  useSearchParams,
+  redirect,
+  RedirectType,
+} from "next/navigation";
 import { useEffect, useState } from "react";
 
 const types = [
@@ -31,7 +37,7 @@ const filters = [
 export function SearchContent() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { replace } = useRouter();
+  const { replace, push } = useRouter();
   const params = new URLSearchParams(searchParams);
 
   const [search, setSearch] = useState(params.get("q") || "");
@@ -48,15 +54,11 @@ export function SearchContent() {
     replace(`${pathname}?${params.toString()}`);
   }
 
-  function handleFilter(filter: string) {
-    if (filter) {
-      params.set("filter", filter);
-    } else {
-      params.delete("filter");
-    }
-    params.delete("page");
+  const handleFilter = (filter: string) => {
+    params.set("filter", filter);
     replace(`${pathname}?${params.toString()}`);
-  }
+    params.delete("page");
+  };
 
   function handleType(type: string) {
     if (type) {
@@ -68,13 +70,9 @@ export function SearchContent() {
     replace(`${pathname}?${params.toString()}`);
   }
 
-  function clearFilters() {
-    params.delete("q");
-    params.delete("filter");
-    params.delete("type");
-    replace(`${pathname}?${params.toString()}`);
-    setSearch("");
-  }
+  const clearFilters = () => {
+    redirect(`${pathname}`, RedirectType.replace);
+  };
 
   function clearQueryFilter() {
     params.delete("q");
@@ -190,8 +188,8 @@ export function SearchContent() {
 
             {filters.map((filter) => (
               <DropdownMenuCheckboxItem
-                checked={params.get("filter") === filter.value}
                 key={filter.value}
+                checked={params.get("filter") === filter.value}
                 onClick={() => handleFilter(filter.value)}
               >
                 {filter.label}

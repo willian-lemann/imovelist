@@ -2,12 +2,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 import { Phone, UserCheck, UserX } from "lucide-react";
-import { getAgents } from "@/data-access/get-agents";
+import { getAgents } from "@/data-access/user/get-agents";
 import { Pagination } from "@/components/pagination";
-import { userAgent } from "next/server";
+
 import { auth } from "@clerk/nextjs/server";
-import { headers } from "next/headers";
+
 import { SearchAgents } from "./search-agents";
+import { isMobile } from "@/app/utils/check-responsive";
 
 const agentTypes = {
   1: "Pessoa Física",
@@ -21,19 +22,17 @@ function getFirstLetters(name: string) {
 }
 
 type AgentsListPageParams = {
-  searchParams: { page: number; query: string };
+  searchParams: Promise<{ page: number; query: string }>;
 };
 
 const pageSize = 12;
 
-export default async function AgentsList({
-  searchParams,
-}: AgentsListPageParams) {
-  const { userId } = auth();
-  const agent = userAgent({ headers: headers() });
+export default async function AgentsList(props: AgentsListPageParams) {
+  const searchParams = await props.searchParams;
+  const { userId } = await auth();
 
   const isLogged = !!userId;
-  const isMobile = agent.device.type === "mobile";
+  const inMobile = await isMobile();
 
   const page = +searchParams.page || 1;
 
@@ -47,7 +46,7 @@ export default async function AgentsList({
   const shouldShowPagination = isLogged && count! > 0;
 
   return (
-    <div className="p-8">
+    <div className="px-8">
       <Card className="w-full">
         <CardHeader>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -115,7 +114,7 @@ export default async function AgentsList({
 
         {shouldShowPagination ? (
           <Pagination
-            isMobile={isMobile}
+            isMobile={inMobile}
             numberOfPages={numberOfPages}
             page={page}
           />

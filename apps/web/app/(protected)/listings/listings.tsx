@@ -1,35 +1,28 @@
-import { supabaseDB } from "@/lib/supabase";
-
 import { auth } from "@clerk/nextjs/server";
-import { cache } from "react";
+
 import { Pagination } from "@/components/pagination";
 import { ListingItem } from "./listing-item";
 import { List } from "lucide-react";
-import { SeeMore } from "./see-more";
-import { userAgent } from "next/server";
-import { headers } from "next/headers";
-import { getListings } from "@/data-access/get-listings";
+
+import { getListings } from "@/data-access/listings/get-listings";
 import { ScrollToTopButton } from "@/components/scroll-top-button";
 import { Label } from "@/components/ui/label";
 
-const pageSize = 12;
+import { isMobile } from "@/app/utils/check-responsive";
 
-const getListingsLimited = cache(async () => {
-  return await supabaseDB.from("listings").select("*").limit(10);
-});
+const pageSize = 12;
 
 type ListingsProps = {
   searchParams: { page: number; q: string; filter: string; type: string };
 };
 
-export async function Listings({
-  searchParams: { page = 1, q = "", ...filters },
-}: ListingsProps) {
-  const { userId } = auth();
-  const agent = userAgent({ headers: headers() });
+export async function Listings({ searchParams }: ListingsProps) {
+  const { page = 1, q = "", ...filters } = searchParams;
+
+  const { userId } = await auth();
 
   const isLogged = !!userId;
-  const isMobile = agent.device.type === "mobile";
+  const mobile = await isMobile();
 
   const { filter, type } = filters;
 
@@ -45,16 +38,15 @@ export async function Listings({
 
   return (
     <div>
-      {isLogged ? (
-        <div className="container pb-4">
-          <Label className="text-lg  font-medium">
-            <Label className="font-bold text-lg text-muted-foreground">
-              {listingCount}
-            </Label>{" "}
-            Resultados encontrados para esta pesquisa
-          </Label>
-        </div>
-      ) : null}
+      <div className="container pb-4">
+        <Label className="text-lg  font-medium">
+          <Label className="font-bold text-lg text-muted-foreground">
+            {listingCount}
+          </Label>{" "}
+          Resultados encontrados para esta pesquisa
+        </Label>
+      </div>
+
       {data?.length === 0 ? (
         <div className="flex flex-col items-center justify-center gap-6 py-16 md:py-24 lg:py-32">
           <div className="flex h-20 w-20 items-center justify-center rounded-full bg-muted">
@@ -83,13 +75,11 @@ export async function Listings({
 
       {shouldShowPagination ? (
         <Pagination
-          isMobile={isMobile}
+          isMobile={mobile}
           numberOfPages={numberOfPages}
           page={page}
         />
       ) : null}
-
-      {/* <SeeMore /> */}
 
       <ScrollToTopButton />
     </div>

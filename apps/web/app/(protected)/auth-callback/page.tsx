@@ -1,5 +1,5 @@
-import { getUser } from "@/data-access/get-user";
-import { saveUser } from "@/data-access/save-user";
+import { getUser } from "@/data-access/user/get-user";
+import { saveUser } from "@/data-access/user/save-user";
 
 import { auth, clerkClient } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
@@ -10,13 +10,15 @@ async function getUserFromDatabase(userId: string) {
 }
 
 export default async function CallbackAuthPage() {
-  const { userId } = auth();
+  const { userId } = await auth();
 
   if (userId) {
     const hasUserInDatabase = await getUserFromDatabase(userId);
 
     if (!hasUserInDatabase) {
-      const loggedUser = await clerkClient.users.getUser(userId);
+      const clerkClientResponse = await clerkClient();
+      const loggedUser = await clerkClientResponse.users.getUser(userId);
+
       const [emailData] = loggedUser.emailAddresses;
       const email = emailData?.emailAddress!;
       const fullName = loggedUser.fullName!;

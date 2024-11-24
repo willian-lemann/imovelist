@@ -2,11 +2,14 @@ import Link from "next/link";
 
 import { BathIcon, BedIcon, RulerIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { Card } from "@/components/ui/card";
-import { login } from "@/app/utils/redirects";
+import { Card } from "@/components/ui/card"; 
 import { createSlug } from "@/lib/utils";
 
 import { PhotosCarousel } from "./photos-carousel";
+
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { EditButton } from "./edit-button";
 
 type ListingItemProps = {
   isLogged: boolean;
@@ -24,23 +27,33 @@ type ListingItemProps = {
     type: string;
     ref: string;
     placeholderImage: string;
+    agent_id: number;
+    isOnwer: boolean;
   };
 };
 
-export async function ListingItem({ listing, isLogged }: ListingItemProps) {
+export async function ListingItem({ listing }: ListingItemProps) {
   function getListingURL(listingItem: any) {
-    return isLogged
-      ? `/listings/${listingItem.id}-${createSlug(listingItem.address)}`
-      : login;
+    return `/listings/${listingItem.id}-${createSlug(listingItem.address)}`;
   }
 
   return (
     <Link href={getListingURL(listing)} key={listing.id}>
       <Card className="w-full max-w-md animate-fadeIn relative shadow-none overflow-hidden rounded-lg border-none transition-all">
-        <PhotosCarousel
-          photos={listing.photos}
-          placeholderImage={listing.placeholderImage}
-        />
+        <div>
+          {listing.isOnwer ? (
+            <Badge className="absolute rounded-full hover:bg-white top-3 left-2 z-50 bg-white">
+              <Label className="text-sm text-primary font-bold">
+                Meu anúncio
+              </Label>
+            </Badge>
+          ) : null}
+
+          <PhotosCarousel
+            photos={listing.photos}
+            placeholderImage={listing.placeholderImage}
+          />
+        </div>
 
         <div className="py-4 bg-background">
           <div className="flex items-center justify-between mb-2">
@@ -70,6 +83,8 @@ export async function ListingItem({ listing, isLogged }: ListingItemProps) {
           </div>
           <div className="flex items-center justify-between">
             <div className="text-2xl font-bold">R$ {listing.price}</div>
+
+            {listing.isOnwer ? <EditButton id={listing.id} /> : null}
           </div>
         </div>
       </Card>
