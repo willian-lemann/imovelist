@@ -19,7 +19,14 @@ import { createListingAction } from "./actions";
 import { useToast } from "../ui/use-toast";
 import { useActionState, useEffect } from "react";
 
-export function ListingForm() {
+type ListingFormProps = {
+  galleryImages: Array<{
+    imageUrl: string;
+    id: number;
+  }>;
+};
+
+export function ListingForm({ galleryImages }: ListingFormProps) {
   const { toast } = useToast();
 
   const [state, action, isPending] = useActionState(createListingAction, {
@@ -48,7 +55,7 @@ export function ListingForm() {
 
       <div>
         <Label htmlFor="photos">Fotos</Label>
-        <UploadImages />
+        <UploadImages galleryImages={galleryImages} />
       </div>
 
       <div>
