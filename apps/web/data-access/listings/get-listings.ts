@@ -18,7 +18,8 @@ export const getListings = cache(
     let queryRaw = supabaseDB
       .from("listings")
       .select("*", { count: "exact" })
-      .range(offset, offset + pageSize - 1);
+      .range(offset, offset + pageSize - 1)
+      .order("created_at", { ascending: false });
 
     if (type) {
       queryRaw = queryRaw.eq(

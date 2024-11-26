@@ -18,4 +18,5 @@ export type Input = {
 
 export async function createListing(input: Input) {
   const created = await supabaseDB.from("listings").insert(input);
+  return created;
 }

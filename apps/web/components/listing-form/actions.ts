@@ -1,7 +1,9 @@
 "use server";
 
+import sharp from "sharp";
 import { createListing, Input } from "@/data-access/listings/create-listing";
 import { getUser } from "@/data-access/user/get-user";
+import { supabaseDB } from "@/lib/supabase";
 import { auth } from "@clerk/nextjs/server";
 import { z } from "zod";
 
@@ -12,14 +14,14 @@ const listingSchema = z.object({
   name: z.string().min(1, { message: "Nome é obrigatório" }),
   type: z.string().min(1, { message: "Selecione um tipo de imóvel válido" }),
   address: z.string().min(1, { message: "Endereço é obrigatório" }),
-  bedrooms: z
+  bedrooms: z.coerce
     .number()
-    .int()
-    .min(0, { message: "O número de quartos deve ser 0 ou mais" }),
-  bathrooms: z
+    .min(1, { message: "O número de quartos deve ser 0 ou mais" })
+    .transform((value) => +value),
+  bathrooms: z.coerce
     .number()
-    .int()
-    .min(0, { message: "O número de banheiros deve ser 0 ou mais" }),
+    .min(1, { message: "O número de banheiros deve ser 0 ou mais" })
+    .transform((value) => +value),
   area: z.coerce
     .number()
     .min(1, { message: "A área deve ser um número positivo" }),
@@ -36,14 +38,15 @@ const listingSchema = z.object({
 
 export type ListingData = z.infer<typeof listingSchema>;
 
-export async function createListingAction(prevState: any, formData: FormData) {
+export async function createListingAction(prevstate: any, formData: FormData) {
   const { userId } = await auth();
   const loggedUser = await getUser({ id: userId! });
 
   const rawData = Object.fromEntries(formData.entries());
 
   const photosString = formData.get("photos") as string;
-  const photos = JSON.parse(photosString);
+
+  const photos = photosString.split(",");
 
   const data = { ...rawData, photos };
 
@@ -59,12 +62,13 @@ export async function createListingAction(prevState: any, formData: FormData) {
     return {
       success: false,
       errors: errorMap,
+      fields: rawData as any,
     };
   }
 
   const result = validationResult.data;
 
-  const image = photos[0];
+  const image = result.photos[0]!;
 
   const createListingInput: Input = {
     ...result,
@@ -75,7 +79,19 @@ export async function createListingAction(prevState: any, formData: FormData) {
   };
 
   try {
-    await createListing(createListingInput);
+    const { data, error } = await createListing(createListingInput);
+    const listingCreated = data as any;
+
+    if (error) {
+      return {
+        success: false,
+        errors: { server: "Error trying to create listing" },
+      };
+    }
+
+    const placeholderBlob = await createPlaceholder(image, { size: 50 });
+
+    await savePlaceholderImage(listingCreated.id, placeholderBlob);
 
     return { success: true, errors: null };
   } catch (error) {
@@ -86,4 +102,26 @@ export async function createListingAction(prevState: any, formData: FormData) {
       },
     };
   }
+}
+
+async function createPlaceholder(image: string, { size }: { size: number }) {
+  const compressImage = async (imageSrc: string) => {
+    return sharp(imageSrc).resize(50, 50).png({ quality: 70 });
+  };
+
+  const compressedBlob = await compressImage(image);
+  return compressedBlob.toBuffer();
+}
+
+async function savePlaceholderImage(listingId: number, file: Buffer) {
+  const fileName = `${listingId}.png`;
+
+  await supabaseDB.storage.from("images").upload(fileName, file);
+
+  const url = `https://digdpilwqusbkpnnbejk.supabase.co/storage/v1/object/public/images/${fileName}`;
+
+  await supabaseDB
+    .from("listings")
+    .update({ placeholderImage: url })
+    .eq("id", listingId);
 }

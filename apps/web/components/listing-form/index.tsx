@@ -32,6 +32,7 @@ export function ListingForm({ galleryImages }: ListingFormProps) {
   const [state, action, isPending] = useActionState(createListingAction, {
     errors: {},
     success: true,
+    fields: {} as any,
   });
 
   const isLoading = isPending && !state?.errors;
@@ -65,7 +66,8 @@ export function ListingForm({ galleryImages }: ListingFormProps) {
           name="ref"
           placeholder="Ref ou código do imóvel"
           type="text"
-          error={state?.errors.ref!}
+          error={state?.errors?.ref!}
+          defaultValue={state?.fields?.ref}
         />
       </div>
 
@@ -76,14 +78,15 @@ export function ListingForm({ galleryImages }: ListingFormProps) {
           name="name"
           placeholder="Nome do imovel para aparecer na listagem"
           type="text"
-          error={state.errors.name}
+          error={state.errors?.name}
+          defaultValue={state?.fields?.name}
         />
       </div>
 
       <div>
         <Label htmlFor="type">Tipo do imóvel</Label>
         <Select name="type">
-          <SelectTrigger error={state.errors.type}>
+          <SelectTrigger error={state.errors?.type} value={state?.fields?.type}>
             <SelectValue placeholder="Selecione o tipo do imóvel" />
           </SelectTrigger>
           <SelectContent>
@@ -101,7 +104,8 @@ export function ListingForm({ galleryImages }: ListingFormProps) {
           name="address"
           placeholder="eg. Rua manoel araujo"
           type="text"
-          error={state.errors.address}
+          error={state.errors?.address}
+          defaultValue={state?.fields?.address}
         />
       </div>
 
@@ -113,7 +117,8 @@ export function ListingForm({ galleryImages }: ListingFormProps) {
             name="bedrooms"
             placeholder="Número de quartos"
             type="number"
-            error={state.errors.bedrooms}
+            error={state.errors?.bedrooms}
+            defaultValue={state?.fields?.bedrooms}
           />
         </div>
 
@@ -124,7 +129,8 @@ export function ListingForm({ galleryImages }: ListingFormProps) {
             name="bathrooms"
             placeholder="Número de banheiros"
             type="number"
-            error={state.errors.bathrooms}
+            error={state.errors?.bathrooms}
+            defaultValue={state?.fields?.bathrooms}
           />
         </div>
 
@@ -135,7 +141,8 @@ export function ListingForm({ galleryImages }: ListingFormProps) {
             name="area"
             placeholder="Area em metros quadrados"
             type="number"
-            error={state.errors.area}
+            error={state.errors?.area}
+            defaultValue={state?.fields?.area}
           />
         </div>
       </div>
@@ -147,7 +154,8 @@ export function ListingForm({ galleryImages }: ListingFormProps) {
           name="price"
           placeholder="e.g. 1000000.00"
           type="number"
-          error={state.errors.price}
+          error={state.errors?.price}
+          defaultValue={state?.fields?.price}
         />
       </div>
 
@@ -158,7 +166,8 @@ export function ListingForm({ galleryImages }: ListingFormProps) {
           name="content"
           placeholder="Coloque uma breve descrição do imóvel"
           className="resize-none"
-          error={state.errors.content}
+          error={state.errors?.content}
+          defaultValue={state?.fields?.content}
         />
       </div>
     </form>

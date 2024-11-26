@@ -23,6 +23,18 @@ export function PhotoCarouselItem({
     );
   }
 
+  if (!placeholderImage) {
+    return (
+      <Image
+        src={href}
+        alt="Property Image"
+        fill
+        className="object-cover rounded-lg"
+        onError={() => setHasError(true)}
+      />
+    );
+  }
+
   return (
     <Image
       src={href}

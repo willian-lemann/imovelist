@@ -1,6 +1,6 @@
 "use client";
 
-import { UploadCloud, X, FileImage } from "lucide-react";
+import { UploadCloud, X, FileImage, Check, CheckCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,6 +13,8 @@ import {
   DialogTrigger,
   DialogTitle,
   DialogFooter,
+  DialogClose,
+  DialogDescription,
 } from "components/ui/dialog";
 import { startTransition, useActionState, useRef, useState } from "react";
 import { uploadImageAction } from "./actions";
@@ -23,23 +25,51 @@ type UploadedFile = {
   progress: number;
 };
 
+type GalleryPhoto = {
+  id: number;
+  imageUrl: string;
+};
+
 type UploadImagesProps = {
-  galleryImages: Array<{
-    id: number;
-    imageUrl: string;
-  }>;
+  galleryImages: GalleryPhoto[];
 };
 
 export function UploadImages({ galleryImages }: UploadImagesProps) {
   // eslint-disable-next-line no-unused-vars
-  const [state, action] = useActionState(uploadImageAction, {
+  const [state, action, isPending] = useActionState(uploadImageAction, {
     error: "",
     success: true,
+    uploadedFiles: [],
   });
 
   const [files, setFiles] = useState<UploadedFile[]>([]);
   const [isDragging, setIsDragging] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [selectedPhotos, setSelectedPhotos] = useState<GalleryPhoto[]>([]);
+
+  const showUpload = files.length === 0 && galleryImages.length === 0;
+  const isUploading = isPending && !state.error;
+
+  function handleSelectedPhotos(selectedPhoto: {
+    id: number;
+    imageUrl: string;
+  }) {
+    const isAlreadySelected = selectedPhotos.includes(selectedPhoto);
+
+    if (isAlreadySelected) {
+      return setSelectedPhotos((state) =>
+        state.filter((item) => item.id !== selectedPhoto.id)
+      );
+    }
+
+    setSelectedPhotos((state) => [...state, selectedPhoto]);
+  }
+
+  function sumbmitAction(files: FileList) {
+    startTransition(async () => {
+      action(files);
+    });
+  }
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -50,11 +80,8 @@ export function UploadImages({ galleryImages }: UploadImagesProps) {
       }));
       setFiles((prev) => [...prev, ...newFiles]);
 
-      startTransition(async () => {
-        action(e.target.files!);
-      });
-
-      simulateUpload(newFiles);
+      sumbmitAction(e.target.files!);
+      // simulateUpload(newFiles);
     }
   };
 
@@ -93,7 +120,7 @@ export function UploadImages({ galleryImages }: UploadImagesProps) {
         progress: 0,
       }));
       setFiles((prev) => [...prev, ...newFiles]);
-      simulateUpload(newFiles);
+      // simulateUpload(newFiles);
     }
   };
 
@@ -103,6 +130,12 @@ export function UploadImages({ galleryImages }: UploadImagesProps) {
 
   return (
     <Dialog>
+      <input
+        type="hidden"
+        name="photos"
+        value={selectedPhotos.map((item) => item.imageUrl)}
+      />
+
       <div className="flex flex-col">
         <h2 className="text-xl font-semibold">Fotos do Imóvel</h2>
         <DialogTrigger asChild>
@@ -113,7 +146,13 @@ export function UploadImages({ galleryImages }: UploadImagesProps) {
       </div>
 
       <DialogContent className="max-w-4xl">
-        <DialogTitle hidden />
+        <DialogTitle className="text-2xl text-foreground">
+          Selecione da galeria
+        </DialogTitle>
+
+        <DialogDescription className="pt-0 text-base text-foreground">
+          Essas sãos as fotos que você já adicionou para dentro da plataforma
+        </DialogDescription>
 
         <Card className="w-full max-w-4xl mx-auto border-none shadow-none">
           <CardContent className="p-6">
@@ -144,10 +183,6 @@ export function UploadImages({ galleryImages }: UploadImagesProps) {
                       >
                         <X className="h-4 w-4" />
                       </Button>
-                      <div className="mt-2">
-                        <p className="text-sm truncate">{file.file.name}</p>
-                        <Progress value={file.progress} className="h-1 mt-1" />
-                      </div>
                     </div>
                   ))}
 
@@ -185,7 +220,7 @@ export function UploadImages({ galleryImages }: UploadImagesProps) {
               </div>
             ) : null}
 
-            {files.length === 0 ? (
+            {showUpload ? (
               <div
                 className={`flex flex-col items-center justify-center gap-4 p-8 border-2 border-dashed rounded-lg transition-colors ${
                   isDragging
@@ -223,29 +258,45 @@ export function UploadImages({ galleryImages }: UploadImagesProps) {
               </div>
             ) : null}
 
-            <ul className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-0">
-              {galleryImages.map((galleryImage) => (
-                <Button
-                  key={galleryImage.id}
-                  variant="outline"
-                  className="w-[120px] h-[120px] rounded-lg overflow-hidden bg-secondary p-0 border-none hover:shadow-md transition-shadow duration-300"
-                >
-                  <img
+            <ul className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
+              {galleryImages.map((galleryImage) => {
+                const isSelected = selectedPhotos
+                  .map((item) => item.id)
+                  .includes(galleryImage.id);
+
+                return (
+                  <Button
                     key={galleryImage.id}
-                    src={galleryImage.imageUrl}
-                    alt="Imagem de um imóvel"
-                    className="w-full h-full object-cover"
-                  />
-                </Button>
-              ))}
+                    data-selected={isSelected}
+                    variant="outline"
+                    onClick={() => handleSelectedPhotos(galleryImage)}
+                    className="relative w-full h-[140px] rounded-lg overflow-hidden bg-secondary p-0 data-[selected=true]:ring-4 ring-primary  data-[selected=false]:ring-0 border-none hover:shadow-md transition"
+                  >
+                    {isSelected ? (
+                      <div className="rounded-full bg-success-green top-3 right-3 absolute w-6 h-6 flex items-center justify-center">
+                        <Check className="h-4 w-4 text-white" />
+                      </div>
+                    ) : null}
+
+                    <img
+                      key={galleryImage.id}
+                      src={galleryImage.imageUrl}
+                      alt="Imagem de um imóvel"
+                      className="w-full h-full  object-cover"
+                    />
+                  </Button>
+                );
+              })}
             </ul>
           </CardContent>
         </Card>
 
         <DialogFooter>
-          <Button className="w-fit mt-4" type="button">
-            Salvar
-          </Button>
+          <DialogClose asChild>
+            <Button className="w-fit mt-4" type="button">
+              Salvar
+            </Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
