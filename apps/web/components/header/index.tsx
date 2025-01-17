@@ -2,11 +2,8 @@ import { UserButton } from "@clerk/nextjs";
 import { MountainIcon } from "lucide-react";
 import Link from "next/link";
 
-import { Button } from "components/ui/button";
-
 import { auth } from "@clerk/nextjs/server";
 
-import { login } from "@/app/utils/redirects";
 import { AnnounceButton } from "./announce-button";
 
 export async function Header() {
@@ -23,14 +20,13 @@ export async function Header() {
         <div className="flex items-center gap-4">
           {isAuthenticated ? <AnnounceButton /> : null}
 
-          {isAuthenticated ? (
-            <UserButton />
-          ) : null
-          // <Button asChild className="h-auto px-5 ">
-          //   <Link href={login} className="text-sm font-bold" prefetch={true}>
-          //     Sou corretor
-          //   </Link>
-          // </Button>
+          {
+            isAuthenticated ? <UserButton /> : null
+            // <Button asChild className="h-auto px-5 ">
+            //   <Link href={login} className="text-sm font-bold" prefetch={true}>
+            //     Sou corretor
+            //   </Link>
+            // </Button>
           }
         </div>
       </div>
