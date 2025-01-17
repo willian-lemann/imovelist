@@ -37,7 +37,7 @@ const filters = [
 export function SearchContent() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { replace, push } = useRouter();
+  const { replace } = useRouter();
   const params = new URLSearchParams(searchParams);
 
   const [search, setSearch] = useState(params.get("q") || "");

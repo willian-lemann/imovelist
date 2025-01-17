@@ -170,6 +170,10 @@ export function ListingForm({ galleryImages }: ListingFormProps) {
           defaultValue={state?.fields?.content}
         />
       </div>
+
+      <Button className="ml-auto" type="submit">
+        {isLoading ? "Publicando..." : "Publicar anúncio"}
+      </Button>
     </form>
   );
 }

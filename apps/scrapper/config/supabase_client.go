@@ -11,7 +11,7 @@ import (
 func SupabaseClient() (*supa.Client, error) {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatalf("Error loading .env file", err)
+		log.Fatalf("Error loading .env file %s", err)
 	}
 
 	supabaseUrl := os.Getenv("SUPABASE_URL")

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { BathIcon, BedIcon, RulerIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { Card } from "@/components/ui/card"; 
+import { Card } from "@/components/ui/card";
 import { createSlug } from "@/lib/utils";
 
 import { PhotosCarousel } from "./photos-carousel";
@@ -49,10 +49,7 @@ export async function ListingItem({ listing }: ListingItemProps) {
             </Badge>
           ) : null}
 
-          <PhotosCarousel
-            photos={listing.photos}
-            placeholderImage={listing.placeholderImage}
-          />
+          <PhotosCarousel photos={listing.photos} />
         </div>
 
         <div className="py-4 bg-background">

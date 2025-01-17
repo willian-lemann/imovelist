@@ -16,14 +16,7 @@ func SaveListing(listingItem structs.ListingItem) (bool, error) {
 		return false, errors.New("listing already in database")
 	}
 
-	placeholderImage, err := SavePlaceholderImage(listing.Image, fmt.Sprintf("%d.png", listing.Id))
-	if err != nil {
-		fmt.Printf("upload placeholder image for listing %d", listing.Id)
-	}
-
-	listing.PlaceholderImage = placeholderImage
-
-	_, err = repositories.SaveOne(listing)
+	_, err := repositories.SaveOne(listing)
 
 	if err != nil {
 		fmt.Println("Cannot save listing", err)

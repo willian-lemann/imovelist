@@ -10,7 +10,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export type ListingPaginationProps = {
   numberOfPages: number;
@@ -23,13 +23,11 @@ export function Pagination({
   numberOfPages,
   isMobile,
 }: ListingPaginationProps) {
-  const params = useSearchParams();
-  const searchparams = new URLSearchParams(params);
   const router = useRouter();
 
   function handlePage(page: number) {
-    searchparams.set("page", page.toString());
-    router.push(`?${searchparams.toString()}`);
+    // searchparams.set("page", page.toString());
+    router.push(`?page=${page}`);
   }
 
   function handleGoPrev() {
@@ -54,7 +52,7 @@ export function Pagination({
         {startPage >= 10 ? (
           <PaginationItem className="hidden md:block">
             <PaginationLink
-              variant="ghost"
+              variant="outline"
               className="px-10"
               isActive={page === 1}
               onClick={() => handlePage(1)}
@@ -65,7 +63,7 @@ export function Pagination({
         ) : null}
 
         <PaginationItem className="px-3 md:px-0">
-          <PaginationPrevious variant="ghost" onClick={handleGoPrev} />
+          <PaginationPrevious variant="outline" onClick={handleGoPrev} />
         </PaginationItem>
 
         {Array.from({
@@ -73,7 +71,7 @@ export function Pagination({
         }).map((_, index) => (
           <PaginationItem key={startPage + index}>
             <PaginationLink
-              variant="ghost"
+              variant="outline"
               isActive={startPage + index === page}
               onClick={() => handlePage(startPage + index)}
             >
@@ -89,13 +87,13 @@ export function Pagination({
         )}
 
         <PaginationItem className="px-3 md:px-0">
-          <PaginationNext variant="ghost" onClick={handleGoNext} />
+          <PaginationNext variant="outline" onClick={handleGoNext} />
         </PaginationItem>
 
         <PaginationItem className="hidden md:block">
           <PaginationLink
             className="px-10"
-            variant="ghost"
+            variant="outline"
             isActive={page === numberOfPages}
             onClick={() => handlePage(numberOfPages)}
           >

@@ -6,13 +6,9 @@ import { useState } from "react";
 
 type PhotoCarouselItemProps = {
   href: string;
-  placeholderImage: string;
 };
 
-export function PhotoCarouselItem({
-  placeholderImage,
-  href,
-}: PhotoCarouselItemProps) {
+export function PhotoCarouselItem({ href }: PhotoCarouselItemProps) {
   const [hasError, setHasError] = useState(false);
 
   if (hasError) {
@@ -23,23 +19,9 @@ export function PhotoCarouselItem({
     );
   }
 
-  if (!placeholderImage) {
-    return (
-      <Image
-        src={href}
-        alt="Property Image"
-        fill
-        className="object-cover rounded-lg"
-        onError={() => setHasError(true)}
-      />
-    );
-  }
-
   return (
     <Image
       src={href}
-      blurDataURL={placeholderImage}
-      placeholder="blur"
       alt="Property Image"
       fill
       className="object-cover rounded-lg"

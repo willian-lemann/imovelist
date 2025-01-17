@@ -15,3 +15,11 @@ export async function getGalleryImages(userId: number) {
 
   return data as GalleryImages[];
 }
+
+export async function updateGalleryImage(id: number) {
+  const response = await supabaseDB
+    .from("gallery")
+    .update({ has_listing: true })
+    .eq("id", id);
+  return response;
+}

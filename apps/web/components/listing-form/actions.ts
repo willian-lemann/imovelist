@@ -1,9 +1,9 @@
 "use server";
 
-import sharp from "sharp";
+import { updateGalleryImage } from "@/data-access/images/get-gallery-images";
 import { createListing, Input } from "@/data-access/listings/create-listing";
 import { getUser } from "@/data-access/user/get-user";
-import { supabaseDB } from "@/lib/supabase";
+
 import { auth } from "@clerk/nextjs/server";
 import { z } from "zod";
 
@@ -79,8 +79,7 @@ export async function createListingAction(prevstate: any, formData: FormData) {
   };
 
   try {
-    const { data, error } = await createListing(createListingInput);
-    const listingCreated = data as any;
+    const { error } = await createListing(createListingInput);
 
     if (error) {
       return {
@@ -89,9 +88,7 @@ export async function createListingAction(prevstate: any, formData: FormData) {
       };
     }
 
-    const placeholderBlob = await createPlaceholder(image, { size: 50 });
-
-    await savePlaceholderImage(listingCreated.id, placeholderBlob);
+    await updateGalleryImage();
 
     return { success: true, errors: null };
   } catch (error) {
@@ -102,26 +99,4 @@ export async function createListingAction(prevstate: any, formData: FormData) {
       },
     };
   }
-}
-
-async function createPlaceholder(image: string, { size }: { size: number }) {
-  const compressImage = async (imageSrc: string) => {
-    return sharp(imageSrc).resize(50, 50).png({ quality: 70 });
-  };
-
-  const compressedBlob = await compressImage(image);
-  return compressedBlob.toBuffer();
-}
-
-async function savePlaceholderImage(listingId: number, file: Buffer) {
-  const fileName = `${listingId}.png`;
-
-  await supabaseDB.storage.from("images").upload(fileName, file);
-
-  const url = `https://digdpilwqusbkpnnbejk.supabase.co/storage/v1/object/public/images/${fileName}`;
-
-  await supabaseDB
-    .from("listings")
-    .update({ placeholderImage: url })
-    .eq("id", listingId);
 }
