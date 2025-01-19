@@ -24,14 +24,14 @@ func ClearDatabase() {
 	}
 	defer dbpool.Close()
 
-	tableName := "listings"
-
-	query := fmt.Sprintf("TRUNCATE TABLE %s RESTART IDENTITY;", tableName)
+	tableName1 := "scrapped_listings"
+	tableName2 := "listings"
+	query := fmt.Sprintf("TRUNCATE TABLE %s, %s RESTART IDENTITY CASCADE;", tableName1, tableName2)
 
 	_, err = dbpool.Exec(context.Background(), query)
 	if err != nil {
 		log.Fatalf("Failed to truncate table: %v", err)
 	}
 
-	fmt.Printf("Table '%s' truncated successfully!\n", tableName)
+	fmt.Printf("Listings truncated successfully!\n")
 }

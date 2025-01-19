@@ -16,7 +16,7 @@ export const getListings = cache(
     const offset = (+page - 1) * pageSize;
 
     let queryRaw = supabaseDB
-      .from("listings")
+      .from("scrapped_listings")
       .select("*", { count: "exact" })
       .range(offset, offset + pageSize - 1)
       .order("created_at", { ascending: false });

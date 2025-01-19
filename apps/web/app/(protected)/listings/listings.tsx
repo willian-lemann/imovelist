@@ -63,7 +63,7 @@ export async function Listings({ searchParams }: ListingsProps) {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-4 md:container gap-6">
-          {data?.map((listing) => (
+          {data?.map((listing: any) => (
             <ListingItem
               key={listing.id}
               listing={listing}

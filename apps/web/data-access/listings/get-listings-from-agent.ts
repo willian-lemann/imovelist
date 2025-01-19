@@ -18,7 +18,7 @@ export const getListingsFromAgent = cache(async (params: Params) => {
   const offset = (+page - 1) * pageSize;
 
   let queryRaw = supabaseDB
-    .from("listings")
+    .From("scrapped_listings")
     .select("*", { count: "exact" })
     .order("agent_id", { nullsFirst: false })
     .range(offset, offset + pageSize - 1);
