@@ -1,4 +1,4 @@
-name: CI/CD for Golang App
+name: Scrapper CI/CD
 
 on:
   push:

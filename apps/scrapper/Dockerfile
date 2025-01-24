@@ -24,10 +24,17 @@ RUN apk --no-cache add curl bash
 
 # Copy the Go binary
 COPY --from=builder /app/main /app/main
-COPY --from=builder /app/.env .  
 
 # Ensure the Go binary has execution permissions
 RUN chmod +x /app/main
+
+# Set environment variables
+ARG SUPABASE_URL
+ARG SUPABASE_ANON_KEY
+ARG DATABASE_URL
+ENV SUPABASE_URL=${SUPABASE_URL}
+ENV SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+ENV DATABASE_URL=${DATABASE_URL}
 
 # Run the Go binary
 CMD ["/app/main"]
