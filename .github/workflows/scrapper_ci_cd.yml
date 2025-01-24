@@ -17,11 +17,7 @@ jobs:
       # Set up Docker
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
-
-      # Install dependencies (includes Turborepo)
-      - name: Install Dependencies
-        run: npm install
-
+ 
       # Build Golang App Docker Image
       - name: Build Docker Image for Scrapper
         run: |
