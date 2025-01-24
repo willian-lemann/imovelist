@@ -1,6 +1,7 @@
 package repositories
 
 import (
+	"fmt"
 	"scrapper/config"
 	"scrapper/internal/structs"
 	"strconv"
@@ -16,6 +17,24 @@ func NewListingsRepository(db *supa.Client) *ListingsRepository {
 	return &ListingsRepository{
 		db: db,
 	}
+}
+
+func GetAll() ([]structs.ListingItem, error) {
+	client, err := config.SupabaseClient()
+	if err != nil {
+		fmt.Println("cannot initalize client supabase", err)
+		return nil, err
+	}
+
+	var results = []structs.ListingItem{}
+
+	err = client.DB.From("scrapped_listings").Select("*").Execute(&results)
+	if err != nil {
+		fmt.Println("cannot get listings from database", err)
+		return nil, err
+	}
+
+	return results, nil
 }
 
 func Save(scrappedListings []structs.ListingItem) (bool, error) {
@@ -48,36 +67,6 @@ func SaveOne(listingItem *structs.ListingItem) (bool, error) {
 	return true, nil
 }
 
-func SaveOneTemp(listingItem *structs.ListingItem) (bool, error) {
-	client, err := config.SupabaseClient()
-	if err != nil {
-		return false, err
-	}
-
-	var results []structs.ListingItem
-	err = client.DB.From("temp_agents_listings").Upsert(listingItem).Execute(&results)
-	if err != nil {
-		return false, err
-	}
-	return true, nil
-}
-
-func GetListingsImages() []structs.ListingItem {
-	client, err := config.SupabaseClient()
-	if err != nil {
-		return nil
-	}
-
-	var listings = []structs.ListingItem{}
-
-	err = client.DB.From("scrapped_listings").Select("*").Execute(&listings)
-	if err != nil {
-		return nil
-	}
-
-	return listings
-}
-
 type UpdateData struct {
 	Id               int
 	PlaceholderImage string
@@ -100,10 +89,13 @@ func Update(data structs.ListingItem) (bool, error) {
 
 func Delete(id int) (bool, error) {
 	client, err := config.SupabaseClient()
+	if err != nil {
+		return false, err
+	}
 
 	var results []structs.ListingItem
 
-	err = client.DB.From("scrapped_listings").Delete().Eq("id", strconv.Itoa(id)).Execute(&results)
+	err = client.DB.From("listings").Delete().Eq("id", strconv.Itoa(id)).Execute(&results)
 	if err != nil {
 		return false, err
 	}

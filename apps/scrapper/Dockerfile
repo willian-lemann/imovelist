@@ -23,10 +23,11 @@ FROM alpine:3.6
 RUN apk --no-cache add curl bash
 
 # Copy the Go binary
-COPY --from=builder /app/main /usr/local/bin/main
+COPY --from=builder /app/main /app/main
+COPY --from=builder /app/.env .  
 
 # Ensure the Go binary has execution permissions
-RUN chmod +x /usr/local/bin/main
+RUN chmod +x /app/main
 
 # Run the Go binary
-CMD ["/usr/local/bin/main"]
+CMD ["/app/main"]

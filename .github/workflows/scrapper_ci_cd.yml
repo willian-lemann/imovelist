@@ -1,0 +1,53 @@
+name: CI/CD for Golang App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Set up Docker
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      # Set up Node.js (for Turborepo)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # Install dependencies (includes Turborepo)
+      - name: Install Dependencies
+        run: npm install
+
+      # Build Golang App Docker Image
+      - name: Build Docker Image for Scrapper
+        run: |
+          docker build -t scrapper:latest ./apps/scrapper
+
+      # Push Docker Image to Your VPS or Registry
+      - name: Push Docker Image
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          docker tag scrapper:latest your-registry/scrapper:latest
+          docker push your-registry/scrapper:latest
+
+      # Deploy to VPS (Optional)
+      - name: Deploy to VPS
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh -o StrictHostKeyChecking=no user@vps-ip-address "docker pull your-registry/scrapper:latest && docker run -d --rm scrapper"

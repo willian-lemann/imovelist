@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"scrapper/internal/repositories"
+	"scrapper/internal/usecases"
 
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/joho/godotenv"
@@ -24,13 +26,18 @@ func ClearDatabase() {
 	}
 	defer dbpool.Close()
 
-	tableName1 := "scrapped_listings"
-	tableName2 := "listings"
-	query := fmt.Sprintf("TRUNCATE TABLE %s, %s RESTART IDENTITY CASCADE;", tableName1, tableName2)
+	tableName := "scrapped_listings"
+	query := fmt.Sprintf("TRUNCATE TABLE %s RESTART IDENTITY CASCADE;", tableName)
+
+	scrappedListings, _ := repositories.GetAll()
 
 	_, err = dbpool.Exec(context.Background(), query)
 	if err != nil {
 		log.Fatalf("Failed to truncate table: %v", err)
+	}
+
+	for _, listing := range scrappedListings {
+		usecases.SaveListing(listing)
 	}
 
 	fmt.Printf("Listings truncated successfully!\n")

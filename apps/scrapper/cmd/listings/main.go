@@ -6,69 +6,41 @@ import (
 	"scrapper/utils"
 	"sync"
 	"time"
+
+	"github.com/robfig/cron/v3"
 )
 
 func main() {
+	c := cron.New()
+	c.AddFunc("0 3 * * *", func() {
+		var wg sync.WaitGroup
 
-	var wg sync.WaitGroup
+		wg.Add(1)
 
-	wg.Add(1)
+		go func() {
+			defer wg.Done()
+			utils.ClearDatabase()
+		}()
 
-	go func() {
-		defer wg.Done()
-		utils.ClearDatabase()
-	}()
+		wg.Wait()
 
-	wg.Wait()
+		var scraperWG sync.WaitGroup
+		scraperWG.Add(3)
 
-	var scraperWG sync.WaitGroup
-	scraperWG.Add(3)
+		start := time.Now()
 
-	start := time.Now()
+		go scrappers.ExecuteJefersonAlba(&scraperWG)
+		go scrappers.CasaImoveisExecute(&scraperWG)
+		go scrappers.ExecuteAuxPredial(&scraperWG)
 
-	go scrappers.ExecuteJefersonAlba(&scraperWG)
-	go scrappers.CasaImoveisExecute(&scraperWG)
-	go scrappers.ExecuteAuxPredial(&scraperWG)
+		scraperWG.Wait()
 
-	scraperWG.Wait()
+		elapsed := time.Since(start)
 
-	elapsed := time.Since(start)
+		fmt.Println("Scraping finished")
+		fmt.Println("It took:", elapsed.Seconds())
+	})
+	c.Start()
 
-	fmt.Println("Scraping finished")
-	fmt.Println("It took:", elapsed.Seconds())
-
-	// for {
-	// 	if time.Now().Hour() == 3 && time.Now().Minute() == 0 && time.Now().Second() == 0 {
-	// 		fmt.Println("Cron started at 03:00:00")
-
-	// 		var wg sync.WaitGroup
-
-	// 		wg.Add(1)
-
-	// 		go func() {
-	// 			defer wg.Done()
-	// 			utils.ClearDatabase()
-	// 		}()
-
-	// 		wg.Wait()
-
-	// 		var scraperWG sync.WaitGroup
-	// 		scraperWG.Add(3)
-
-	// 		start := time.Now()
-
-	// 		go scrappers.ExecuteJefersonAlba(&scraperWG)
-	// 		go scrappers.CasaImoveisExecute(&scraperWG)
-	// 		go scrappers.ExecuteAuxPredial(&scraperWG)
-
-	// 		scraperWG.Wait()
-
-	// 		elapsed := time.Since(start)
-
-	// 		fmt.Println("Scraping finished")
-	// 		fmt.Println("It took:", elapsed.Seconds())
-	// 	}
-
-	// 	time.Sleep(time.Second)
-	// }
+	select {}
 }
