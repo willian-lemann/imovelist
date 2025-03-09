@@ -10,11 +10,14 @@
 import router from '@adonisjs/core/services/router'
 
 const HomeController = () => import('#controllers/home_controller')
+const ListingDetailsController = () => import('#controllers/listing_details_controller')
+
 const LogoutController = () => import('#controllers/auth/logout_controller')
 const LoginController = () => import('#controllers/auth/login_controller')
 const RegisterController = () => import('#controllers/auth/register_controller')
 
 router.get('/', [HomeController, 'index'])
+router.get('/listings/:id', [ListingDetailsController, 'index'])
 
 router
   .group(() => {

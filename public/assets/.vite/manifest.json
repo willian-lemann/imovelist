@@ -1,0 +1,62 @@
+{
+  "_photos-carousel-nGfezTwx.js": {
+    "file": "photos-carousel-nGfezTwx.js",
+    "name": "photos-carousel",
+    "imports": [
+      "inertia/app/app.tsx"
+    ]
+  },
+  "inertia/app/app.tsx": {
+    "file": "app-Dz_MFb4U.js",
+    "name": "app",
+    "src": "inertia/app/app.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "inertia/pages/errors/not_found.tsx",
+      "inertia/pages/errors/server_error.tsx",
+      "inertia/pages/home.tsx",
+      "inertia/pages/listing-details.tsx"
+    ],
+    "css": [
+      "app-DLIM2c-O.css"
+    ]
+  },
+  "inertia/pages/errors/not_found.tsx": {
+    "file": "not_found-CYuwn7XJ.js",
+    "name": "not_found",
+    "src": "inertia/pages/errors/not_found.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "inertia/app/app.tsx"
+    ]
+  },
+  "inertia/pages/errors/server_error.tsx": {
+    "file": "server_error-Cy3-AJ3j.js",
+    "name": "server_error",
+    "src": "inertia/pages/errors/server_error.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "inertia/app/app.tsx"
+    ]
+  },
+  "inertia/pages/home.tsx": {
+    "file": "home-B98cyxvE.js",
+    "name": "home",
+    "src": "inertia/pages/home.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "inertia/app/app.tsx",
+      "_photos-carousel-nGfezTwx.js"
+    ]
+  },
+  "inertia/pages/listing-details.tsx": {
+    "file": "listing-details-CYJBOYP1.js",
+    "name": "listing-details",
+    "src": "inertia/pages/listing-details.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "inertia/app/app.tsx",
+      "_photos-carousel-nGfezTwx.js"
+    ]
+  }
+}
