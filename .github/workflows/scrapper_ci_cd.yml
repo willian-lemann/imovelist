@@ -19,7 +19,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
  
       # Build Golang App Docker Image
-      - name: Build Docker Image for Scrapper
+      - name: Build image 
         run: |
           docker build -t scrapper:latest ./apps/scrapper
 
