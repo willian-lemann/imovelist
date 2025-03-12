@@ -5,6 +5,7 @@ import { extractIdFromSlug } from '../../inertia/lib/utils.js'
 export default class ListingDetailsController {
   constructor() {}
 
+  // force deploy
   async index(ctx: HttpContext) {
     const id = extractIdFromSlug(ctx.params.id)
     const listing = await Listing.findBy('id', id)
