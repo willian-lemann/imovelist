@@ -12,8 +12,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "build:scrapper": "",
-    "prestart": "cd build && npm ci --omit=dev"
+    "build:scrapper": ""
   },
   "imports": {
     "#controllers/*": "./app/controllers/*.js",
