@@ -2,8 +2,7 @@ import { Search } from '../components/search'
 import { Listings } from '../components/listings'
 import { Head } from '@inertiajs/react'
 
-export default function Home({ listings, count, ...rest }) {
-  console.log(rest)
+export default function Home({ listings, count }) {
   return (
     <div>
       <Head title="Listings" />

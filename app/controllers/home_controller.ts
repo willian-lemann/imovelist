@@ -18,11 +18,6 @@ export default class ListingsController {
 
     if (query) {
       listings.where('address', 'LIKE', `%${query}%`) // Replace 'title' with your search column
-      // For multiple columns:
-      // listings.where((builder) => {
-      //   builder.where('title', 'LIKE', `%${query}%`)
-      //          .orWhere('description', 'LIKE', `%${query}%`)
-      // })
     }
 
     if (modality) {
