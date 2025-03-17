@@ -5,6 +5,7 @@
   "type": "module",
   "license": "UNLICENSED",
   "scripts": {
+    "prestart": "node ace migration:run --force",
     "start": "pm2 start ecosystem.config.js",
     "build": "node ace build",
     "dev": "node ace serve --hmr",
