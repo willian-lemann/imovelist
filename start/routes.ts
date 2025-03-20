@@ -30,3 +30,5 @@ router
     router.post('/logout', [LogoutController, 'handle']).as('logout')
   })
   .as('auth')
+
+// build
