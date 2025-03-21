@@ -5,15 +5,14 @@
   "type": "module",
   "license": "UNLICENSED",
   "scripts": {
-    "prestart": "node ace migration:run --force",
-    "start": "pm2 start ecosystem.config.js",
-    "build": "node ace build",
+    "build": "node ace build --production",
+    "start": "node build/server.js",
     "dev": "node ace serve --hmr",
     "test": "node ace test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "build:scrapper": ""
+    "deploy": "node ace migration:run --force && node build/server.js"
   },
   "imports": {
     "#controllers/*": "./app/controllers/*.js",
