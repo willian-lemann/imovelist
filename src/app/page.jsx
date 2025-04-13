@@ -1,8 +1,8 @@
 import { getListings } from "@/api/listings/get-listings";
-import { Listings } from "@/components/listings";
-import { Search } from "@/components/search";
+
 import { Button } from "@/components/ui/button";
 import { AppProvider } from "@/providers/app-provider";
+import { MainContent } from "./main-content";
 
 export default async function Home({ searchParams }) {
   const { filter, type, page, q } = await searchParams;
@@ -18,9 +18,9 @@ export default async function Home({ searchParams }) {
   return (
     <AppProvider>
       <div>
-        <header class="bg-background border-b py-4">
-          <div class="container py-4 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2">
+        <header className="bg-background border-b py-4">
+          <div className="container py-4 flex items-center justify-between">
+            <a href="/" className="flex items-center gap-2">
               <svg
                 className="w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
@@ -35,32 +35,24 @@ export default async function Home({ searchParams }) {
                   d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"
                 />
               </svg>
-              <span class="font-bold text-lg">Imovelist</span>
+              <span className="font-bold text-lg">Imovelist</span>
             </a>
 
-            <div class="flex items-center gap-4">
-              {/* <a href="/announce" class="btn">
+            <div className="flex items-center gap-4">
+              {/* <a href="/announce" className="btn">
                 Anunciar
               </a> */}
 
-              <Button variant="outline">Login</Button>
+              {/* <Button variant="outline">Login</Button> */}
 
-              {/* <a href="/login" class="btn">
+              {/* <a href="/login" className="btn">
                 Sou corretor
               </a> */}
             </div>
           </div>
         </header>
 
-        <div className="flex flex-col md:flex-row">
-          <div className="container p-0">
-            <div className="py-4">{<Search />}</div>
-
-            <div className="mt-0 container">
-              <Listings listings={listings} count={count} />
-            </div>
-          </div>
-        </div>
+        <MainContent listings={listings} count={count} />
         {/* <LoginModal>
         <SignIn mobile={mobile} />
       </LoginModal> */}

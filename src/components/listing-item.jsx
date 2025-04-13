@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export function ListingItem({ listing }) {
   function getListingURL(listingItem) {
-    return `/listings/${listingItem.id}-${createSlug(listingItem.address)}`;
+    return `/imoveis/${listingItem.id}-${createSlug(listingItem.address)}`;
   }
 
   function goEdit(listingId) {
@@ -22,7 +22,7 @@ export function ListingItem({ listing }) {
   }
 
   return (
-    <Link href="/listings-details" key={listing.id}>
+    <Link href={getListingURL(listing)} key={listing.id}>
       <Card className="w-full max-w-md animate-fadeIn relative shadow-none overflow-hidden rounded-lg border-none transition-all">
         <div>
           {listing.isOnwer ? (

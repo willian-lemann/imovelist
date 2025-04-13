@@ -34,10 +34,10 @@ export function Listings({ listings, count }) {
   };
 
   return (
-    <div>
-      <div className="container pb-4">
-        <Label className="text-lg  font-medium">
-          <Label className="font-bold text-lg text-muted-foreground">
+    <div className="mt-4">
+      <div className="px-4">
+        <Label className="font-medium text-base">
+          <Label className="font-bold text-base pr-2 text-muted-foreground">
             {count}
           </Label>
           Resultados encontrados para esta pesquisa
@@ -45,7 +45,7 @@ export function Listings({ listings, count }) {
       </div>
 
       {count === 0 ? (
-        <div className="flex flex-col items-center justify-center gap-6 py-16 md:py-24 lg:py-32">
+        <div className="group-data-[loading=true]:bg-black flex flex-col items-center justify-center gap-6 py-16 md:py-24 lg:py-32">
           <div className="flex h-20 w-20 items-center justify-center rounded-full bg-muted">
             <List className="h-10 w-10 text-muted-foreground" />
           </div>
@@ -59,7 +59,7 @@ export function Listings({ listings, count }) {
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-4 md:container gap-6">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-4 md:container gap-6">
           {listings.map((listing) => (
             <ListingItem
               key={listing.id}

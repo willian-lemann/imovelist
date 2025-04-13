@@ -15,8 +15,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
 import { Capitalize } from "@/lib/utils";
-import { useParams, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { useDebounce } from "@/hooks/use-debounce";
 
 const types = [
   { label: "Apartamento", value: "apartamento" },
@@ -29,15 +30,29 @@ const filters = [
   { label: "Venda", value: "venda" },
 ];
 
-export function SearchContent() {
+export function SearchContent({ search, onChangeSearch, setIsLoading }) {
   const searchParams = useSearchParams();
-  const [search, setSearch] = useState(searchParams.get("q") || "");
+
   const router = useRouter();
+
+  const debouncedQuery = useDebounce(search, 500);
+
+  useEffect(() => {
+    if (debouncedQuery) {
+      setIsLoading(false);
+      handleSearch();
+    }
+  }, [debouncedQuery]);
 
   const createQueryString = useCallback(
     (name, value) => {
       const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
+
+      if (value === undefined) {
+        params.delete(name);
+      } else {
+        params.set(name, value);
+      }
 
       return params.toString();
     },
@@ -53,7 +68,7 @@ export function SearchContent() {
     if (search) {
       router.push(`?${createQueryString("q", search)}`);
     } else {
-      router.push(`?${createQueryString("q", "")}`);
+      router.push(`/?`);
     }
   }
 
@@ -75,7 +90,7 @@ export function SearchContent() {
 
   function clearQueryFilter() {
     router.push(`?${createQueryString("q", "")}`);
-    setSearch("");
+    onChangeSearch("");
   }
 
   useEffect(() => {
@@ -94,16 +109,27 @@ export function SearchContent() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!search) {
+      setIsLoading(false);
+      window.history.pushState(null, "", `/?`);
+      return;
+    }
+
+    setIsLoading(true);
+    window.history.pushState(null, "", `?${createQueryString("q", search)}`);
+  }, [search]);
+
   return (
     <>
-      <div className="relative flex-1 max-w-lg flex">
+      <div className="relative flex-1 flex">
         <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
         <Input
           type="search"
           placeholder="Pesquise pelo nome, endereço ou código do imóvel"
           value={search}
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => onChangeSearch(e.target.value)}
           className="w-full py-3 pl-12 pr-4 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
         />
 
@@ -166,6 +192,7 @@ export function SearchContent() {
         <SearchIcon className="mr-2 w-5 h-5" />
         Procurar
       </Button>
+
       {/* desktop filters */}
       <div className="hidden md:flex gap-1">
         <DropdownMenu>
