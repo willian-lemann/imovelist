@@ -46,7 +46,7 @@ export function Search({ search, onChangeSearch, setIsLoading }) {
         </div>
       ) : null}
 
-      <div className="transition-all flex md:flex-row flex-col md:items-center justify-end md:container md:px-10 w-full gap-2 bg-background rounded-lg ">
+      <div className="transition-all flex md:flex-row flex-col md:items-center justify-end md:container w-full gap-2 bg-background rounded-lg ">
         <SearchContent
           search={search}
           onChangeSearch={onChangeSearch}

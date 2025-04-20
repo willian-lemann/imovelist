@@ -1,8 +1,8 @@
 import { getListings } from "@/api/listings/get-listings";
-
-import { Button } from "@/components/ui/button";
 import { AppProvider } from "@/providers/app-provider";
 import { MainContent } from "./main-content";
+import { LoginModal } from "./(auth)/login/login-modal";
+import { Button } from "@/components/ui/button";
 
 export default async function Home({ searchParams }) {
   const { filter, type, page, q } = await searchParams;
@@ -39,6 +39,10 @@ export default async function Home({ searchParams }) {
             </a>
 
             <div className="flex items-center gap-4">
+              {/* <LoginModal>
+                <Button variant="outline">Login</Button>
+              </LoginModal> */}
+
               {/* <a href="/announce" className="btn">
                 Anunciar
               </a> */}

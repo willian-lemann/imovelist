@@ -6,7 +6,7 @@ import { List } from "lucide-react";
 
 import { ScrollToTopButton } from "../components/scroll-top-button";
 import { Label } from "../components/ui/label";
-import { getListings } from "@/api/listings/get-listings";
+
 import { Pagination } from "./ui/pagination";
 import { CustomPagination } from "./custom-pagination";
 import { useRouter } from "next/navigation";
@@ -35,7 +35,7 @@ export function Listings({ listings, count }) {
 
   return (
     <div className="mt-4">
-      <div className="px-4">
+      <div className="px-0">
         <Label className="font-medium text-base">
           <Label className="font-bold text-base pr-2 text-muted-foreground">
             {count}
@@ -59,7 +59,7 @@ export function Listings({ listings, count }) {
           </div>
         </div>
       ) : (
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-4 md:container gap-6">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:container gap-6">
           {listings.map((listing) => (
             <ListingItem
               key={listing.id}

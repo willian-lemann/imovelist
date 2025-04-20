@@ -1,3 +1,5 @@
+import "server-only";
+
 import { createClient } from "@/config/supabase";
 
 export async function getListing(id) {
