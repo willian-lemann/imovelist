@@ -1,8 +1,6 @@
 import { getListings } from "@/api/listings/get-listings";
 import { AppProvider } from "@/providers/app-provider";
 import { MainContent } from "./main-content";
-import { LoginModal } from "./(auth)/login/login-modal";
-import { Button } from "@/components/ui/button";
 
 export default async function Home({ searchParams }) {
   const { filter, type, page, q } = await searchParams;
@@ -14,6 +12,8 @@ export default async function Home({ searchParams }) {
     filter: filter ?? undefined,
     type: type ?? undefined,
   });
+
+  console.log("render");
 
   return (
     <AppProvider>
@@ -57,6 +57,7 @@ export default async function Home({ searchParams }) {
         </header>
 
         <MainContent listings={listings} count={count} />
+
         {/* <LoginModal>
         <SignIn mobile={mobile} />
       </LoginModal> */}

@@ -31,6 +31,8 @@ export async function getListings({
     query.eq("type", type);
   }
 
+  console.log(await query);
+
   const { data, error, count } = await query;
 
   return {

@@ -110,13 +110,12 @@ export function SearchContent({ search, onChangeSearch, setIsLoading }) {
   }, []);
 
   useEffect(() => {
-    if (!search) {
+    if (search.length === 0) {
       setIsLoading(false);
-      window.history.pushState(null, "", `/?`);
+      window.history.pushState(null, "", `/?q=${search}`);
       return;
     }
 
-    setIsLoading(true);
     window.history.pushState(null, "", `?${createQueryString("q", search)}`);
   }, [search]);
 
