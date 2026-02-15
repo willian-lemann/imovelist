@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
     const billing = await abacatePayClient.createBilling({
-      frequency: "MULTIPLE_PAYMENTS",
+      frequency: "ONE_TIME",
       methods: ["PIX", "CARD"],
       products: [
         {
