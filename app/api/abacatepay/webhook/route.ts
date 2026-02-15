@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { abacatePayClient } from "@/lib/abacatepay";
+import * as Sentry from "@sentry/nextjs";
 
 /**
  * Webhook da AbacatePay
@@ -22,6 +23,7 @@ export async function POST(req: NextRequest) {
         const customerEmail = data.customer?.metadata?.email as string;
 
         if (!customerEmail) {
+          Sentry.logger.info("Webhook billing.paid sem email do cliente");
           console.error("Webhook billing.paid sem email do cliente");
           break;
         }
