@@ -11,9 +11,18 @@ export async function POST(req: NextRequest) {
 
   const user = await prisma.user.findUnique({
     where: { id: session.user.id },
+    include: {
+      Subscriptions: {
+        where: { status: "active" },
+        orderBy: { created_at: "desc" },
+        take: 1,
+      },
+    },
   });
 
-  if (user?.subscriptionTier !== "professional") {
+  const subscriptionTier = user?.Subscriptions[0]?.plan || "free";
+
+  if (subscriptionTier !== "professional") {
     return NextResponse.json(
       { error: "Professional plan required" },
       { status: 403 },
@@ -22,7 +31,7 @@ export async function POST(req: NextRequest) {
 
   const { listingId } = await req.json();
 
-  const listing = await prisma.listing.findUnique({
+  const listing = await prisma.listings.findUnique({
     where: { id: listingId },
   });
 
@@ -75,7 +84,7 @@ function generateHashtags(listing: Record<string, unknown>): string[] {
   ];
 
   if (listing.type) tags.push(`#${listing.type}`);
-  if (listing.forSale === false) tags.push("#forrent");
+  if (listing.for_sale === false) tags.push("#forrent");
 
   return tags;
 }

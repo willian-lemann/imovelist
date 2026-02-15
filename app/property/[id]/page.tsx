@@ -22,15 +22,22 @@ export default async function PublicListingPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const listingId = parseInt(id, 10);
 
-  const listing = await prisma.listing.findUnique({
-    where: { id, published: true },
+  if (isNaN(listingId)) notFound();
+
+  const listing = await prisma.listings.findUnique({
+    where: { id: listingId, published: true },
     include: {
-      agent: { select: { name: true, image: true } },
+      User: { select: { name: true, image: true } },
     },
   });
 
   if (!listing) notFound();
+
+  const photos = Array.isArray(listing.photos)
+    ? (listing.photos as string[])
+    : [];
 
   return (
     <div className="min-h-screen bg-background">
@@ -71,10 +78,10 @@ export default async function PublicListingPage({
             />
             <div className="absolute top-4 left-4 flex gap-2">
               <Badge
-                variant={listing.forSale ? "default" : "secondary"}
+                variant={listing.for_sale ? "default" : "secondary"}
                 className="shadow-sm"
               >
-                {listing.forSale ? "Venda" : "Aluguel"}
+                {listing.for_sale ? "Venda" : "Aluguel"}
               </Badge>
               {listing.type && (
                 <Badge variant="secondary" className="capitalize shadow-sm">
@@ -141,11 +148,11 @@ export default async function PublicListingPage({
             )}
 
             {/* Photos */}
-            {listing.photos.length > 0 && (
+            {photos.length > 0 && (
               <div>
                 <h2 className="text-lg font-semibold mb-3">Fotos</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                  {listing.photos.map((photo, i) => (
+                  {photos.map((photo: string, i: number) => (
                     <div
                       key={i}
                       className="relative aspect-[4/3] rounded-lg overflow-hidden bg-muted"
@@ -163,9 +170,7 @@ export default async function PublicListingPage({
             <Card>
               <CardContent className="pt-6 space-y-4">
                 <p className="text-3xl font-bold text-primary">
-                  {listing.price
-                    ? `R$ ${listing.price.toLocaleString("pt-BR")}`
-                    : "Consultar valor"}
+                  {listing.price ? `R$ ${listing.price}` : "Consultar valor"}
                 </p>
 
                 {listing.agency && (
@@ -180,14 +185,14 @@ export default async function PublicListingPage({
                 )}
 
                 {/* Agent */}
-                {listing.agent && (
+                {listing.User && (
                   <div className="flex items-center gap-3 pt-2 border-t">
                     <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-sm font-semibold">
-                      {listing.agent.name?.charAt(0)?.toUpperCase() || "A"}
+                      {listing.User.name?.charAt(0)?.toUpperCase() || "A"}
                     </div>
                     <div>
                       <p className="text-sm font-medium">
-                        {listing.agent.name || "Corretor"}
+                        {listing.User.name || "Corretor"}
                       </p>
                       <p className="text-xs text-muted-foreground">
                         Corretor de Imóveis

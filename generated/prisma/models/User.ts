@@ -32,6 +32,8 @@ export type UserMinAggregateOutputType = {
   profile_url: string | null
   logo: string | null
   abacatepay_customer_id: string | null
+  instagramToken: string | null
+  instagramUserId: string | null
   name: string | null
   emailVerified: boolean | null
   image: string | null
@@ -47,6 +49,8 @@ export type UserMaxAggregateOutputType = {
   profile_url: string | null
   logo: string | null
   abacatepay_customer_id: string | null
+  instagramToken: string | null
+  instagramUserId: string | null
   name: string | null
   emailVerified: boolean | null
   image: string | null
@@ -62,6 +66,8 @@ export type UserCountAggregateOutputType = {
   profile_url: number
   logo: number
   abacatepay_customer_id: number
+  instagramToken: number
+  instagramUserId: number
   name: number
   emailVerified: number
   image: number
@@ -79,6 +85,8 @@ export type UserMinAggregateInputType = {
   profile_url?: true
   logo?: true
   abacatepay_customer_id?: true
+  instagramToken?: true
+  instagramUserId?: true
   name?: true
   emailVerified?: true
   image?: true
@@ -94,6 +102,8 @@ export type UserMaxAggregateInputType = {
   profile_url?: true
   logo?: true
   abacatepay_customer_id?: true
+  instagramToken?: true
+  instagramUserId?: true
   name?: true
   emailVerified?: true
   image?: true
@@ -109,6 +119,8 @@ export type UserCountAggregateInputType = {
   profile_url?: true
   logo?: true
   abacatepay_customer_id?: true
+  instagramToken?: true
+  instagramUserId?: true
   name?: true
   emailVerified?: true
   image?: true
@@ -197,6 +209,8 @@ export type UserGroupByOutputType = {
   profile_url: string | null
   logo: string | null
   abacatepay_customer_id: string | null
+  instagramToken: string | null
+  instagramUserId: string | null
   name: string
   emailVerified: boolean
   image: string | null
@@ -233,6 +247,8 @@ export type UserWhereInput = {
   profile_url?: Prisma.StringNullableFilter<"User"> | string | null
   logo?: Prisma.StringNullableFilter<"User"> | string | null
   abacatepay_customer_id?: Prisma.StringNullableFilter<"User"> | string | null
+  instagramToken?: Prisma.StringNullableFilter<"User"> | string | null
+  instagramUserId?: Prisma.StringNullableFilter<"User"> | string | null
   name?: Prisma.StringFilter<"User"> | string
   emailVerified?: Prisma.BoolFilter<"User"> | boolean
   image?: Prisma.StringNullableFilter<"User"> | string | null
@@ -252,6 +268,8 @@ export type UserOrderByWithRelationInput = {
   profile_url?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  instagramToken?: Prisma.SortOrderInput | Prisma.SortOrder
+  instagramUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
   emailVerified?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -274,6 +292,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   profile_photo?: Prisma.StringNullableFilter<"User"> | string | null
   whatsapp?: Prisma.StringNullableFilter<"User"> | string | null
   logo?: Prisma.StringNullableFilter<"User"> | string | null
+  instagramToken?: Prisma.StringNullableFilter<"User"> | string | null
+  instagramUserId?: Prisma.StringNullableFilter<"User"> | string | null
   name?: Prisma.StringFilter<"User"> | string
   emailVerified?: Prisma.BoolFilter<"User"> | boolean
   image?: Prisma.StringNullableFilter<"User"> | string | null
@@ -293,6 +313,8 @@ export type UserOrderByWithAggregationInput = {
   profile_url?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  instagramToken?: Prisma.SortOrderInput | Prisma.SortOrder
+  instagramUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
   emailVerified?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -314,6 +336,8 @@ export type UserScalarWhereWithAggregatesInput = {
   profile_url?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   logo?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   abacatepay_customer_id?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  instagramToken?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  instagramUserId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   name?: Prisma.StringWithAggregatesFilter<"User"> | string
   emailVerified?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   image?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
@@ -329,6 +353,8 @@ export type UserCreateInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
   name: string
   emailVerified?: boolean
   image?: string | null
@@ -348,6 +374,8 @@ export type UserUncheckedCreateInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
   name: string
   emailVerified?: boolean
   image?: string | null
@@ -367,6 +395,8 @@ export type UserUpdateInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -386,6 +416,8 @@ export type UserUncheckedUpdateInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -405,6 +437,8 @@ export type UserCreateManyInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
   name: string
   emailVerified?: boolean
   image?: string | null
@@ -420,6 +454,8 @@ export type UserUpdateManyMutationInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -435,6 +471,8 @@ export type UserUncheckedUpdateManyInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -460,6 +498,8 @@ export type UserCountOrderByAggregateInput = {
   profile_url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrder
+  instagramToken?: Prisma.SortOrder
+  instagramUserId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   emailVerified?: Prisma.SortOrder
   image?: Prisma.SortOrder
@@ -475,6 +515,8 @@ export type UserMaxOrderByAggregateInput = {
   profile_url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrder
+  instagramToken?: Prisma.SortOrder
+  instagramUserId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   emailVerified?: Prisma.SortOrder
   image?: Prisma.SortOrder
@@ -490,6 +532,8 @@ export type UserMinOrderByAggregateInput = {
   profile_url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrder
+  instagramToken?: Prisma.SortOrder
+  instagramUserId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   emailVerified?: Prisma.SortOrder
   image?: Prisma.SortOrder
@@ -567,6 +611,8 @@ export type UserCreateWithoutListingsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
   name: string
   emailVerified?: boolean
   image?: string | null
@@ -585,6 +631,8 @@ export type UserUncheckedCreateWithoutListingsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
   name: string
   emailVerified?: boolean
   image?: string | null
@@ -619,6 +667,8 @@ export type UserUpdateWithoutListingsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -637,6 +687,8 @@ export type UserUncheckedUpdateWithoutListingsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -655,6 +707,8 @@ export type UserCreateWithoutSubscriptionsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
   name: string
   emailVerified?: boolean
   image?: string | null
@@ -673,6 +727,8 @@ export type UserUncheckedCreateWithoutSubscriptionsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
   name: string
   emailVerified?: boolean
   image?: string | null
@@ -707,6 +763,8 @@ export type UserUpdateWithoutSubscriptionsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -725,6 +783,8 @@ export type UserUncheckedUpdateWithoutSubscriptionsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -743,6 +803,8 @@ export type UserCreateWithoutSessionsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
   name: string
   emailVerified?: boolean
   image?: string | null
@@ -761,6 +823,8 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
   name: string
   emailVerified?: boolean
   image?: string | null
@@ -795,6 +859,8 @@ export type UserUpdateWithoutSessionsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -813,6 +879,8 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -831,6 +899,8 @@ export type UserCreateWithoutAccountsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
   name: string
   emailVerified?: boolean
   image?: string | null
@@ -849,6 +919,8 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
   name: string
   emailVerified?: boolean
   image?: string | null
@@ -883,6 +955,8 @@ export type UserUpdateWithoutAccountsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -901,6 +975,8 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -977,6 +1053,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
+  instagramToken?: boolean
+  instagramUserId?: boolean
   name?: boolean
   emailVerified?: boolean
   image?: boolean
@@ -997,6 +1075,8 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
+  instagramToken?: boolean
+  instagramUserId?: boolean
   name?: boolean
   emailVerified?: boolean
   image?: boolean
@@ -1012,6 +1092,8 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
+  instagramToken?: boolean
+  instagramUserId?: boolean
   name?: boolean
   emailVerified?: boolean
   image?: boolean
@@ -1027,6 +1109,8 @@ export type UserSelectScalar = {
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
+  instagramToken?: boolean
+  instagramUserId?: boolean
   name?: boolean
   emailVerified?: boolean
   image?: boolean
@@ -1034,7 +1118,7 @@ export type UserSelectScalar = {
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "profile_photo" | "whatsapp" | "profile_url" | "logo" | "abacatepay_customer_id" | "name" | "emailVerified" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "profile_photo" | "whatsapp" | "profile_url" | "logo" | "abacatepay_customer_id" | "instagramToken" | "instagramUserId" | "name" | "emailVerified" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Listings?: boolean | Prisma.User$ListingsArgs<ExtArgs>
   Subscriptions?: boolean | Prisma.User$SubscriptionsArgs<ExtArgs>
@@ -1061,6 +1145,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     profile_url: string | null
     logo: string | null
     abacatepay_customer_id: string | null
+    instagramToken: string | null
+    instagramUserId: string | null
     name: string
     emailVerified: boolean
     image: string | null
@@ -1500,6 +1586,8 @@ export interface UserFieldRefs {
   readonly profile_url: Prisma.FieldRef<"User", 'String'>
   readonly logo: Prisma.FieldRef<"User", 'String'>
   readonly abacatepay_customer_id: Prisma.FieldRef<"User", 'String'>
+  readonly instagramToken: Prisma.FieldRef<"User", 'String'>
+  readonly instagramUserId: Prisma.FieldRef<"User", 'String'>
   readonly name: Prisma.FieldRef<"User", 'String'>
   readonly emailVerified: Prisma.FieldRef<"User", 'Boolean'>
   readonly image: Prisma.FieldRef<"User", 'String'>

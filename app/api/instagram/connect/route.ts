@@ -11,9 +11,18 @@ export async function POST(req: NextRequest) {
 
   const user = await prisma.user.findUnique({
     where: { id: session.user.id },
+    include: {
+      Subscriptions: {
+        where: { status: "active" },
+        orderBy: { created_at: "desc" },
+        take: 1,
+      },
+    },
   });
 
-  if (user?.subscriptionTier !== "professional") {
+  const subscriptionTier = user?.Subscriptions[0]?.plan || "free";
+
+  if (subscriptionTier !== "professional") {
     return NextResponse.json(
       { error: "Professional plan required" },
       { status: 403 },

@@ -8,7 +8,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useSession } from "@/lib/auth-client";
 import { auth } from "@/lib/auth";
 import { headers } from "next/dist/server/request/headers";
 

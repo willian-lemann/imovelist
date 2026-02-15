@@ -9,9 +9,9 @@ export async function GET(
 ) {
   const { id } = await params;
 
-  const gallery = await prisma.gallery.findUnique({
-    where: { id },
-    include: { listing: true },
+  const gallery = await prisma.galleries.findUnique({
+    where: { id: +id },
+    include: { Listings: true },
   });
 
   if (!gallery) {
@@ -31,13 +31,13 @@ export async function DELETE(
   }
 
   const { id } = await params;
-  const gallery = await prisma.gallery.findUnique({ where: { id } });
+  const gallery = await prisma.galleries.findUnique({ where: { id: +id } });
 
   if (!gallery || gallery.userId !== session.user.id) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
-  await prisma.gallery.delete({ where: { id } });
+  await prisma.galleries.delete({ where: { id: +id } });
 
   return NextResponse.json({ success: true });
 }

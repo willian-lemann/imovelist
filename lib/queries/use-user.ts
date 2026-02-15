@@ -1,6 +1,7 @@
 "use client";
 
 import { useSession } from "@/lib/auth-client";
+import { useQuery } from "@tanstack/react-query";
 
 export interface User {
   id: string;
@@ -12,14 +13,29 @@ export interface User {
 }
 
 export function useUser() {
-  const { data: session, isPending, error } = useSession();
+  const { data: session, isPending: isSessionPending } = useSession();
+
+  const {
+    data: user,
+    isLoading: isUserLoading,
+    error,
+  } = useQuery<User>({
+    queryKey: ["user-profile"],
+    queryFn: async () => {
+      const res = await fetch("/api/user");
+      if (!res.ok) throw new Error("Failed to fetch user profile");
+      return res.json();
+    },
+    enabled: !!session?.user,
+  });
+
+  const isLoading = isSessionPending || isUserLoading;
 
   return {
-    user: session?.user as User | undefined,
-    isLoading: isPending,
+    user,
+    isLoading,
     error,
     isAuthenticated: !!session?.user,
-    isPremium:
-      (session?.user as User | undefined)?.subscriptionTier === "professional",
+    isPremium: user?.subscriptionTier === "professional",
   };
 }

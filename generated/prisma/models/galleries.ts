@@ -50,6 +50,11 @@ export type GalleriesMinAggregateOutputType = {
   order: number | null
   created_at: Date | null
   updated_at: Date | null
+  originalImage: string | null
+  editedImage: string | null
+  prompt: string | null
+  listingId: string | null
+  userId: string | null
 }
 
 export type GalleriesMaxAggregateOutputType = {
@@ -62,6 +67,11 @@ export type GalleriesMaxAggregateOutputType = {
   order: number | null
   created_at: Date | null
   updated_at: Date | null
+  originalImage: string | null
+  editedImage: string | null
+  prompt: string | null
+  listingId: string | null
+  userId: string | null
 }
 
 export type GalleriesCountAggregateOutputType = {
@@ -74,6 +84,11 @@ export type GalleriesCountAggregateOutputType = {
   order: number
   created_at: number
   updated_at: number
+  originalImage: number
+  editedImage: number
+  prompt: number
+  listingId: number
+  userId: number
   _all: number
 }
 
@@ -102,6 +117,11 @@ export type GalleriesMinAggregateInputType = {
   order?: true
   created_at?: true
   updated_at?: true
+  originalImage?: true
+  editedImage?: true
+  prompt?: true
+  listingId?: true
+  userId?: true
 }
 
 export type GalleriesMaxAggregateInputType = {
@@ -114,6 +134,11 @@ export type GalleriesMaxAggregateInputType = {
   order?: true
   created_at?: true
   updated_at?: true
+  originalImage?: true
+  editedImage?: true
+  prompt?: true
+  listingId?: true
+  userId?: true
 }
 
 export type GalleriesCountAggregateInputType = {
@@ -126,6 +151,11 @@ export type GalleriesCountAggregateInputType = {
   order?: true
   created_at?: true
   updated_at?: true
+  originalImage?: true
+  editedImage?: true
+  prompt?: true
+  listingId?: true
+  userId?: true
   _all?: true
 }
 
@@ -225,6 +255,11 @@ export type GalleriesGroupByOutputType = {
   order: number | null
   created_at: Date | null
   updated_at: Date | null
+  originalImage: string
+  editedImage: string
+  prompt: string | null
+  listingId: string | null
+  userId: string
   _count: GalleriesCountAggregateOutputType | null
   _avg: GalleriesAvgAggregateOutputType | null
   _sum: GalleriesSumAggregateOutputType | null
@@ -260,6 +295,11 @@ export type GalleriesWhereInput = {
   order?: Prisma.IntNullableFilter<"Galleries"> | number | null
   created_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
+  originalImage?: Prisma.StringFilter<"Galleries"> | string
+  editedImage?: Prisma.StringFilter<"Galleries"> | string
+  prompt?: Prisma.StringNullableFilter<"Galleries"> | string | null
+  listingId?: Prisma.StringNullableFilter<"Galleries"> | string | null
+  userId?: Prisma.StringFilter<"Galleries"> | string
   Listings?: Prisma.XOR<Prisma.ListingsNullableScalarRelationFilter, Prisma.ListingsWhereInput> | null
 }
 
@@ -273,6 +313,11 @@ export type GalleriesOrderByWithRelationInput = {
   order?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  originalImage?: Prisma.SortOrder
+  editedImage?: Prisma.SortOrder
+  prompt?: Prisma.SortOrderInput | Prisma.SortOrder
+  listingId?: Prisma.SortOrderInput | Prisma.SortOrder
+  userId?: Prisma.SortOrder
   Listings?: Prisma.ListingsOrderByWithRelationInput
 }
 
@@ -289,6 +334,11 @@ export type GalleriesWhereUniqueInput = Prisma.AtLeast<{
   order?: Prisma.IntNullableFilter<"Galleries"> | number | null
   created_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
+  originalImage?: Prisma.StringFilter<"Galleries"> | string
+  editedImage?: Prisma.StringFilter<"Galleries"> | string
+  prompt?: Prisma.StringNullableFilter<"Galleries"> | string | null
+  listingId?: Prisma.StringNullableFilter<"Galleries"> | string | null
+  userId?: Prisma.StringFilter<"Galleries"> | string
   Listings?: Prisma.XOR<Prisma.ListingsNullableScalarRelationFilter, Prisma.ListingsWhereInput> | null
 }, "id">
 
@@ -302,6 +352,11 @@ export type GalleriesOrderByWithAggregationInput = {
   order?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  originalImage?: Prisma.SortOrder
+  editedImage?: Prisma.SortOrder
+  prompt?: Prisma.SortOrderInput | Prisma.SortOrder
+  listingId?: Prisma.SortOrderInput | Prisma.SortOrder
+  userId?: Prisma.SortOrder
   _count?: Prisma.GalleriesCountOrderByAggregateInput
   _avg?: Prisma.GalleriesAvgOrderByAggregateInput
   _max?: Prisma.GalleriesMaxOrderByAggregateInput
@@ -322,6 +377,11 @@ export type GalleriesScalarWhereWithAggregatesInput = {
   order?: Prisma.IntNullableWithAggregatesFilter<"Galleries"> | number | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Galleries"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Galleries"> | Date | string | null
+  originalImage?: Prisma.StringWithAggregatesFilter<"Galleries"> | string
+  editedImage?: Prisma.StringWithAggregatesFilter<"Galleries"> | string
+  prompt?: Prisma.StringNullableWithAggregatesFilter<"Galleries"> | string | null
+  listingId?: Prisma.StringNullableWithAggregatesFilter<"Galleries"> | string | null
+  userId?: Prisma.StringWithAggregatesFilter<"Galleries"> | string
 }
 
 export type GalleriesCreateInput = {
@@ -332,6 +392,11 @@ export type GalleriesCreateInput = {
   order?: number | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  originalImage: string
+  editedImage: string
+  prompt?: string | null
+  listingId?: string | null
+  userId: string
   Listings?: Prisma.ListingsCreateNestedOneWithoutGalleriesInput
 }
 
@@ -345,6 +410,11 @@ export type GalleriesUncheckedCreateInput = {
   order?: number | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  originalImage: string
+  editedImage: string
+  prompt?: string | null
+  listingId?: string | null
+  userId: string
 }
 
 export type GalleriesUpdateInput = {
@@ -355,6 +425,11 @@ export type GalleriesUpdateInput = {
   order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  originalImage?: Prisma.StringFieldUpdateOperationsInput | string
+  editedImage?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  listingId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
   Listings?: Prisma.ListingsUpdateOneWithoutGalleriesNestedInput
 }
 
@@ -368,6 +443,11 @@ export type GalleriesUncheckedUpdateInput = {
   order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  originalImage?: Prisma.StringFieldUpdateOperationsInput | string
+  editedImage?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  listingId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type GalleriesCreateManyInput = {
@@ -380,6 +460,11 @@ export type GalleriesCreateManyInput = {
   order?: number | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  originalImage: string
+  editedImage: string
+  prompt?: string | null
+  listingId?: string | null
+  userId: string
 }
 
 export type GalleriesUpdateManyMutationInput = {
@@ -390,6 +475,11 @@ export type GalleriesUpdateManyMutationInput = {
   order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  originalImage?: Prisma.StringFieldUpdateOperationsInput | string
+  editedImage?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  listingId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type GalleriesUncheckedUpdateManyInput = {
@@ -402,6 +492,11 @@ export type GalleriesUncheckedUpdateManyInput = {
   order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  originalImage?: Prisma.StringFieldUpdateOperationsInput | string
+  editedImage?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  listingId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type GalleriesCountOrderByAggregateInput = {
@@ -414,6 +509,11 @@ export type GalleriesCountOrderByAggregateInput = {
   order?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  originalImage?: Prisma.SortOrder
+  editedImage?: Prisma.SortOrder
+  prompt?: Prisma.SortOrder
+  listingId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type GalleriesAvgOrderByAggregateInput = {
@@ -433,6 +533,11 @@ export type GalleriesMaxOrderByAggregateInput = {
   order?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  originalImage?: Prisma.SortOrder
+  editedImage?: Prisma.SortOrder
+  prompt?: Prisma.SortOrder
+  listingId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type GalleriesMinOrderByAggregateInput = {
@@ -445,6 +550,11 @@ export type GalleriesMinOrderByAggregateInput = {
   order?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  originalImage?: Prisma.SortOrder
+  editedImage?: Prisma.SortOrder
+  prompt?: Prisma.SortOrder
+  listingId?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type GalleriesSumOrderByAggregateInput = {
@@ -530,6 +640,11 @@ export type GalleriesCreateWithoutListingsInput = {
   order?: number | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  originalImage: string
+  editedImage: string
+  prompt?: string | null
+  listingId?: string | null
+  userId: string
 }
 
 export type GalleriesUncheckedCreateWithoutListingsInput = {
@@ -541,6 +656,11 @@ export type GalleriesUncheckedCreateWithoutListingsInput = {
   order?: number | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  originalImage: string
+  editedImage: string
+  prompt?: string | null
+  listingId?: string | null
+  userId: string
 }
 
 export type GalleriesCreateOrConnectWithoutListingsInput = {
@@ -582,6 +702,11 @@ export type GalleriesScalarWhereInput = {
   order?: Prisma.IntNullableFilter<"Galleries"> | number | null
   created_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
+  originalImage?: Prisma.StringFilter<"Galleries"> | string
+  editedImage?: Prisma.StringFilter<"Galleries"> | string
+  prompt?: Prisma.StringNullableFilter<"Galleries"> | string | null
+  listingId?: Prisma.StringNullableFilter<"Galleries"> | string | null
+  userId?: Prisma.StringFilter<"Galleries"> | string
 }
 
 export type GalleriesCreateManyListingsInput = {
@@ -593,6 +718,11 @@ export type GalleriesCreateManyListingsInput = {
   order?: number | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  originalImage: string
+  editedImage: string
+  prompt?: string | null
+  listingId?: string | null
+  userId: string
 }
 
 export type GalleriesUpdateWithoutListingsInput = {
@@ -603,6 +733,11 @@ export type GalleriesUpdateWithoutListingsInput = {
   order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  originalImage?: Prisma.StringFieldUpdateOperationsInput | string
+  editedImage?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  listingId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type GalleriesUncheckedUpdateWithoutListingsInput = {
@@ -614,6 +749,11 @@ export type GalleriesUncheckedUpdateWithoutListingsInput = {
   order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  originalImage?: Prisma.StringFieldUpdateOperationsInput | string
+  editedImage?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  listingId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type GalleriesUncheckedUpdateManyWithoutListingsInput = {
@@ -625,6 +765,11 @@ export type GalleriesUncheckedUpdateManyWithoutListingsInput = {
   order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  originalImage?: Prisma.StringFieldUpdateOperationsInput | string
+  editedImage?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  listingId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -639,6 +784,11 @@ export type GalleriesSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   order?: boolean
   created_at?: boolean
   updated_at?: boolean
+  originalImage?: boolean
+  editedImage?: boolean
+  prompt?: boolean
+  listingId?: boolean
+  userId?: boolean
   Listings?: boolean | Prisma.Galleries$ListingsArgs<ExtArgs>
 }, ExtArgs["result"]["galleries"]>
 
@@ -652,6 +802,11 @@ export type GalleriesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   order?: boolean
   created_at?: boolean
   updated_at?: boolean
+  originalImage?: boolean
+  editedImage?: boolean
+  prompt?: boolean
+  listingId?: boolean
+  userId?: boolean
   Listings?: boolean | Prisma.Galleries$ListingsArgs<ExtArgs>
 }, ExtArgs["result"]["galleries"]>
 
@@ -665,6 +820,11 @@ export type GalleriesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   order?: boolean
   created_at?: boolean
   updated_at?: boolean
+  originalImage?: boolean
+  editedImage?: boolean
+  prompt?: boolean
+  listingId?: boolean
+  userId?: boolean
   Listings?: boolean | Prisma.Galleries$ListingsArgs<ExtArgs>
 }, ExtArgs["result"]["galleries"]>
 
@@ -678,9 +838,14 @@ export type GalleriesSelectScalar = {
   order?: boolean
   created_at?: boolean
   updated_at?: boolean
+  originalImage?: boolean
+  editedImage?: boolean
+  prompt?: boolean
+  listingId?: boolean
+  userId?: boolean
 }
 
-export type GalleriesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "listing_id" | "url" | "filename" | "mime_type" | "size" | "order" | "created_at" | "updated_at", ExtArgs["result"]["galleries"]>
+export type GalleriesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "listing_id" | "url" | "filename" | "mime_type" | "size" | "order" | "created_at" | "updated_at" | "originalImage" | "editedImage" | "prompt" | "listingId" | "userId", ExtArgs["result"]["galleries"]>
 export type GalleriesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Listings?: boolean | Prisma.Galleries$ListingsArgs<ExtArgs>
 }
@@ -706,6 +871,11 @@ export type $GalleriesPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     order: number | null
     created_at: Date | null
     updated_at: Date | null
+    originalImage: string
+    editedImage: string
+    prompt: string | null
+    listingId: string | null
+    userId: string
   }, ExtArgs["result"]["galleries"]>
   composites: {}
 }
@@ -1139,6 +1309,11 @@ export interface GalleriesFieldRefs {
   readonly order: Prisma.FieldRef<"Galleries", 'Int'>
   readonly created_at: Prisma.FieldRef<"Galleries", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"Galleries", 'DateTime'>
+  readonly originalImage: Prisma.FieldRef<"Galleries", 'String'>
+  readonly editedImage: Prisma.FieldRef<"Galleries", 'String'>
+  readonly prompt: Prisma.FieldRef<"Galleries", 'String'>
+  readonly listingId: Prisma.FieldRef<"Galleries", 'String'>
+  readonly userId: Prisma.FieldRef<"Galleries", 'String'>
 }
     
 

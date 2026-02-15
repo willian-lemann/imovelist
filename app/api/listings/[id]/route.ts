@@ -9,11 +9,11 @@ export async function GET(
 ) {
   const { id } = await params;
 
-  const listing = await prisma.listing.findUnique({
-    where: { id },
+  const listing = await prisma.listings.findUnique({
+    where: { id: +id },
     include: {
-      agent: { select: { id: true, name: true, image: true, email: true } },
-      galleries: true,
+      User: { select: { id: true, name: true, image: true, email: true } },
+      Galleries: true,
     },
   });
 
@@ -34,15 +34,15 @@ export async function PATCH(
   }
 
   const { id } = await params;
-  const existing = await prisma.listing.findUnique({ where: { id } });
+  const existing = await prisma.listings.findUnique({ where: { id: +id } });
 
-  if (!existing || existing.agentId !== session.user.id) {
+  if (!existing || existing.agent_id !== session.user.id) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
   const data = await req.json();
-  const listing = await prisma.listing.update({
-    where: { id },
+  const listing = await prisma.listings.update({
+    where: { id: +id },
     data,
   });
 
@@ -59,13 +59,13 @@ export async function DELETE(
   }
 
   const { id } = await params;
-  const existing = await prisma.listing.findUnique({ where: { id } });
+  const existing = await prisma.listings.findUnique({ where: { id: +id } });
 
-  if (!existing || existing.agentId !== session.user.id) {
+  if (!existing || existing.agent_id !== session.user.id) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
-  await prisma.listing.delete({ where: { id } });
+  await prisma.listings.delete({ where: { id: +id } });
 
   return NextResponse.json({ success: true });
 }

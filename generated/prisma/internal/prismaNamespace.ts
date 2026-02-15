@@ -80,12 +80,12 @@ export type PrismaVersion = {
 }
 
 /**
- * Prisma Client JS version: 7.3.0
- * Query Engine version: 9d6ad21cbbceab97458517b147a6a09ff43aa735
+ * Prisma Client JS version: 7.4.0
+ * Query Engine version: ab56fe763f921d033a6c195e7ddeb3e255bdbb57
  */
 export const prismaVersion: PrismaVersion = {
-  client: "7.3.0",
-  engine: "9d6ad21cbbceab97458517b147a6a09ff43aa735"
+  client: "7.4.0",
+  engine: "ab56fe763f921d033a6c195e7ddeb3e255bdbb57"
 }
 
 /**
@@ -1285,7 +1285,12 @@ export const GalleriesScalarFieldEnum = {
   size: 'size',
   order: 'order',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  originalImage: 'originalImage',
+  editedImage: 'editedImage',
+  prompt: 'prompt',
+  listingId: 'listingId',
+  userId: 'userId'
 } as const
 
 export type GalleriesScalarFieldEnum = (typeof GalleriesScalarFieldEnum)[keyof typeof GalleriesScalarFieldEnum]
@@ -1388,6 +1393,8 @@ export const UserScalarFieldEnum = {
   profile_url: 'profile_url',
   logo: 'logo',
   abacatepay_customer_id: 'abacatepay_customer_id',
+  instagramToken: 'instagramToken',
+  instagramUserId: 'instagramUserId',
   name: 'name',
   emailVerified: 'emailVerified',
   image: 'image',

@@ -15,10 +15,10 @@ export async function GET(req: NextRequest) {
   const where: Record<string, unknown> = { userId: session.user.id };
   if (listingId) where.listingId = listingId;
 
-  const galleries = await prisma.gallery.findMany({
+  const galleries = await prisma.galleries.findMany({
     where,
-    include: { listing: { select: { name: true, image: true } } },
-    orderBy: { createdAt: "desc" },
+    include: { Listings: { select: { name: true, image: true } } },
+    orderBy: { created_at: "desc" },
   });
 
   return NextResponse.json(galleries);
@@ -33,9 +33,18 @@ export async function POST(req: NextRequest) {
   // Check premium access
   const user = await prisma.user.findUnique({
     where: { id: session.user.id },
+    include: {
+      Subscriptions: {
+        where: { status: "active" },
+        orderBy: { created_at: "desc" },
+        take: 1,
+      },
+    },
   });
 
-  if (user?.subscriptionTier !== "professional") {
+  const subscriptionTier = user?.Subscriptions[0]?.plan || "free";
+
+  if (subscriptionTier !== "professional") {
     return NextResponse.json(
       { error: "Professional plan required" },
       { status: 403 },
@@ -44,13 +53,18 @@ export async function POST(req: NextRequest) {
 
   const data = await req.json();
 
-  const gallery = await prisma.gallery.create({
+  const gallery = await prisma.galleries.create({
     data: {
       originalImage: data.originalImage,
       editedImage: data.editedImage,
       prompt: data.prompt,
       listingId: data.listingId,
       userId: session.user.id,
+      filename: data.filename,
+      mime_type: data.mime_type,
+      size: data.size,
+      order: data.order,
+      url: data.url,
     },
   });
 

@@ -45,7 +45,7 @@ export async function GET(req: NextRequest) {
     prisma.listings.findMany({
       where,
       include: {
-        users: { select: { id: true, full_name: true, profile_photo: true } },
+        User: { select: { id: true, name: true, image: true } },
       },
       orderBy: { created_at: "desc" },
       skip: (page - 1) * limit,
