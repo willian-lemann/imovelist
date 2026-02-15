@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { abacatePayClient } from "@/lib/abacatepay";
 import * as Sentry from "@sentry/nextjs";
+import { SentryAPIError } from "@/lib/sentry";
 
 /**
  * Webhook da AbacatePay
@@ -24,9 +25,7 @@ export async function POST(req: NextRequest) {
         console.log("data", data);
 
         if (!customerEmail) {
-          Sentry.logger.info("Webhook billing.paid sem email do cliente");
-          console.error("Webhook billing.paid sem email do cliente");
-          break;
+          throw new SentryAPIError("Webhook billing.paid sem email do cliente");
         }
 
         // Busca o usuário pelo email
@@ -35,8 +34,9 @@ export async function POST(req: NextRequest) {
         });
 
         if (!user) {
-          console.error(`Usuário não encontrado para email: ${customerEmail}`);
-          break;
+          throw new SentryAPIError(
+            `Usuário não encontrado para email: ${customerEmail}`,
+          );
         }
 
         // Busca detalhes da cobrança para verificar o produto
