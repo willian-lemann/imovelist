@@ -25,7 +25,14 @@ export async function POST(req: NextRequest) {
         console.log("data", data);
 
         if (!customerEmail) {
-          throw new SentryAPIError("Webhook billing.paid sem email do cliente");
+          Sentry.captureMessage(
+            `Webhook billing.paid sem email do cliente (billingId: ${billingId})`,
+            {
+              level: "error",
+              extra: { billingId },
+            },
+          );
+          break;
         }
 
         // Busca o usuário pelo email
@@ -34,9 +41,14 @@ export async function POST(req: NextRequest) {
         });
 
         if (!user) {
-          throw new SentryAPIError(
+          Sentry.captureMessage(
             `Usuário não encontrado para email: ${customerEmail}`,
+            {
+              level: "error",
+              extra: { customerEmail, billingId },
+            },
           );
+          break;
         }
 
         // Busca detalhes da cobrança para verificar o produto
