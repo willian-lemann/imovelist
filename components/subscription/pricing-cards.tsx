@@ -36,7 +36,7 @@ const plans = [
   },
   {
     name: "Profissional",
-    price: "R$ 149",
+    price: "R$ 349",
     period: "/mês",
     description: "Desbloqueie ferramentas IA poderosas e integrações",
     features: [

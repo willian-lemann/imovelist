@@ -52,15 +52,16 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   add_listing_indices: 'add_listing_indices',
-  adonis_schema: 'adonis_schema',
-  adonis_schema_versions: 'adonis_schema_versions',
-  galleries: 'galleries',
-  listings: 'listings',
-  policies: 'policies',
-  scrapped_infos: 'scrapped_infos',
-  scrapped_listings: 'scrapped_listings',
-  subscriptions: 'subscriptions',
-  users: 'users'
+  Galleries: 'Galleries',
+  Listings: 'Listings',
+  Policies: 'Policies',
+  Scrapped_infos: 'Scrapped_infos',
+  Scrapped_listings: 'Scrapped_listings',
+  Subscriptions: 'Subscriptions',
+  User: 'User',
+  Session: 'Session',
+  Account: 'Account',
+  Verification: 'Verification'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -86,23 +87,6 @@ export const Add_listing_indicesScalarFieldEnum = {
 } as const
 
 export type Add_listing_indicesScalarFieldEnum = (typeof Add_listing_indicesScalarFieldEnum)[keyof typeof Add_listing_indicesScalarFieldEnum]
-
-
-export const Adonis_schemaScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  batch: 'batch',
-  migration_time: 'migration_time'
-} as const
-
-export type Adonis_schemaScalarFieldEnum = (typeof Adonis_schemaScalarFieldEnum)[keyof typeof Adonis_schemaScalarFieldEnum]
-
-
-export const Adonis_schema_versionsScalarFieldEnum = {
-  version: 'version'
-} as const
-
-export type Adonis_schema_versionsScalarFieldEnum = (typeof Adonis_schema_versionsScalarFieldEnum)[keyof typeof Adonis_schema_versionsScalarFieldEnum]
 
 
 export const GalleriesScalarFieldEnum = {
@@ -198,11 +182,10 @@ export type Scrapped_listingsScalarFieldEnum = (typeof Scrapped_listingsScalarFi
 export const SubscriptionsScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
-  stripe_customer_id: 'stripe_customer_id',
-  stripe_subscription_id: 'stripe_subscription_id',
-  stripe_price_id: 'stripe_price_id',
+  abacatepay_customer_id: 'abacatepay_customer_id',
+  abacatepay_billing_id: 'abacatepay_billing_id',
+  plan: 'plan',
   status: 'status',
-  current_period_end: 'current_period_end',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -210,21 +193,67 @@ export const SubscriptionsScalarFieldEnum = {
 export type SubscriptionsScalarFieldEnum = (typeof SubscriptionsScalarFieldEnum)[keyof typeof SubscriptionsScalarFieldEnum]
 
 
-export const UsersScalarFieldEnum = {
+export const UserScalarFieldEnum = {
   id: 'id',
-  full_name: 'full_name',
   email: 'email',
-  password: 'password',
-  created_at: 'created_at',
-  updated_at: 'updated_at',
   profile_photo: 'profile_photo',
   whatsapp: 'whatsapp',
   profile_url: 'profile_url',
   logo: 'logo',
-  stripe_customer_id: 'stripe_customer_id'
+  abacatepay_customer_id: 'abacatepay_customer_id',
+  name: 'name',
+  emailVerified: 'emailVerified',
+  image: 'image',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
-export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const SessionScalarFieldEnum = {
+  id: 'id',
+  expiresAt: 'expiresAt',
+  token: 'token',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  userId: 'userId'
+} as const
+
+export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
+
+
+export const AccountScalarFieldEnum = {
+  id: 'id',
+  accountId: 'accountId',
+  providerId: 'providerId',
+  userId: 'userId',
+  accessToken: 'accessToken',
+  refreshToken: 'refreshToken',
+  idToken: 'idToken',
+  accessTokenExpiresAt: 'accessTokenExpiresAt',
+  refreshTokenExpiresAt: 'refreshTokenExpiresAt',
+  scope: 'scope',
+  password: 'password',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
+
+
+export const VerificationScalarFieldEnum = {
+  id: 'id',
+  identifier: 'identifier',
+  value: 'value',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -45,47 +45,52 @@ export { Prisma }
  */
 export type add_listing_indices = Prisma.add_listing_indicesModel
 /**
- * Model adonis_schema
+ * Model Galleries
  * 
  */
-export type adonis_schema = Prisma.adonis_schemaModel
+export type Galleries = Prisma.GalleriesModel
 /**
- * Model adonis_schema_versions
+ * Model Listings
  * 
  */
-export type adonis_schema_versions = Prisma.adonis_schema_versionsModel
+export type Listings = Prisma.ListingsModel
 /**
- * Model galleries
+ * Model Policies
  * 
  */
-export type galleries = Prisma.galleriesModel
+export type Policies = Prisma.PoliciesModel
 /**
- * Model listings
+ * Model Scrapped_infos
  * 
  */
-export type listings = Prisma.listingsModel
+export type Scrapped_infos = Prisma.Scrapped_infosModel
 /**
- * Model policies
- * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
- */
-export type policies = Prisma.policiesModel
-/**
- * Model scrapped_infos
+ * Model Scrapped_listings
  * 
  */
-export type scrapped_infos = Prisma.scrapped_infosModel
+export type Scrapped_listings = Prisma.Scrapped_listingsModel
 /**
- * Model scrapped_listings
+ * Model Subscriptions
  * 
  */
-export type scrapped_listings = Prisma.scrapped_listingsModel
+export type Subscriptions = Prisma.SubscriptionsModel
 /**
- * Model subscriptions
- * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
- */
-export type subscriptions = Prisma.subscriptionsModel
-/**
- * Model users
+ * Model User
  * 
  */
-export type users = Prisma.usersModel
+export type User = Prisma.UserModel
+/**
+ * Model Session
+ * 
+ */
+export type Session = Prisma.SessionModel
+/**
+ * Model Account
+ * 
+ */
+export type Account = Prisma.AccountModel
+/**
+ * Model Verification
+ * 
+ */
+export type Verification = Prisma.VerificationModel

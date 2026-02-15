@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `policies` model and its related types.
+ * This file exports the `Policies` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
 /**
- * Model policies
- * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ * Model Policies
+ * 
  */
-export type policiesModel = runtime.Types.Result.DefaultSelection<Prisma.$policiesPayload>
+export type PoliciesModel = runtime.Types.Result.DefaultSelection<Prisma.$PoliciesPayload>
 
 export type AggregatePolicies = {
   _count: PoliciesCountAggregateOutputType | null
@@ -83,37 +83,37 @@ export type PoliciesCountAggregateInputType = {
 
 export type PoliciesAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which policies to aggregate.
+   * Filter which Policies to aggregate.
    */
-  where?: Prisma.policiesWhereInput
+  where?: Prisma.PoliciesWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of policies to fetch.
+   * Determine the order of Policies to fetch.
    */
-  orderBy?: Prisma.policiesOrderByWithRelationInput | Prisma.policiesOrderByWithRelationInput[]
+  orderBy?: Prisma.PoliciesOrderByWithRelationInput | Prisma.PoliciesOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.policiesWhereUniqueInput
+  cursor?: Prisma.PoliciesWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` policies from the position of the cursor.
+   * Take `±n` Policies from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` policies.
+   * Skip the first `n` Policies.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned policies
+   * Count returned Policies
   **/
   _count?: true | PoliciesCountAggregateInputType
   /**
@@ -153,11 +153,11 @@ export type GetPoliciesAggregateType<T extends PoliciesAggregateArgs> = {
 
 
 
-export type policiesGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.policiesWhereInput
-  orderBy?: Prisma.policiesOrderByWithAggregationInput | Prisma.policiesOrderByWithAggregationInput[]
+export type PoliciesGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PoliciesWhereInput
+  orderBy?: Prisma.PoliciesOrderByWithAggregationInput | Prisma.PoliciesOrderByWithAggregationInput[]
   by: Prisma.PoliciesScalarFieldEnum[] | Prisma.PoliciesScalarFieldEnum
-  having?: Prisma.policiesScalarWhereWithAggregatesInput
+  having?: Prisma.PoliciesScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: PoliciesCountAggregateInputType | true
@@ -178,7 +178,7 @@ export type PoliciesGroupByOutputType = {
   _max: PoliciesMaxAggregateOutputType | null
 }
 
-type GetPoliciesGroupByPayload<T extends policiesGroupByArgs> = Prisma.PrismaPromise<
+type GetPoliciesGroupByPayload<T extends PoliciesGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<PoliciesGroupByOutputType, T['by']> &
       {
@@ -193,145 +193,145 @@ type GetPoliciesGroupByPayload<T extends policiesGroupByArgs> = Prisma.PrismaPro
 
 
 
-export type policiesWhereInput = {
-  AND?: Prisma.policiesWhereInput | Prisma.policiesWhereInput[]
-  OR?: Prisma.policiesWhereInput[]
-  NOT?: Prisma.policiesWhereInput | Prisma.policiesWhereInput[]
-  id?: Prisma.IntFilter<"policies"> | number
-  created_at?: Prisma.DateTimeNullableFilter<"policies"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"policies"> | Date | string | null
+export type PoliciesWhereInput = {
+  AND?: Prisma.PoliciesWhereInput | Prisma.PoliciesWhereInput[]
+  OR?: Prisma.PoliciesWhereInput[]
+  NOT?: Prisma.PoliciesWhereInput | Prisma.PoliciesWhereInput[]
+  id?: Prisma.IntFilter<"Policies"> | number
+  created_at?: Prisma.DateTimeNullableFilter<"Policies"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"Policies"> | Date | string | null
 }
 
-export type policiesOrderByWithRelationInput = {
+export type PoliciesOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
 }
 
-export type policiesWhereUniqueInput = Prisma.AtLeast<{
+export type PoliciesWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  AND?: Prisma.policiesWhereInput | Prisma.policiesWhereInput[]
-  OR?: Prisma.policiesWhereInput[]
-  NOT?: Prisma.policiesWhereInput | Prisma.policiesWhereInput[]
-  created_at?: Prisma.DateTimeNullableFilter<"policies"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"policies"> | Date | string | null
+  AND?: Prisma.PoliciesWhereInput | Prisma.PoliciesWhereInput[]
+  OR?: Prisma.PoliciesWhereInput[]
+  NOT?: Prisma.PoliciesWhereInput | Prisma.PoliciesWhereInput[]
+  created_at?: Prisma.DateTimeNullableFilter<"Policies"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"Policies"> | Date | string | null
 }, "id">
 
-export type policiesOrderByWithAggregationInput = {
+export type PoliciesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  _count?: Prisma.policiesCountOrderByAggregateInput
-  _avg?: Prisma.policiesAvgOrderByAggregateInput
-  _max?: Prisma.policiesMaxOrderByAggregateInput
-  _min?: Prisma.policiesMinOrderByAggregateInput
-  _sum?: Prisma.policiesSumOrderByAggregateInput
+  _count?: Prisma.PoliciesCountOrderByAggregateInput
+  _avg?: Prisma.PoliciesAvgOrderByAggregateInput
+  _max?: Prisma.PoliciesMaxOrderByAggregateInput
+  _min?: Prisma.PoliciesMinOrderByAggregateInput
+  _sum?: Prisma.PoliciesSumOrderByAggregateInput
 }
 
-export type policiesScalarWhereWithAggregatesInput = {
-  AND?: Prisma.policiesScalarWhereWithAggregatesInput | Prisma.policiesScalarWhereWithAggregatesInput[]
-  OR?: Prisma.policiesScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.policiesScalarWhereWithAggregatesInput | Prisma.policiesScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"policies"> | number
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"policies"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"policies"> | Date | string | null
+export type PoliciesScalarWhereWithAggregatesInput = {
+  AND?: Prisma.PoliciesScalarWhereWithAggregatesInput | Prisma.PoliciesScalarWhereWithAggregatesInput[]
+  OR?: Prisma.PoliciesScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.PoliciesScalarWhereWithAggregatesInput | Prisma.PoliciesScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"Policies"> | number
+  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Policies"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Policies"> | Date | string | null
 }
 
-export type policiesCreateInput = {
+export type PoliciesCreateInput = {
   created_at?: Date | string | null
   updated_at?: Date | string | null
 }
 
-export type policiesUncheckedCreateInput = {
+export type PoliciesUncheckedCreateInput = {
   id?: number
   created_at?: Date | string | null
   updated_at?: Date | string | null
 }
 
-export type policiesUpdateInput = {
+export type PoliciesUpdateInput = {
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type policiesUncheckedUpdateInput = {
+export type PoliciesUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type policiesCreateManyInput = {
+export type PoliciesCreateManyInput = {
   id?: number
   created_at?: Date | string | null
   updated_at?: Date | string | null
 }
 
-export type policiesUpdateManyMutationInput = {
+export type PoliciesUpdateManyMutationInput = {
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type policiesUncheckedUpdateManyInput = {
+export type PoliciesUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type policiesCountOrderByAggregateInput = {
+export type PoliciesCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
 
-export type policiesAvgOrderByAggregateInput = {
+export type PoliciesAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
 }
 
-export type policiesMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
-}
-
-export type policiesMinOrderByAggregateInput = {
+export type PoliciesMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
 
-export type policiesSumOrderByAggregateInput = {
+export type PoliciesMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
+}
+
+export type PoliciesSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
 }
 
 
 
-export type policiesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type PoliciesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   created_at?: boolean
   updated_at?: boolean
 }, ExtArgs["result"]["policies"]>
 
-export type policiesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type PoliciesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   created_at?: boolean
   updated_at?: boolean
 }, ExtArgs["result"]["policies"]>
 
-export type policiesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type PoliciesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   created_at?: boolean
   updated_at?: boolean
 }, ExtArgs["result"]["policies"]>
 
-export type policiesSelectScalar = {
+export type PoliciesSelectScalar = {
   id?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type policiesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "created_at" | "updated_at", ExtArgs["result"]["policies"]>
+export type PoliciesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "created_at" | "updated_at", ExtArgs["result"]["policies"]>
 
-export type $policiesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "policies"
+export type $PoliciesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "Policies"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -341,18 +341,18 @@ export type $policiesPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   composites: {}
 }
 
-export type policiesGetPayload<S extends boolean | null | undefined | policiesDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$policiesPayload, S>
+export type PoliciesGetPayload<S extends boolean | null | undefined | PoliciesDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$PoliciesPayload, S>
 
-export type policiesCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<policiesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type PoliciesCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<PoliciesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: PoliciesCountAggregateInputType | true
   }
 
-export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['policies'], meta: { name: 'policies' } }
+export interface PoliciesDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Policies'], meta: { name: 'Policies' } }
   /**
    * Find zero or one Policies that matches the filter.
-   * @param {policiesFindUniqueArgs} args - Arguments to find a Policies
+   * @param {PoliciesFindUniqueArgs} args - Arguments to find a Policies
    * @example
    * // Get one Policies
    * const policies = await prisma.policies.findUnique({
@@ -361,12 +361,12 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   }
    * })
    */
-  findUnique<T extends policiesFindUniqueArgs>(args: Prisma.SelectSubset<T, policiesFindUniqueArgs<ExtArgs>>): Prisma.Prisma__policiesClient<runtime.Types.Result.GetResult<Prisma.$policiesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends PoliciesFindUniqueArgs>(args: Prisma.SelectSubset<T, PoliciesFindUniqueArgs<ExtArgs>>): Prisma.Prisma__PoliciesClient<runtime.Types.Result.GetResult<Prisma.$PoliciesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Policies that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {policiesFindUniqueOrThrowArgs} args - Arguments to find a Policies
+   * @param {PoliciesFindUniqueOrThrowArgs} args - Arguments to find a Policies
    * @example
    * // Get one Policies
    * const policies = await prisma.policies.findUniqueOrThrow({
@@ -375,13 +375,13 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   }
    * })
    */
-  findUniqueOrThrow<T extends policiesFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, policiesFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__policiesClient<runtime.Types.Result.GetResult<Prisma.$policiesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends PoliciesFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, PoliciesFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__PoliciesClient<runtime.Types.Result.GetResult<Prisma.$PoliciesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Policies that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {policiesFindFirstArgs} args - Arguments to find a Policies
+   * @param {PoliciesFindFirstArgs} args - Arguments to find a Policies
    * @example
    * // Get one Policies
    * const policies = await prisma.policies.findFirst({
@@ -390,14 +390,14 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   }
    * })
    */
-  findFirst<T extends policiesFindFirstArgs>(args?: Prisma.SelectSubset<T, policiesFindFirstArgs<ExtArgs>>): Prisma.Prisma__policiesClient<runtime.Types.Result.GetResult<Prisma.$policiesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends PoliciesFindFirstArgs>(args?: Prisma.SelectSubset<T, PoliciesFindFirstArgs<ExtArgs>>): Prisma.Prisma__PoliciesClient<runtime.Types.Result.GetResult<Prisma.$PoliciesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Policies that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {policiesFindFirstOrThrowArgs} args - Arguments to find a Policies
+   * @param {PoliciesFindFirstOrThrowArgs} args - Arguments to find a Policies
    * @example
    * // Get one Policies
    * const policies = await prisma.policies.findFirstOrThrow({
@@ -406,13 +406,13 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   }
    * })
    */
-  findFirstOrThrow<T extends policiesFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, policiesFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__policiesClient<runtime.Types.Result.GetResult<Prisma.$policiesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends PoliciesFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, PoliciesFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__PoliciesClient<runtime.Types.Result.GetResult<Prisma.$PoliciesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Policies that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {policiesFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {PoliciesFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Policies
    * const policies = await prisma.policies.findMany()
@@ -424,11 +424,11 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * const policiesWithIdOnly = await prisma.policies.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends policiesFindManyArgs>(args?: Prisma.SelectSubset<T, policiesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$policiesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends PoliciesFindManyArgs>(args?: Prisma.SelectSubset<T, PoliciesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PoliciesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Policies.
-   * @param {policiesCreateArgs} args - Arguments to create a Policies.
+   * @param {PoliciesCreateArgs} args - Arguments to create a Policies.
    * @example
    * // Create one Policies
    * const Policies = await prisma.policies.create({
@@ -438,11 +438,11 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * })
    * 
    */
-  create<T extends policiesCreateArgs>(args: Prisma.SelectSubset<T, policiesCreateArgs<ExtArgs>>): Prisma.Prisma__policiesClient<runtime.Types.Result.GetResult<Prisma.$policiesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends PoliciesCreateArgs>(args: Prisma.SelectSubset<T, PoliciesCreateArgs<ExtArgs>>): Prisma.Prisma__PoliciesClient<runtime.Types.Result.GetResult<Prisma.$PoliciesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Policies.
-   * @param {policiesCreateManyArgs} args - Arguments to create many Policies.
+   * @param {PoliciesCreateManyArgs} args - Arguments to create many Policies.
    * @example
    * // Create many Policies
    * const policies = await prisma.policies.createMany({
@@ -452,11 +452,11 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * })
    *     
    */
-  createMany<T extends policiesCreateManyArgs>(args?: Prisma.SelectSubset<T, policiesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends PoliciesCreateManyArgs>(args?: Prisma.SelectSubset<T, PoliciesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create many Policies and returns the data saved in the database.
-   * @param {policiesCreateManyAndReturnArgs} args - Arguments to create many Policies.
+   * @param {PoliciesCreateManyAndReturnArgs} args - Arguments to create many Policies.
    * @example
    * // Create many Policies
    * const policies = await prisma.policies.createManyAndReturn({
@@ -476,11 +476,11 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  createManyAndReturn<T extends policiesCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, policiesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$policiesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+  createManyAndReturn<T extends PoliciesCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, PoliciesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PoliciesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Delete a Policies.
-   * @param {policiesDeleteArgs} args - Arguments to delete one Policies.
+   * @param {PoliciesDeleteArgs} args - Arguments to delete one Policies.
    * @example
    * // Delete one Policies
    * const Policies = await prisma.policies.delete({
@@ -490,11 +490,11 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * })
    * 
    */
-  delete<T extends policiesDeleteArgs>(args: Prisma.SelectSubset<T, policiesDeleteArgs<ExtArgs>>): Prisma.Prisma__policiesClient<runtime.Types.Result.GetResult<Prisma.$policiesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends PoliciesDeleteArgs>(args: Prisma.SelectSubset<T, PoliciesDeleteArgs<ExtArgs>>): Prisma.Prisma__PoliciesClient<runtime.Types.Result.GetResult<Prisma.$PoliciesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Policies.
-   * @param {policiesUpdateArgs} args - Arguments to update one Policies.
+   * @param {PoliciesUpdateArgs} args - Arguments to update one Policies.
    * @example
    * // Update one Policies
    * const policies = await prisma.policies.update({
@@ -507,11 +507,11 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * })
    * 
    */
-  update<T extends policiesUpdateArgs>(args: Prisma.SelectSubset<T, policiesUpdateArgs<ExtArgs>>): Prisma.Prisma__policiesClient<runtime.Types.Result.GetResult<Prisma.$policiesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends PoliciesUpdateArgs>(args: Prisma.SelectSubset<T, PoliciesUpdateArgs<ExtArgs>>): Prisma.Prisma__PoliciesClient<runtime.Types.Result.GetResult<Prisma.$PoliciesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Policies.
-   * @param {policiesDeleteManyArgs} args - Arguments to filter Policies to delete.
+   * @param {PoliciesDeleteManyArgs} args - Arguments to filter Policies to delete.
    * @example
    * // Delete a few Policies
    * const { count } = await prisma.policies.deleteMany({
@@ -521,13 +521,13 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * })
    * 
    */
-  deleteMany<T extends policiesDeleteManyArgs>(args?: Prisma.SelectSubset<T, policiesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends PoliciesDeleteManyArgs>(args?: Prisma.SelectSubset<T, PoliciesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Policies.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {policiesUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {PoliciesUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Policies
    * const policies = await prisma.policies.updateMany({
@@ -540,11 +540,11 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * })
    * 
    */
-  updateMany<T extends policiesUpdateManyArgs>(args: Prisma.SelectSubset<T, policiesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends PoliciesUpdateManyArgs>(args: Prisma.SelectSubset<T, PoliciesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Policies and returns the data updated in the database.
-   * @param {policiesUpdateManyAndReturnArgs} args - Arguments to update many Policies.
+   * @param {PoliciesUpdateManyAndReturnArgs} args - Arguments to update many Policies.
    * @example
    * // Update many Policies
    * const policies = await prisma.policies.updateManyAndReturn({
@@ -570,11 +570,11 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  updateManyAndReturn<T extends policiesUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, policiesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$policiesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+  updateManyAndReturn<T extends PoliciesUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, PoliciesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PoliciesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Create or update one Policies.
-   * @param {policiesUpsertArgs} args - Arguments to update or create a Policies.
+   * @param {PoliciesUpsertArgs} args - Arguments to update or create a Policies.
    * @example
    * // Update or create a Policies
    * const policies = await prisma.policies.upsert({
@@ -589,14 +589,14 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   }
    * })
    */
-  upsert<T extends policiesUpsertArgs>(args: Prisma.SelectSubset<T, policiesUpsertArgs<ExtArgs>>): Prisma.Prisma__policiesClient<runtime.Types.Result.GetResult<Prisma.$policiesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends PoliciesUpsertArgs>(args: Prisma.SelectSubset<T, PoliciesUpsertArgs<ExtArgs>>): Prisma.Prisma__PoliciesClient<runtime.Types.Result.GetResult<Prisma.$PoliciesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Policies.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {policiesCountArgs} args - Arguments to filter Policies to count.
+   * @param {PoliciesCountArgs} args - Arguments to filter Policies to count.
    * @example
    * // Count the number of Policies
    * const count = await prisma.policies.count({
@@ -605,8 +605,8 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   }
    * })
   **/
-  count<T extends policiesCountArgs>(
-    args?: Prisma.Subset<T, policiesCountArgs>,
+  count<T extends PoliciesCountArgs>(
+    args?: Prisma.Subset<T, PoliciesCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -645,7 +645,7 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * Group by Policies.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {policiesGroupByArgs} args - Group by arguments.
+   * @param {PoliciesGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -660,14 +660,14 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * 
   **/
   groupBy<
-    T extends policiesGroupByArgs,
+    T extends PoliciesGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: policiesGroupByArgs['orderBy'] }
-      : { orderBy?: policiesGroupByArgs['orderBy'] },
+      ? { orderBy: PoliciesGroupByArgs['orderBy'] }
+      : { orderBy?: PoliciesGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -716,20 +716,20 @@ export interface policiesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, policiesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPoliciesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, PoliciesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPoliciesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the policies model
+ * Fields of the Policies model
  */
-readonly fields: policiesFieldRefs;
+readonly fields: PoliciesFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for policies.
+ * The delegate class that acts as a "Promise-like" for Policies.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__policiesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__PoliciesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -757,373 +757,373 @@ export interface Prisma__policiesClient<T, Null = never, ExtArgs extends runtime
 
 
 /**
- * Fields of the policies model
+ * Fields of the Policies model
  */
-export interface policiesFieldRefs {
-  readonly id: Prisma.FieldRef<"policies", 'Int'>
-  readonly created_at: Prisma.FieldRef<"policies", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"policies", 'DateTime'>
+export interface PoliciesFieldRefs {
+  readonly id: Prisma.FieldRef<"Policies", 'Int'>
+  readonly created_at: Prisma.FieldRef<"Policies", 'DateTime'>
+  readonly updated_at: Prisma.FieldRef<"Policies", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * policies findUnique
+ * Policies findUnique
  */
-export type policiesFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelect<ExtArgs> | null
+  select?: Prisma.PoliciesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
   /**
-   * Filter, which policies to fetch.
+   * Filter, which Policies to fetch.
    */
-  where: Prisma.policiesWhereUniqueInput
+  where: Prisma.PoliciesWhereUniqueInput
 }
 
 /**
- * policies findUniqueOrThrow
+ * Policies findUniqueOrThrow
  */
-export type policiesFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelect<ExtArgs> | null
+  select?: Prisma.PoliciesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
   /**
-   * Filter, which policies to fetch.
+   * Filter, which Policies to fetch.
    */
-  where: Prisma.policiesWhereUniqueInput
+  where: Prisma.PoliciesWhereUniqueInput
 }
 
 /**
- * policies findFirst
+ * Policies findFirst
  */
-export type policiesFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelect<ExtArgs> | null
+  select?: Prisma.PoliciesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
   /**
-   * Filter, which policies to fetch.
+   * Filter, which Policies to fetch.
    */
-  where?: Prisma.policiesWhereInput
+  where?: Prisma.PoliciesWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of policies to fetch.
+   * Determine the order of Policies to fetch.
    */
-  orderBy?: Prisma.policiesOrderByWithRelationInput | Prisma.policiesOrderByWithRelationInput[]
+  orderBy?: Prisma.PoliciesOrderByWithRelationInput | Prisma.PoliciesOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for policies.
+   * Sets the position for searching for Policies.
    */
-  cursor?: Prisma.policiesWhereUniqueInput
+  cursor?: Prisma.PoliciesWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` policies from the position of the cursor.
+   * Take `±n` Policies from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` policies.
+   * Skip the first `n` Policies.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of policies.
+   * Filter by unique combinations of Policies.
    */
   distinct?: Prisma.PoliciesScalarFieldEnum | Prisma.PoliciesScalarFieldEnum[]
 }
 
 /**
- * policies findFirstOrThrow
+ * Policies findFirstOrThrow
  */
-export type policiesFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelect<ExtArgs> | null
+  select?: Prisma.PoliciesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
   /**
-   * Filter, which policies to fetch.
+   * Filter, which Policies to fetch.
    */
-  where?: Prisma.policiesWhereInput
+  where?: Prisma.PoliciesWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of policies to fetch.
+   * Determine the order of Policies to fetch.
    */
-  orderBy?: Prisma.policiesOrderByWithRelationInput | Prisma.policiesOrderByWithRelationInput[]
+  orderBy?: Prisma.PoliciesOrderByWithRelationInput | Prisma.PoliciesOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for policies.
+   * Sets the position for searching for Policies.
    */
-  cursor?: Prisma.policiesWhereUniqueInput
+  cursor?: Prisma.PoliciesWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` policies from the position of the cursor.
+   * Take `±n` Policies from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` policies.
+   * Skip the first `n` Policies.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of policies.
+   * Filter by unique combinations of Policies.
    */
   distinct?: Prisma.PoliciesScalarFieldEnum | Prisma.PoliciesScalarFieldEnum[]
 }
 
 /**
- * policies findMany
+ * Policies findMany
  */
-export type policiesFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelect<ExtArgs> | null
+  select?: Prisma.PoliciesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
   /**
-   * Filter, which policies to fetch.
+   * Filter, which Policies to fetch.
    */
-  where?: Prisma.policiesWhereInput
+  where?: Prisma.PoliciesWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of policies to fetch.
+   * Determine the order of Policies to fetch.
    */
-  orderBy?: Prisma.policiesOrderByWithRelationInput | Prisma.policiesOrderByWithRelationInput[]
+  orderBy?: Prisma.PoliciesOrderByWithRelationInput | Prisma.PoliciesOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing policies.
+   * Sets the position for listing Policies.
    */
-  cursor?: Prisma.policiesWhereUniqueInput
+  cursor?: Prisma.PoliciesWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` policies from the position of the cursor.
+   * Take `±n` Policies from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` policies.
+   * Skip the first `n` Policies.
    */
   skip?: number
   distinct?: Prisma.PoliciesScalarFieldEnum | Prisma.PoliciesScalarFieldEnum[]
 }
 
 /**
- * policies create
+ * Policies create
  */
-export type policiesCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelect<ExtArgs> | null
+  select?: Prisma.PoliciesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
   /**
-   * The data needed to create a policies.
+   * The data needed to create a Policies.
    */
-  data?: Prisma.XOR<Prisma.policiesCreateInput, Prisma.policiesUncheckedCreateInput>
+  data?: Prisma.XOR<Prisma.PoliciesCreateInput, Prisma.PoliciesUncheckedCreateInput>
 }
 
 /**
- * policies createMany
+ * Policies createMany
  */
-export type policiesCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many policies.
+   * The data used to create many Policies.
    */
-  data: Prisma.policiesCreateManyInput | Prisma.policiesCreateManyInput[]
+  data: Prisma.PoliciesCreateManyInput | Prisma.PoliciesCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * policies createManyAndReturn
+ * Policies createManyAndReturn
  */
-export type policiesCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelectCreateManyAndReturn<ExtArgs> | null
+  select?: Prisma.PoliciesSelectCreateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
   /**
-   * The data used to create many policies.
+   * The data used to create many Policies.
    */
-  data: Prisma.policiesCreateManyInput | Prisma.policiesCreateManyInput[]
+  data: Prisma.PoliciesCreateManyInput | Prisma.PoliciesCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * policies update
+ * Policies update
  */
-export type policiesUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelect<ExtArgs> | null
+  select?: Prisma.PoliciesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
   /**
-   * The data needed to update a policies.
+   * The data needed to update a Policies.
    */
-  data: Prisma.XOR<Prisma.policiesUpdateInput, Prisma.policiesUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.PoliciesUpdateInput, Prisma.PoliciesUncheckedUpdateInput>
   /**
-   * Choose, which policies to update.
+   * Choose, which Policies to update.
    */
-  where: Prisma.policiesWhereUniqueInput
+  where: Prisma.PoliciesWhereUniqueInput
 }
 
 /**
- * policies updateMany
+ * Policies updateMany
  */
-export type policiesUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update policies.
+   * The data used to update Policies.
    */
-  data: Prisma.XOR<Prisma.policiesUpdateManyMutationInput, Prisma.policiesUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.PoliciesUpdateManyMutationInput, Prisma.PoliciesUncheckedUpdateManyInput>
   /**
-   * Filter which policies to update
+   * Filter which Policies to update
    */
-  where?: Prisma.policiesWhereInput
+  where?: Prisma.PoliciesWhereInput
   /**
-   * Limit how many policies to update.
+   * Limit how many Policies to update.
    */
   limit?: number
 }
 
 /**
- * policies updateManyAndReturn
+ * Policies updateManyAndReturn
  */
-export type policiesUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelectUpdateManyAndReturn<ExtArgs> | null
+  select?: Prisma.PoliciesSelectUpdateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
   /**
-   * The data used to update policies.
+   * The data used to update Policies.
    */
-  data: Prisma.XOR<Prisma.policiesUpdateManyMutationInput, Prisma.policiesUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.PoliciesUpdateManyMutationInput, Prisma.PoliciesUncheckedUpdateManyInput>
   /**
-   * Filter which policies to update
+   * Filter which Policies to update
    */
-  where?: Prisma.policiesWhereInput
+  where?: Prisma.PoliciesWhereInput
   /**
-   * Limit how many policies to update.
+   * Limit how many Policies to update.
    */
   limit?: number
 }
 
 /**
- * policies upsert
+ * Policies upsert
  */
-export type policiesUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelect<ExtArgs> | null
+  select?: Prisma.PoliciesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
   /**
-   * The filter to search for the policies to update in case it exists.
+   * The filter to search for the Policies to update in case it exists.
    */
-  where: Prisma.policiesWhereUniqueInput
+  where: Prisma.PoliciesWhereUniqueInput
   /**
-   * In case the policies found by the `where` argument doesn't exist, create a new policies with this data.
+   * In case the Policies found by the `where` argument doesn't exist, create a new Policies with this data.
    */
-  create: Prisma.XOR<Prisma.policiesCreateInput, Prisma.policiesUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.PoliciesCreateInput, Prisma.PoliciesUncheckedCreateInput>
   /**
-   * In case the policies was found with the provided `where` argument, update it with this data.
+   * In case the Policies was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.policiesUpdateInput, Prisma.policiesUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.PoliciesUpdateInput, Prisma.PoliciesUncheckedUpdateInput>
 }
 
 /**
- * policies delete
+ * Policies delete
  */
-export type policiesDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelect<ExtArgs> | null
+  select?: Prisma.PoliciesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
   /**
-   * Filter which policies to delete.
+   * Filter which Policies to delete.
    */
-  where: Prisma.policiesWhereUniqueInput
+  where: Prisma.PoliciesWhereUniqueInput
 }
 
 /**
- * policies deleteMany
+ * Policies deleteMany
  */
-export type policiesDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which policies to delete
+   * Filter which Policies to delete
    */
-  where?: Prisma.policiesWhereInput
+  where?: Prisma.PoliciesWhereInput
   /**
-   * Limit how many policies to delete.
+   * Limit how many Policies to delete.
    */
   limit?: number
 }
 
 /**
- * policies without action
+ * Policies without action
  */
-export type policiesDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type PoliciesDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the policies
+   * Select specific fields to fetch from the Policies
    */
-  select?: Prisma.policiesSelect<ExtArgs> | null
+  select?: Prisma.PoliciesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the policies
+   * Omit specific fields from the Policies
    */
-  omit?: Prisma.policiesOmit<ExtArgs> | null
+  omit?: Prisma.PoliciesOmit<ExtArgs> | null
 }

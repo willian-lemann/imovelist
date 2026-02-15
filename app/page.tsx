@@ -8,8 +8,16 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useSession } from "@/lib/auth-client";
+import { auth } from "@/lib/auth";
+import { headers } from "next/dist/server/request/headers";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const session = await auth.api.getSession({
+    headers: await headers(), // you need to pass the headers object.
+  });
+  const isLogged = !!session?.user;
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navbar */}
@@ -27,14 +35,17 @@ export default function HomePage() {
                 Procurar Imóveis
               </Button>
             </Link>
-            <Link href="/sign-in">
+            <Link href={isLogged ? "/dashboard" : "/sign-in"}>
               <Button variant="ghost" size="sm">
                 Entrar
               </Button>
             </Link>
-            <Link href="/sign-up">
-              <Button size="sm">Começar</Button>
-            </Link>
+
+            {!isLogged && (
+              <Link href="/sign-up">
+                <Button size="sm">Começar</Button>
+              </Link>
+            )}
           </div>
         </div>
       </nav>

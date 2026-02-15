@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `galleries` model and its related types.
+ * This file exports the `Galleries` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
 /**
- * Model galleries
+ * Model Galleries
  * 
  */
-export type galleriesModel = runtime.Types.Result.DefaultSelection<Prisma.$galleriesPayload>
+export type GalleriesModel = runtime.Types.Result.DefaultSelection<Prisma.$GalleriesPayload>
 
 export type AggregateGalleries = {
   _count: GalleriesCountAggregateOutputType | null
@@ -131,37 +131,37 @@ export type GalleriesCountAggregateInputType = {
 
 export type GalleriesAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which galleries to aggregate.
+   * Filter which Galleries to aggregate.
    */
-  where?: Prisma.galleriesWhereInput
+  where?: Prisma.GalleriesWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of galleries to fetch.
+   * Determine the order of Galleries to fetch.
    */
-  orderBy?: Prisma.galleriesOrderByWithRelationInput | Prisma.galleriesOrderByWithRelationInput[]
+  orderBy?: Prisma.GalleriesOrderByWithRelationInput | Prisma.GalleriesOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.galleriesWhereUniqueInput
+  cursor?: Prisma.GalleriesWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` galleries from the position of the cursor.
+   * Take `±n` Galleries from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` galleries.
+   * Skip the first `n` Galleries.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned galleries
+   * Count returned Galleries
   **/
   _count?: true | GalleriesCountAggregateInputType
   /**
@@ -201,11 +201,11 @@ export type GetGalleriesAggregateType<T extends GalleriesAggregateArgs> = {
 
 
 
-export type galleriesGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.galleriesWhereInput
-  orderBy?: Prisma.galleriesOrderByWithAggregationInput | Prisma.galleriesOrderByWithAggregationInput[]
+export type GalleriesGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.GalleriesWhereInput
+  orderBy?: Prisma.GalleriesOrderByWithAggregationInput | Prisma.GalleriesOrderByWithAggregationInput[]
   by: Prisma.GalleriesScalarFieldEnum[] | Prisma.GalleriesScalarFieldEnum
-  having?: Prisma.galleriesScalarWhereWithAggregatesInput
+  having?: Prisma.GalleriesScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: GalleriesCountAggregateInputType | true
@@ -232,7 +232,7 @@ export type GalleriesGroupByOutputType = {
   _max: GalleriesMaxAggregateOutputType | null
 }
 
-type GetGalleriesGroupByPayload<T extends galleriesGroupByArgs> = Prisma.PrismaPromise<
+type GetGalleriesGroupByPayload<T extends GalleriesGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<GalleriesGroupByOutputType, T['by']> &
       {
@@ -247,23 +247,23 @@ type GetGalleriesGroupByPayload<T extends galleriesGroupByArgs> = Prisma.PrismaP
 
 
 
-export type galleriesWhereInput = {
-  AND?: Prisma.galleriesWhereInput | Prisma.galleriesWhereInput[]
-  OR?: Prisma.galleriesWhereInput[]
-  NOT?: Prisma.galleriesWhereInput | Prisma.galleriesWhereInput[]
-  id?: Prisma.IntFilter<"galleries"> | number
-  listing_id?: Prisma.IntNullableFilter<"galleries"> | number | null
-  url?: Prisma.StringFilter<"galleries"> | string
-  filename?: Prisma.StringFilter<"galleries"> | string
-  mime_type?: Prisma.StringNullableFilter<"galleries"> | string | null
-  size?: Prisma.IntNullableFilter<"galleries"> | number | null
-  order?: Prisma.IntNullableFilter<"galleries"> | number | null
-  created_at?: Prisma.DateTimeNullableFilter<"galleries"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"galleries"> | Date | string | null
-  listings?: Prisma.XOR<Prisma.ListingsNullableScalarRelationFilter, Prisma.listingsWhereInput> | null
+export type GalleriesWhereInput = {
+  AND?: Prisma.GalleriesWhereInput | Prisma.GalleriesWhereInput[]
+  OR?: Prisma.GalleriesWhereInput[]
+  NOT?: Prisma.GalleriesWhereInput | Prisma.GalleriesWhereInput[]
+  id?: Prisma.IntFilter<"Galleries"> | number
+  listing_id?: Prisma.IntNullableFilter<"Galleries"> | number | null
+  url?: Prisma.StringFilter<"Galleries"> | string
+  filename?: Prisma.StringFilter<"Galleries"> | string
+  mime_type?: Prisma.StringNullableFilter<"Galleries"> | string | null
+  size?: Prisma.IntNullableFilter<"Galleries"> | number | null
+  order?: Prisma.IntNullableFilter<"Galleries"> | number | null
+  created_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
+  Listings?: Prisma.XOR<Prisma.ListingsNullableScalarRelationFilter, Prisma.ListingsWhereInput> | null
 }
 
-export type galleriesOrderByWithRelationInput = {
+export type GalleriesOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   listing_id?: Prisma.SortOrderInput | Prisma.SortOrder
   url?: Prisma.SortOrder
@@ -273,26 +273,26 @@ export type galleriesOrderByWithRelationInput = {
   order?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  listings?: Prisma.listingsOrderByWithRelationInput
+  Listings?: Prisma.ListingsOrderByWithRelationInput
 }
 
-export type galleriesWhereUniqueInput = Prisma.AtLeast<{
+export type GalleriesWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  AND?: Prisma.galleriesWhereInput | Prisma.galleriesWhereInput[]
-  OR?: Prisma.galleriesWhereInput[]
-  NOT?: Prisma.galleriesWhereInput | Prisma.galleriesWhereInput[]
-  listing_id?: Prisma.IntNullableFilter<"galleries"> | number | null
-  url?: Prisma.StringFilter<"galleries"> | string
-  filename?: Prisma.StringFilter<"galleries"> | string
-  mime_type?: Prisma.StringNullableFilter<"galleries"> | string | null
-  size?: Prisma.IntNullableFilter<"galleries"> | number | null
-  order?: Prisma.IntNullableFilter<"galleries"> | number | null
-  created_at?: Prisma.DateTimeNullableFilter<"galleries"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"galleries"> | Date | string | null
-  listings?: Prisma.XOR<Prisma.ListingsNullableScalarRelationFilter, Prisma.listingsWhereInput> | null
+  AND?: Prisma.GalleriesWhereInput | Prisma.GalleriesWhereInput[]
+  OR?: Prisma.GalleriesWhereInput[]
+  NOT?: Prisma.GalleriesWhereInput | Prisma.GalleriesWhereInput[]
+  listing_id?: Prisma.IntNullableFilter<"Galleries"> | number | null
+  url?: Prisma.StringFilter<"Galleries"> | string
+  filename?: Prisma.StringFilter<"Galleries"> | string
+  mime_type?: Prisma.StringNullableFilter<"Galleries"> | string | null
+  size?: Prisma.IntNullableFilter<"Galleries"> | number | null
+  order?: Prisma.IntNullableFilter<"Galleries"> | number | null
+  created_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
+  Listings?: Prisma.XOR<Prisma.ListingsNullableScalarRelationFilter, Prisma.ListingsWhereInput> | null
 }, "id">
 
-export type galleriesOrderByWithAggregationInput = {
+export type GalleriesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   listing_id?: Prisma.SortOrderInput | Prisma.SortOrder
   url?: Prisma.SortOrder
@@ -302,29 +302,29 @@ export type galleriesOrderByWithAggregationInput = {
   order?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  _count?: Prisma.galleriesCountOrderByAggregateInput
-  _avg?: Prisma.galleriesAvgOrderByAggregateInput
-  _max?: Prisma.galleriesMaxOrderByAggregateInput
-  _min?: Prisma.galleriesMinOrderByAggregateInput
-  _sum?: Prisma.galleriesSumOrderByAggregateInput
+  _count?: Prisma.GalleriesCountOrderByAggregateInput
+  _avg?: Prisma.GalleriesAvgOrderByAggregateInput
+  _max?: Prisma.GalleriesMaxOrderByAggregateInput
+  _min?: Prisma.GalleriesMinOrderByAggregateInput
+  _sum?: Prisma.GalleriesSumOrderByAggregateInput
 }
 
-export type galleriesScalarWhereWithAggregatesInput = {
-  AND?: Prisma.galleriesScalarWhereWithAggregatesInput | Prisma.galleriesScalarWhereWithAggregatesInput[]
-  OR?: Prisma.galleriesScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.galleriesScalarWhereWithAggregatesInput | Prisma.galleriesScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"galleries"> | number
-  listing_id?: Prisma.IntNullableWithAggregatesFilter<"galleries"> | number | null
-  url?: Prisma.StringWithAggregatesFilter<"galleries"> | string
-  filename?: Prisma.StringWithAggregatesFilter<"galleries"> | string
-  mime_type?: Prisma.StringNullableWithAggregatesFilter<"galleries"> | string | null
-  size?: Prisma.IntNullableWithAggregatesFilter<"galleries"> | number | null
-  order?: Prisma.IntNullableWithAggregatesFilter<"galleries"> | number | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"galleries"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"galleries"> | Date | string | null
+export type GalleriesScalarWhereWithAggregatesInput = {
+  AND?: Prisma.GalleriesScalarWhereWithAggregatesInput | Prisma.GalleriesScalarWhereWithAggregatesInput[]
+  OR?: Prisma.GalleriesScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.GalleriesScalarWhereWithAggregatesInput | Prisma.GalleriesScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"Galleries"> | number
+  listing_id?: Prisma.IntNullableWithAggregatesFilter<"Galleries"> | number | null
+  url?: Prisma.StringWithAggregatesFilter<"Galleries"> | string
+  filename?: Prisma.StringWithAggregatesFilter<"Galleries"> | string
+  mime_type?: Prisma.StringNullableWithAggregatesFilter<"Galleries"> | string | null
+  size?: Prisma.IntNullableWithAggregatesFilter<"Galleries"> | number | null
+  order?: Prisma.IntNullableWithAggregatesFilter<"Galleries"> | number | null
+  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Galleries"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Galleries"> | Date | string | null
 }
 
-export type galleriesCreateInput = {
+export type GalleriesCreateInput = {
   url: string
   filename: string
   mime_type?: string | null
@@ -332,10 +332,10 @@ export type galleriesCreateInput = {
   order?: number | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
-  listings?: Prisma.listingsCreateNestedOneWithoutGalleriesInput
+  Listings?: Prisma.ListingsCreateNestedOneWithoutGalleriesInput
 }
 
-export type galleriesUncheckedCreateInput = {
+export type GalleriesUncheckedCreateInput = {
   id?: number
   listing_id?: number | null
   url: string
@@ -347,7 +347,7 @@ export type galleriesUncheckedCreateInput = {
   updated_at?: Date | string | null
 }
 
-export type galleriesUpdateInput = {
+export type GalleriesUpdateInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   filename?: Prisma.StringFieldUpdateOperationsInput | string
   mime_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -355,10 +355,10 @@ export type galleriesUpdateInput = {
   order?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  listings?: Prisma.listingsUpdateOneWithoutGalleriesNestedInput
+  Listings?: Prisma.ListingsUpdateOneWithoutGalleriesNestedInput
 }
 
-export type galleriesUncheckedUpdateInput = {
+export type GalleriesUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   listing_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -370,7 +370,7 @@ export type galleriesUncheckedUpdateInput = {
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type galleriesCreateManyInput = {
+export type GalleriesCreateManyInput = {
   id?: number
   listing_id?: number | null
   url: string
@@ -382,7 +382,7 @@ export type galleriesCreateManyInput = {
   updated_at?: Date | string | null
 }
 
-export type galleriesUpdateManyMutationInput = {
+export type GalleriesUpdateManyMutationInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   filename?: Prisma.StringFieldUpdateOperationsInput | string
   mime_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -392,7 +392,7 @@ export type galleriesUpdateManyMutationInput = {
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type galleriesUncheckedUpdateManyInput = {
+export type GalleriesUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   listing_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   url?: Prisma.StringFieldUpdateOperationsInput | string
@@ -404,7 +404,7 @@ export type galleriesUncheckedUpdateManyInput = {
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type galleriesCountOrderByAggregateInput = {
+export type GalleriesCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   listing_id?: Prisma.SortOrder
   url?: Prisma.SortOrder
@@ -416,26 +416,14 @@ export type galleriesCountOrderByAggregateInput = {
   updated_at?: Prisma.SortOrder
 }
 
-export type galleriesAvgOrderByAggregateInput = {
+export type GalleriesAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   listing_id?: Prisma.SortOrder
   size?: Prisma.SortOrder
   order?: Prisma.SortOrder
 }
 
-export type galleriesMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  listing_id?: Prisma.SortOrder
-  url?: Prisma.SortOrder
-  filename?: Prisma.SortOrder
-  mime_type?: Prisma.SortOrder
-  size?: Prisma.SortOrder
-  order?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
-}
-
-export type galleriesMinOrderByAggregateInput = {
+export type GalleriesMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   listing_id?: Prisma.SortOrder
   url?: Prisma.SortOrder
@@ -447,7 +435,19 @@ export type galleriesMinOrderByAggregateInput = {
   updated_at?: Prisma.SortOrder
 }
 
-export type galleriesSumOrderByAggregateInput = {
+export type GalleriesMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  listing_id?: Prisma.SortOrder
+  url?: Prisma.SortOrder
+  filename?: Prisma.SortOrder
+  mime_type?: Prisma.SortOrder
+  size?: Prisma.SortOrder
+  order?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
+}
+
+export type GalleriesSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   listing_id?: Prisma.SortOrder
   size?: Prisma.SortOrder
@@ -455,13 +455,17 @@ export type galleriesSumOrderByAggregateInput = {
 }
 
 export type GalleriesListRelationFilter = {
-  every?: Prisma.galleriesWhereInput
-  some?: Prisma.galleriesWhereInput
-  none?: Prisma.galleriesWhereInput
+  every?: Prisma.GalleriesWhereInput
+  some?: Prisma.GalleriesWhereInput
+  none?: Prisma.GalleriesWhereInput
 }
 
-export type galleriesOrderByRelationAggregateInput = {
+export type GalleriesOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type StringFieldUpdateOperationsInput = {
+  set?: string
 }
 
 export type NullableStringFieldUpdateOperationsInput = {
@@ -476,49 +480,49 @@ export type NullableIntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type galleriesCreateNestedManyWithoutListingsInput = {
-  create?: Prisma.XOR<Prisma.galleriesCreateWithoutListingsInput, Prisma.galleriesUncheckedCreateWithoutListingsInput> | Prisma.galleriesCreateWithoutListingsInput[] | Prisma.galleriesUncheckedCreateWithoutListingsInput[]
-  connectOrCreate?: Prisma.galleriesCreateOrConnectWithoutListingsInput | Prisma.galleriesCreateOrConnectWithoutListingsInput[]
-  createMany?: Prisma.galleriesCreateManyListingsInputEnvelope
-  connect?: Prisma.galleriesWhereUniqueInput | Prisma.galleriesWhereUniqueInput[]
+export type GalleriesCreateNestedManyWithoutListingsInput = {
+  create?: Prisma.XOR<Prisma.GalleriesCreateWithoutListingsInput, Prisma.GalleriesUncheckedCreateWithoutListingsInput> | Prisma.GalleriesCreateWithoutListingsInput[] | Prisma.GalleriesUncheckedCreateWithoutListingsInput[]
+  connectOrCreate?: Prisma.GalleriesCreateOrConnectWithoutListingsInput | Prisma.GalleriesCreateOrConnectWithoutListingsInput[]
+  createMany?: Prisma.GalleriesCreateManyListingsInputEnvelope
+  connect?: Prisma.GalleriesWhereUniqueInput | Prisma.GalleriesWhereUniqueInput[]
 }
 
-export type galleriesUncheckedCreateNestedManyWithoutListingsInput = {
-  create?: Prisma.XOR<Prisma.galleriesCreateWithoutListingsInput, Prisma.galleriesUncheckedCreateWithoutListingsInput> | Prisma.galleriesCreateWithoutListingsInput[] | Prisma.galleriesUncheckedCreateWithoutListingsInput[]
-  connectOrCreate?: Prisma.galleriesCreateOrConnectWithoutListingsInput | Prisma.galleriesCreateOrConnectWithoutListingsInput[]
-  createMany?: Prisma.galleriesCreateManyListingsInputEnvelope
-  connect?: Prisma.galleriesWhereUniqueInput | Prisma.galleriesWhereUniqueInput[]
+export type GalleriesUncheckedCreateNestedManyWithoutListingsInput = {
+  create?: Prisma.XOR<Prisma.GalleriesCreateWithoutListingsInput, Prisma.GalleriesUncheckedCreateWithoutListingsInput> | Prisma.GalleriesCreateWithoutListingsInput[] | Prisma.GalleriesUncheckedCreateWithoutListingsInput[]
+  connectOrCreate?: Prisma.GalleriesCreateOrConnectWithoutListingsInput | Prisma.GalleriesCreateOrConnectWithoutListingsInput[]
+  createMany?: Prisma.GalleriesCreateManyListingsInputEnvelope
+  connect?: Prisma.GalleriesWhereUniqueInput | Prisma.GalleriesWhereUniqueInput[]
 }
 
-export type galleriesUpdateManyWithoutListingsNestedInput = {
-  create?: Prisma.XOR<Prisma.galleriesCreateWithoutListingsInput, Prisma.galleriesUncheckedCreateWithoutListingsInput> | Prisma.galleriesCreateWithoutListingsInput[] | Prisma.galleriesUncheckedCreateWithoutListingsInput[]
-  connectOrCreate?: Prisma.galleriesCreateOrConnectWithoutListingsInput | Prisma.galleriesCreateOrConnectWithoutListingsInput[]
-  upsert?: Prisma.galleriesUpsertWithWhereUniqueWithoutListingsInput | Prisma.galleriesUpsertWithWhereUniqueWithoutListingsInput[]
-  createMany?: Prisma.galleriesCreateManyListingsInputEnvelope
-  set?: Prisma.galleriesWhereUniqueInput | Prisma.galleriesWhereUniqueInput[]
-  disconnect?: Prisma.galleriesWhereUniqueInput | Prisma.galleriesWhereUniqueInput[]
-  delete?: Prisma.galleriesWhereUniqueInput | Prisma.galleriesWhereUniqueInput[]
-  connect?: Prisma.galleriesWhereUniqueInput | Prisma.galleriesWhereUniqueInput[]
-  update?: Prisma.galleriesUpdateWithWhereUniqueWithoutListingsInput | Prisma.galleriesUpdateWithWhereUniqueWithoutListingsInput[]
-  updateMany?: Prisma.galleriesUpdateManyWithWhereWithoutListingsInput | Prisma.galleriesUpdateManyWithWhereWithoutListingsInput[]
-  deleteMany?: Prisma.galleriesScalarWhereInput | Prisma.galleriesScalarWhereInput[]
+export type GalleriesUpdateManyWithoutListingsNestedInput = {
+  create?: Prisma.XOR<Prisma.GalleriesCreateWithoutListingsInput, Prisma.GalleriesUncheckedCreateWithoutListingsInput> | Prisma.GalleriesCreateWithoutListingsInput[] | Prisma.GalleriesUncheckedCreateWithoutListingsInput[]
+  connectOrCreate?: Prisma.GalleriesCreateOrConnectWithoutListingsInput | Prisma.GalleriesCreateOrConnectWithoutListingsInput[]
+  upsert?: Prisma.GalleriesUpsertWithWhereUniqueWithoutListingsInput | Prisma.GalleriesUpsertWithWhereUniqueWithoutListingsInput[]
+  createMany?: Prisma.GalleriesCreateManyListingsInputEnvelope
+  set?: Prisma.GalleriesWhereUniqueInput | Prisma.GalleriesWhereUniqueInput[]
+  disconnect?: Prisma.GalleriesWhereUniqueInput | Prisma.GalleriesWhereUniqueInput[]
+  delete?: Prisma.GalleriesWhereUniqueInput | Prisma.GalleriesWhereUniqueInput[]
+  connect?: Prisma.GalleriesWhereUniqueInput | Prisma.GalleriesWhereUniqueInput[]
+  update?: Prisma.GalleriesUpdateWithWhereUniqueWithoutListingsInput | Prisma.GalleriesUpdateWithWhereUniqueWithoutListingsInput[]
+  updateMany?: Prisma.GalleriesUpdateManyWithWhereWithoutListingsInput | Prisma.GalleriesUpdateManyWithWhereWithoutListingsInput[]
+  deleteMany?: Prisma.GalleriesScalarWhereInput | Prisma.GalleriesScalarWhereInput[]
 }
 
-export type galleriesUncheckedUpdateManyWithoutListingsNestedInput = {
-  create?: Prisma.XOR<Prisma.galleriesCreateWithoutListingsInput, Prisma.galleriesUncheckedCreateWithoutListingsInput> | Prisma.galleriesCreateWithoutListingsInput[] | Prisma.galleriesUncheckedCreateWithoutListingsInput[]
-  connectOrCreate?: Prisma.galleriesCreateOrConnectWithoutListingsInput | Prisma.galleriesCreateOrConnectWithoutListingsInput[]
-  upsert?: Prisma.galleriesUpsertWithWhereUniqueWithoutListingsInput | Prisma.galleriesUpsertWithWhereUniqueWithoutListingsInput[]
-  createMany?: Prisma.galleriesCreateManyListingsInputEnvelope
-  set?: Prisma.galleriesWhereUniqueInput | Prisma.galleriesWhereUniqueInput[]
-  disconnect?: Prisma.galleriesWhereUniqueInput | Prisma.galleriesWhereUniqueInput[]
-  delete?: Prisma.galleriesWhereUniqueInput | Prisma.galleriesWhereUniqueInput[]
-  connect?: Prisma.galleriesWhereUniqueInput | Prisma.galleriesWhereUniqueInput[]
-  update?: Prisma.galleriesUpdateWithWhereUniqueWithoutListingsInput | Prisma.galleriesUpdateWithWhereUniqueWithoutListingsInput[]
-  updateMany?: Prisma.galleriesUpdateManyWithWhereWithoutListingsInput | Prisma.galleriesUpdateManyWithWhereWithoutListingsInput[]
-  deleteMany?: Prisma.galleriesScalarWhereInput | Prisma.galleriesScalarWhereInput[]
+export type GalleriesUncheckedUpdateManyWithoutListingsNestedInput = {
+  create?: Prisma.XOR<Prisma.GalleriesCreateWithoutListingsInput, Prisma.GalleriesUncheckedCreateWithoutListingsInput> | Prisma.GalleriesCreateWithoutListingsInput[] | Prisma.GalleriesUncheckedCreateWithoutListingsInput[]
+  connectOrCreate?: Prisma.GalleriesCreateOrConnectWithoutListingsInput | Prisma.GalleriesCreateOrConnectWithoutListingsInput[]
+  upsert?: Prisma.GalleriesUpsertWithWhereUniqueWithoutListingsInput | Prisma.GalleriesUpsertWithWhereUniqueWithoutListingsInput[]
+  createMany?: Prisma.GalleriesCreateManyListingsInputEnvelope
+  set?: Prisma.GalleriesWhereUniqueInput | Prisma.GalleriesWhereUniqueInput[]
+  disconnect?: Prisma.GalleriesWhereUniqueInput | Prisma.GalleriesWhereUniqueInput[]
+  delete?: Prisma.GalleriesWhereUniqueInput | Prisma.GalleriesWhereUniqueInput[]
+  connect?: Prisma.GalleriesWhereUniqueInput | Prisma.GalleriesWhereUniqueInput[]
+  update?: Prisma.GalleriesUpdateWithWhereUniqueWithoutListingsInput | Prisma.GalleriesUpdateWithWhereUniqueWithoutListingsInput[]
+  updateMany?: Prisma.GalleriesUpdateManyWithWhereWithoutListingsInput | Prisma.GalleriesUpdateManyWithWhereWithoutListingsInput[]
+  deleteMany?: Prisma.GalleriesScalarWhereInput | Prisma.GalleriesScalarWhereInput[]
 }
 
-export type galleriesCreateWithoutListingsInput = {
+export type GalleriesCreateWithoutListingsInput = {
   url: string
   filename: string
   mime_type?: string | null
@@ -528,7 +532,7 @@ export type galleriesCreateWithoutListingsInput = {
   updated_at?: Date | string | null
 }
 
-export type galleriesUncheckedCreateWithoutListingsInput = {
+export type GalleriesUncheckedCreateWithoutListingsInput = {
   id?: number
   url: string
   filename: string
@@ -539,48 +543,48 @@ export type galleriesUncheckedCreateWithoutListingsInput = {
   updated_at?: Date | string | null
 }
 
-export type galleriesCreateOrConnectWithoutListingsInput = {
-  where: Prisma.galleriesWhereUniqueInput
-  create: Prisma.XOR<Prisma.galleriesCreateWithoutListingsInput, Prisma.galleriesUncheckedCreateWithoutListingsInput>
+export type GalleriesCreateOrConnectWithoutListingsInput = {
+  where: Prisma.GalleriesWhereUniqueInput
+  create: Prisma.XOR<Prisma.GalleriesCreateWithoutListingsInput, Prisma.GalleriesUncheckedCreateWithoutListingsInput>
 }
 
-export type galleriesCreateManyListingsInputEnvelope = {
-  data: Prisma.galleriesCreateManyListingsInput | Prisma.galleriesCreateManyListingsInput[]
+export type GalleriesCreateManyListingsInputEnvelope = {
+  data: Prisma.GalleriesCreateManyListingsInput | Prisma.GalleriesCreateManyListingsInput[]
   skipDuplicates?: boolean
 }
 
-export type galleriesUpsertWithWhereUniqueWithoutListingsInput = {
-  where: Prisma.galleriesWhereUniqueInput
-  update: Prisma.XOR<Prisma.galleriesUpdateWithoutListingsInput, Prisma.galleriesUncheckedUpdateWithoutListingsInput>
-  create: Prisma.XOR<Prisma.galleriesCreateWithoutListingsInput, Prisma.galleriesUncheckedCreateWithoutListingsInput>
+export type GalleriesUpsertWithWhereUniqueWithoutListingsInput = {
+  where: Prisma.GalleriesWhereUniqueInput
+  update: Prisma.XOR<Prisma.GalleriesUpdateWithoutListingsInput, Prisma.GalleriesUncheckedUpdateWithoutListingsInput>
+  create: Prisma.XOR<Prisma.GalleriesCreateWithoutListingsInput, Prisma.GalleriesUncheckedCreateWithoutListingsInput>
 }
 
-export type galleriesUpdateWithWhereUniqueWithoutListingsInput = {
-  where: Prisma.galleriesWhereUniqueInput
-  data: Prisma.XOR<Prisma.galleriesUpdateWithoutListingsInput, Prisma.galleriesUncheckedUpdateWithoutListingsInput>
+export type GalleriesUpdateWithWhereUniqueWithoutListingsInput = {
+  where: Prisma.GalleriesWhereUniqueInput
+  data: Prisma.XOR<Prisma.GalleriesUpdateWithoutListingsInput, Prisma.GalleriesUncheckedUpdateWithoutListingsInput>
 }
 
-export type galleriesUpdateManyWithWhereWithoutListingsInput = {
-  where: Prisma.galleriesScalarWhereInput
-  data: Prisma.XOR<Prisma.galleriesUpdateManyMutationInput, Prisma.galleriesUncheckedUpdateManyWithoutListingsInput>
+export type GalleriesUpdateManyWithWhereWithoutListingsInput = {
+  where: Prisma.GalleriesScalarWhereInput
+  data: Prisma.XOR<Prisma.GalleriesUpdateManyMutationInput, Prisma.GalleriesUncheckedUpdateManyWithoutListingsInput>
 }
 
-export type galleriesScalarWhereInput = {
-  AND?: Prisma.galleriesScalarWhereInput | Prisma.galleriesScalarWhereInput[]
-  OR?: Prisma.galleriesScalarWhereInput[]
-  NOT?: Prisma.galleriesScalarWhereInput | Prisma.galleriesScalarWhereInput[]
-  id?: Prisma.IntFilter<"galleries"> | number
-  listing_id?: Prisma.IntNullableFilter<"galleries"> | number | null
-  url?: Prisma.StringFilter<"galleries"> | string
-  filename?: Prisma.StringFilter<"galleries"> | string
-  mime_type?: Prisma.StringNullableFilter<"galleries"> | string | null
-  size?: Prisma.IntNullableFilter<"galleries"> | number | null
-  order?: Prisma.IntNullableFilter<"galleries"> | number | null
-  created_at?: Prisma.DateTimeNullableFilter<"galleries"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"galleries"> | Date | string | null
+export type GalleriesScalarWhereInput = {
+  AND?: Prisma.GalleriesScalarWhereInput | Prisma.GalleriesScalarWhereInput[]
+  OR?: Prisma.GalleriesScalarWhereInput[]
+  NOT?: Prisma.GalleriesScalarWhereInput | Prisma.GalleriesScalarWhereInput[]
+  id?: Prisma.IntFilter<"Galleries"> | number
+  listing_id?: Prisma.IntNullableFilter<"Galleries"> | number | null
+  url?: Prisma.StringFilter<"Galleries"> | string
+  filename?: Prisma.StringFilter<"Galleries"> | string
+  mime_type?: Prisma.StringNullableFilter<"Galleries"> | string | null
+  size?: Prisma.IntNullableFilter<"Galleries"> | number | null
+  order?: Prisma.IntNullableFilter<"Galleries"> | number | null
+  created_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"Galleries"> | Date | string | null
 }
 
-export type galleriesCreateManyListingsInput = {
+export type GalleriesCreateManyListingsInput = {
   id?: number
   url: string
   filename: string
@@ -591,7 +595,7 @@ export type galleriesCreateManyListingsInput = {
   updated_at?: Date | string | null
 }
 
-export type galleriesUpdateWithoutListingsInput = {
+export type GalleriesUpdateWithoutListingsInput = {
   url?: Prisma.StringFieldUpdateOperationsInput | string
   filename?: Prisma.StringFieldUpdateOperationsInput | string
   mime_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -601,7 +605,7 @@ export type galleriesUpdateWithoutListingsInput = {
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type galleriesUncheckedUpdateWithoutListingsInput = {
+export type GalleriesUncheckedUpdateWithoutListingsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   url?: Prisma.StringFieldUpdateOperationsInput | string
   filename?: Prisma.StringFieldUpdateOperationsInput | string
@@ -612,7 +616,7 @@ export type galleriesUncheckedUpdateWithoutListingsInput = {
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type galleriesUncheckedUpdateManyWithoutListingsInput = {
+export type GalleriesUncheckedUpdateManyWithoutListingsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   url?: Prisma.StringFieldUpdateOperationsInput | string
   filename?: Prisma.StringFieldUpdateOperationsInput | string
@@ -625,7 +629,7 @@ export type galleriesUncheckedUpdateManyWithoutListingsInput = {
 
 
 
-export type galleriesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type GalleriesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   listing_id?: boolean
   url?: boolean
@@ -635,10 +639,10 @@ export type galleriesSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   order?: boolean
   created_at?: boolean
   updated_at?: boolean
-  listings?: boolean | Prisma.galleries$listingsArgs<ExtArgs>
+  Listings?: boolean | Prisma.Galleries$ListingsArgs<ExtArgs>
 }, ExtArgs["result"]["galleries"]>
 
-export type galleriesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type GalleriesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   listing_id?: boolean
   url?: boolean
@@ -648,10 +652,10 @@ export type galleriesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   order?: boolean
   created_at?: boolean
   updated_at?: boolean
-  listings?: boolean | Prisma.galleries$listingsArgs<ExtArgs>
+  Listings?: boolean | Prisma.Galleries$ListingsArgs<ExtArgs>
 }, ExtArgs["result"]["galleries"]>
 
-export type galleriesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type GalleriesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   listing_id?: boolean
   url?: boolean
@@ -661,10 +665,10 @@ export type galleriesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   order?: boolean
   created_at?: boolean
   updated_at?: boolean
-  listings?: boolean | Prisma.galleries$listingsArgs<ExtArgs>
+  Listings?: boolean | Prisma.Galleries$ListingsArgs<ExtArgs>
 }, ExtArgs["result"]["galleries"]>
 
-export type galleriesSelectScalar = {
+export type GalleriesSelectScalar = {
   id?: boolean
   listing_id?: boolean
   url?: boolean
@@ -676,21 +680,21 @@ export type galleriesSelectScalar = {
   updated_at?: boolean
 }
 
-export type galleriesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "listing_id" | "url" | "filename" | "mime_type" | "size" | "order" | "created_at" | "updated_at", ExtArgs["result"]["galleries"]>
-export type galleriesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  listings?: boolean | Prisma.galleries$listingsArgs<ExtArgs>
+export type GalleriesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "listing_id" | "url" | "filename" | "mime_type" | "size" | "order" | "created_at" | "updated_at", ExtArgs["result"]["galleries"]>
+export type GalleriesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  Listings?: boolean | Prisma.Galleries$ListingsArgs<ExtArgs>
 }
-export type galleriesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  listings?: boolean | Prisma.galleries$listingsArgs<ExtArgs>
+export type GalleriesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  Listings?: boolean | Prisma.Galleries$ListingsArgs<ExtArgs>
 }
-export type galleriesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  listings?: boolean | Prisma.galleries$listingsArgs<ExtArgs>
+export type GalleriesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  Listings?: boolean | Prisma.Galleries$ListingsArgs<ExtArgs>
 }
 
-export type $galleriesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "galleries"
+export type $GalleriesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "Galleries"
   objects: {
-    listings: Prisma.$listingsPayload<ExtArgs> | null
+    Listings: Prisma.$ListingsPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -706,18 +710,18 @@ export type $galleriesPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   composites: {}
 }
 
-export type galleriesGetPayload<S extends boolean | null | undefined | galleriesDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$galleriesPayload, S>
+export type GalleriesGetPayload<S extends boolean | null | undefined | GalleriesDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$GalleriesPayload, S>
 
-export type galleriesCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<galleriesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type GalleriesCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<GalleriesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: GalleriesCountAggregateInputType | true
   }
 
-export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['galleries'], meta: { name: 'galleries' } }
+export interface GalleriesDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Galleries'], meta: { name: 'Galleries' } }
   /**
    * Find zero or one Galleries that matches the filter.
-   * @param {galleriesFindUniqueArgs} args - Arguments to find a Galleries
+   * @param {GalleriesFindUniqueArgs} args - Arguments to find a Galleries
    * @example
    * // Get one Galleries
    * const galleries = await prisma.galleries.findUnique({
@@ -726,12 +730,12 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
    */
-  findUnique<T extends galleriesFindUniqueArgs>(args: Prisma.SelectSubset<T, galleriesFindUniqueArgs<ExtArgs>>): Prisma.Prisma__galleriesClient<runtime.Types.Result.GetResult<Prisma.$galleriesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends GalleriesFindUniqueArgs>(args: Prisma.SelectSubset<T, GalleriesFindUniqueArgs<ExtArgs>>): Prisma.Prisma__GalleriesClient<runtime.Types.Result.GetResult<Prisma.$GalleriesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Galleries that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {galleriesFindUniqueOrThrowArgs} args - Arguments to find a Galleries
+   * @param {GalleriesFindUniqueOrThrowArgs} args - Arguments to find a Galleries
    * @example
    * // Get one Galleries
    * const galleries = await prisma.galleries.findUniqueOrThrow({
@@ -740,13 +744,13 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
    */
-  findUniqueOrThrow<T extends galleriesFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, galleriesFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__galleriesClient<runtime.Types.Result.GetResult<Prisma.$galleriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends GalleriesFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, GalleriesFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__GalleriesClient<runtime.Types.Result.GetResult<Prisma.$GalleriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Galleries that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {galleriesFindFirstArgs} args - Arguments to find a Galleries
+   * @param {GalleriesFindFirstArgs} args - Arguments to find a Galleries
    * @example
    * // Get one Galleries
    * const galleries = await prisma.galleries.findFirst({
@@ -755,14 +759,14 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
    */
-  findFirst<T extends galleriesFindFirstArgs>(args?: Prisma.SelectSubset<T, galleriesFindFirstArgs<ExtArgs>>): Prisma.Prisma__galleriesClient<runtime.Types.Result.GetResult<Prisma.$galleriesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends GalleriesFindFirstArgs>(args?: Prisma.SelectSubset<T, GalleriesFindFirstArgs<ExtArgs>>): Prisma.Prisma__GalleriesClient<runtime.Types.Result.GetResult<Prisma.$GalleriesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Galleries that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {galleriesFindFirstOrThrowArgs} args - Arguments to find a Galleries
+   * @param {GalleriesFindFirstOrThrowArgs} args - Arguments to find a Galleries
    * @example
    * // Get one Galleries
    * const galleries = await prisma.galleries.findFirstOrThrow({
@@ -771,13 +775,13 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
    */
-  findFirstOrThrow<T extends galleriesFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, galleriesFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__galleriesClient<runtime.Types.Result.GetResult<Prisma.$galleriesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends GalleriesFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, GalleriesFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__GalleriesClient<runtime.Types.Result.GetResult<Prisma.$GalleriesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Galleries that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {galleriesFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {GalleriesFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Galleries
    * const galleries = await prisma.galleries.findMany()
@@ -789,11 +793,11 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * const galleriesWithIdOnly = await prisma.galleries.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends galleriesFindManyArgs>(args?: Prisma.SelectSubset<T, galleriesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$galleriesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends GalleriesFindManyArgs>(args?: Prisma.SelectSubset<T, GalleriesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GalleriesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Galleries.
-   * @param {galleriesCreateArgs} args - Arguments to create a Galleries.
+   * @param {GalleriesCreateArgs} args - Arguments to create a Galleries.
    * @example
    * // Create one Galleries
    * const Galleries = await prisma.galleries.create({
@@ -803,11 +807,11 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    * 
    */
-  create<T extends galleriesCreateArgs>(args: Prisma.SelectSubset<T, galleriesCreateArgs<ExtArgs>>): Prisma.Prisma__galleriesClient<runtime.Types.Result.GetResult<Prisma.$galleriesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends GalleriesCreateArgs>(args: Prisma.SelectSubset<T, GalleriesCreateArgs<ExtArgs>>): Prisma.Prisma__GalleriesClient<runtime.Types.Result.GetResult<Prisma.$GalleriesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Galleries.
-   * @param {galleriesCreateManyArgs} args - Arguments to create many Galleries.
+   * @param {GalleriesCreateManyArgs} args - Arguments to create many Galleries.
    * @example
    * // Create many Galleries
    * const galleries = await prisma.galleries.createMany({
@@ -817,11 +821,11 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    *     
    */
-  createMany<T extends galleriesCreateManyArgs>(args?: Prisma.SelectSubset<T, galleriesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends GalleriesCreateManyArgs>(args?: Prisma.SelectSubset<T, GalleriesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create many Galleries and returns the data saved in the database.
-   * @param {galleriesCreateManyAndReturnArgs} args - Arguments to create many Galleries.
+   * @param {GalleriesCreateManyAndReturnArgs} args - Arguments to create many Galleries.
    * @example
    * // Create many Galleries
    * const galleries = await prisma.galleries.createManyAndReturn({
@@ -841,11 +845,11 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  createManyAndReturn<T extends galleriesCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, galleriesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$galleriesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+  createManyAndReturn<T extends GalleriesCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, GalleriesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GalleriesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Delete a Galleries.
-   * @param {galleriesDeleteArgs} args - Arguments to delete one Galleries.
+   * @param {GalleriesDeleteArgs} args - Arguments to delete one Galleries.
    * @example
    * // Delete one Galleries
    * const Galleries = await prisma.galleries.delete({
@@ -855,11 +859,11 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    * 
    */
-  delete<T extends galleriesDeleteArgs>(args: Prisma.SelectSubset<T, galleriesDeleteArgs<ExtArgs>>): Prisma.Prisma__galleriesClient<runtime.Types.Result.GetResult<Prisma.$galleriesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends GalleriesDeleteArgs>(args: Prisma.SelectSubset<T, GalleriesDeleteArgs<ExtArgs>>): Prisma.Prisma__GalleriesClient<runtime.Types.Result.GetResult<Prisma.$GalleriesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Galleries.
-   * @param {galleriesUpdateArgs} args - Arguments to update one Galleries.
+   * @param {GalleriesUpdateArgs} args - Arguments to update one Galleries.
    * @example
    * // Update one Galleries
    * const galleries = await prisma.galleries.update({
@@ -872,11 +876,11 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    * 
    */
-  update<T extends galleriesUpdateArgs>(args: Prisma.SelectSubset<T, galleriesUpdateArgs<ExtArgs>>): Prisma.Prisma__galleriesClient<runtime.Types.Result.GetResult<Prisma.$galleriesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends GalleriesUpdateArgs>(args: Prisma.SelectSubset<T, GalleriesUpdateArgs<ExtArgs>>): Prisma.Prisma__GalleriesClient<runtime.Types.Result.GetResult<Prisma.$GalleriesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Galleries.
-   * @param {galleriesDeleteManyArgs} args - Arguments to filter Galleries to delete.
+   * @param {GalleriesDeleteManyArgs} args - Arguments to filter Galleries to delete.
    * @example
    * // Delete a few Galleries
    * const { count } = await prisma.galleries.deleteMany({
@@ -886,13 +890,13 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    * 
    */
-  deleteMany<T extends galleriesDeleteManyArgs>(args?: Prisma.SelectSubset<T, galleriesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends GalleriesDeleteManyArgs>(args?: Prisma.SelectSubset<T, GalleriesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Galleries.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {galleriesUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {GalleriesUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Galleries
    * const galleries = await prisma.galleries.updateMany({
@@ -905,11 +909,11 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * })
    * 
    */
-  updateMany<T extends galleriesUpdateManyArgs>(args: Prisma.SelectSubset<T, galleriesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends GalleriesUpdateManyArgs>(args: Prisma.SelectSubset<T, GalleriesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Galleries and returns the data updated in the database.
-   * @param {galleriesUpdateManyAndReturnArgs} args - Arguments to update many Galleries.
+   * @param {GalleriesUpdateManyAndReturnArgs} args - Arguments to update many Galleries.
    * @example
    * // Update many Galleries
    * const galleries = await prisma.galleries.updateManyAndReturn({
@@ -935,11 +939,11 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  updateManyAndReturn<T extends galleriesUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, galleriesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$galleriesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+  updateManyAndReturn<T extends GalleriesUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, GalleriesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GalleriesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Create or update one Galleries.
-   * @param {galleriesUpsertArgs} args - Arguments to update or create a Galleries.
+   * @param {GalleriesUpsertArgs} args - Arguments to update or create a Galleries.
    * @example
    * // Update or create a Galleries
    * const galleries = await prisma.galleries.upsert({
@@ -954,14 +958,14 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
    */
-  upsert<T extends galleriesUpsertArgs>(args: Prisma.SelectSubset<T, galleriesUpsertArgs<ExtArgs>>): Prisma.Prisma__galleriesClient<runtime.Types.Result.GetResult<Prisma.$galleriesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends GalleriesUpsertArgs>(args: Prisma.SelectSubset<T, GalleriesUpsertArgs<ExtArgs>>): Prisma.Prisma__GalleriesClient<runtime.Types.Result.GetResult<Prisma.$GalleriesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Galleries.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {galleriesCountArgs} args - Arguments to filter Galleries to count.
+   * @param {GalleriesCountArgs} args - Arguments to filter Galleries to count.
    * @example
    * // Count the number of Galleries
    * const count = await prisma.galleries.count({
@@ -970,8 +974,8 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   }
    * })
   **/
-  count<T extends galleriesCountArgs>(
-    args?: Prisma.Subset<T, galleriesCountArgs>,
+  count<T extends GalleriesCountArgs>(
+    args?: Prisma.Subset<T, GalleriesCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -1010,7 +1014,7 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * Group by Galleries.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {galleriesGroupByArgs} args - Group by arguments.
+   * @param {GalleriesGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -1025,14 +1029,14 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * 
   **/
   groupBy<
-    T extends galleriesGroupByArgs,
+    T extends GalleriesGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: galleriesGroupByArgs['orderBy'] }
-      : { orderBy?: galleriesGroupByArgs['orderBy'] },
+      ? { orderBy: GalleriesGroupByArgs['orderBy'] }
+      : { orderBy?: GalleriesGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -1081,22 +1085,22 @@ export interface galleriesDelegate<ExtArgs extends runtime.Types.Extensions.Inte
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, galleriesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGalleriesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, GalleriesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGalleriesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the galleries model
+ * Fields of the Galleries model
  */
-readonly fields: galleriesFieldRefs;
+readonly fields: GalleriesFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for galleries.
+ * The delegate class that acts as a "Promise-like" for Galleries.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__galleriesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__GalleriesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  listings<T extends Prisma.galleries$listingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.galleries$listingsArgs<ExtArgs>>): Prisma.Prisma__listingsClient<runtime.Types.Result.GetResult<Prisma.$listingsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  Listings<T extends Prisma.Galleries$ListingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Galleries$ListingsArgs<ExtArgs>>): Prisma.Prisma__ListingsClient<runtime.Types.Result.GetResult<Prisma.$ListingsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1123,446 +1127,446 @@ export interface Prisma__galleriesClient<T, Null = never, ExtArgs extends runtim
 
 
 /**
- * Fields of the galleries model
+ * Fields of the Galleries model
  */
-export interface galleriesFieldRefs {
-  readonly id: Prisma.FieldRef<"galleries", 'Int'>
-  readonly listing_id: Prisma.FieldRef<"galleries", 'Int'>
-  readonly url: Prisma.FieldRef<"galleries", 'String'>
-  readonly filename: Prisma.FieldRef<"galleries", 'String'>
-  readonly mime_type: Prisma.FieldRef<"galleries", 'String'>
-  readonly size: Prisma.FieldRef<"galleries", 'Int'>
-  readonly order: Prisma.FieldRef<"galleries", 'Int'>
-  readonly created_at: Prisma.FieldRef<"galleries", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"galleries", 'DateTime'>
+export interface GalleriesFieldRefs {
+  readonly id: Prisma.FieldRef<"Galleries", 'Int'>
+  readonly listing_id: Prisma.FieldRef<"Galleries", 'Int'>
+  readonly url: Prisma.FieldRef<"Galleries", 'String'>
+  readonly filename: Prisma.FieldRef<"Galleries", 'String'>
+  readonly mime_type: Prisma.FieldRef<"Galleries", 'String'>
+  readonly size: Prisma.FieldRef<"Galleries", 'Int'>
+  readonly order: Prisma.FieldRef<"Galleries", 'Int'>
+  readonly created_at: Prisma.FieldRef<"Galleries", 'DateTime'>
+  readonly updated_at: Prisma.FieldRef<"Galleries", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * galleries findUnique
+ * Galleries findUnique
  */
-export type galleriesFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelect<ExtArgs> | null
+  select?: Prisma.GalleriesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesInclude<ExtArgs> | null
+  include?: Prisma.GalleriesInclude<ExtArgs> | null
   /**
-   * Filter, which galleries to fetch.
+   * Filter, which Galleries to fetch.
    */
-  where: Prisma.galleriesWhereUniqueInput
+  where: Prisma.GalleriesWhereUniqueInput
 }
 
 /**
- * galleries findUniqueOrThrow
+ * Galleries findUniqueOrThrow
  */
-export type galleriesFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelect<ExtArgs> | null
+  select?: Prisma.GalleriesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesInclude<ExtArgs> | null
+  include?: Prisma.GalleriesInclude<ExtArgs> | null
   /**
-   * Filter, which galleries to fetch.
+   * Filter, which Galleries to fetch.
    */
-  where: Prisma.galleriesWhereUniqueInput
+  where: Prisma.GalleriesWhereUniqueInput
 }
 
 /**
- * galleries findFirst
+ * Galleries findFirst
  */
-export type galleriesFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelect<ExtArgs> | null
+  select?: Prisma.GalleriesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesInclude<ExtArgs> | null
+  include?: Prisma.GalleriesInclude<ExtArgs> | null
   /**
-   * Filter, which galleries to fetch.
+   * Filter, which Galleries to fetch.
    */
-  where?: Prisma.galleriesWhereInput
+  where?: Prisma.GalleriesWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of galleries to fetch.
+   * Determine the order of Galleries to fetch.
    */
-  orderBy?: Prisma.galleriesOrderByWithRelationInput | Prisma.galleriesOrderByWithRelationInput[]
+  orderBy?: Prisma.GalleriesOrderByWithRelationInput | Prisma.GalleriesOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for galleries.
+   * Sets the position for searching for Galleries.
    */
-  cursor?: Prisma.galleriesWhereUniqueInput
+  cursor?: Prisma.GalleriesWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` galleries from the position of the cursor.
+   * Take `±n` Galleries from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` galleries.
+   * Skip the first `n` Galleries.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of galleries.
+   * Filter by unique combinations of Galleries.
    */
   distinct?: Prisma.GalleriesScalarFieldEnum | Prisma.GalleriesScalarFieldEnum[]
 }
 
 /**
- * galleries findFirstOrThrow
+ * Galleries findFirstOrThrow
  */
-export type galleriesFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelect<ExtArgs> | null
+  select?: Prisma.GalleriesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesInclude<ExtArgs> | null
+  include?: Prisma.GalleriesInclude<ExtArgs> | null
   /**
-   * Filter, which galleries to fetch.
+   * Filter, which Galleries to fetch.
    */
-  where?: Prisma.galleriesWhereInput
+  where?: Prisma.GalleriesWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of galleries to fetch.
+   * Determine the order of Galleries to fetch.
    */
-  orderBy?: Prisma.galleriesOrderByWithRelationInput | Prisma.galleriesOrderByWithRelationInput[]
+  orderBy?: Prisma.GalleriesOrderByWithRelationInput | Prisma.GalleriesOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for galleries.
+   * Sets the position for searching for Galleries.
    */
-  cursor?: Prisma.galleriesWhereUniqueInput
+  cursor?: Prisma.GalleriesWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` galleries from the position of the cursor.
+   * Take `±n` Galleries from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` galleries.
+   * Skip the first `n` Galleries.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of galleries.
+   * Filter by unique combinations of Galleries.
    */
   distinct?: Prisma.GalleriesScalarFieldEnum | Prisma.GalleriesScalarFieldEnum[]
 }
 
 /**
- * galleries findMany
+ * Galleries findMany
  */
-export type galleriesFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelect<ExtArgs> | null
+  select?: Prisma.GalleriesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesInclude<ExtArgs> | null
+  include?: Prisma.GalleriesInclude<ExtArgs> | null
   /**
-   * Filter, which galleries to fetch.
+   * Filter, which Galleries to fetch.
    */
-  where?: Prisma.galleriesWhereInput
+  where?: Prisma.GalleriesWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of galleries to fetch.
+   * Determine the order of Galleries to fetch.
    */
-  orderBy?: Prisma.galleriesOrderByWithRelationInput | Prisma.galleriesOrderByWithRelationInput[]
+  orderBy?: Prisma.GalleriesOrderByWithRelationInput | Prisma.GalleriesOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing galleries.
+   * Sets the position for listing Galleries.
    */
-  cursor?: Prisma.galleriesWhereUniqueInput
+  cursor?: Prisma.GalleriesWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` galleries from the position of the cursor.
+   * Take `±n` Galleries from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` galleries.
+   * Skip the first `n` Galleries.
    */
   skip?: number
   distinct?: Prisma.GalleriesScalarFieldEnum | Prisma.GalleriesScalarFieldEnum[]
 }
 
 /**
- * galleries create
+ * Galleries create
  */
-export type galleriesCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelect<ExtArgs> | null
+  select?: Prisma.GalleriesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesInclude<ExtArgs> | null
+  include?: Prisma.GalleriesInclude<ExtArgs> | null
   /**
-   * The data needed to create a galleries.
+   * The data needed to create a Galleries.
    */
-  data: Prisma.XOR<Prisma.galleriesCreateInput, Prisma.galleriesUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.GalleriesCreateInput, Prisma.GalleriesUncheckedCreateInput>
 }
 
 /**
- * galleries createMany
+ * Galleries createMany
  */
-export type galleriesCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many galleries.
+   * The data used to create many Galleries.
    */
-  data: Prisma.galleriesCreateManyInput | Prisma.galleriesCreateManyInput[]
+  data: Prisma.GalleriesCreateManyInput | Prisma.GalleriesCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * galleries createManyAndReturn
+ * Galleries createManyAndReturn
  */
-export type galleriesCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelectCreateManyAndReturn<ExtArgs> | null
+  select?: Prisma.GalleriesSelectCreateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
-   * The data used to create many galleries.
+   * The data used to create many Galleries.
    */
-  data: Prisma.galleriesCreateManyInput | Prisma.galleriesCreateManyInput[]
+  data: Prisma.GalleriesCreateManyInput | Prisma.GalleriesCreateManyInput[]
   skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesIncludeCreateManyAndReturn<ExtArgs> | null
+  include?: Prisma.GalleriesIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
- * galleries update
+ * Galleries update
  */
-export type galleriesUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelect<ExtArgs> | null
+  select?: Prisma.GalleriesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesInclude<ExtArgs> | null
+  include?: Prisma.GalleriesInclude<ExtArgs> | null
   /**
-   * The data needed to update a galleries.
+   * The data needed to update a Galleries.
    */
-  data: Prisma.XOR<Prisma.galleriesUpdateInput, Prisma.galleriesUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.GalleriesUpdateInput, Prisma.GalleriesUncheckedUpdateInput>
   /**
-   * Choose, which galleries to update.
+   * Choose, which Galleries to update.
    */
-  where: Prisma.galleriesWhereUniqueInput
+  where: Prisma.GalleriesWhereUniqueInput
 }
 
 /**
- * galleries updateMany
+ * Galleries updateMany
  */
-export type galleriesUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update galleries.
+   * The data used to update Galleries.
    */
-  data: Prisma.XOR<Prisma.galleriesUpdateManyMutationInput, Prisma.galleriesUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.GalleriesUpdateManyMutationInput, Prisma.GalleriesUncheckedUpdateManyInput>
   /**
-   * Filter which galleries to update
+   * Filter which Galleries to update
    */
-  where?: Prisma.galleriesWhereInput
+  where?: Prisma.GalleriesWhereInput
   /**
-   * Limit how many galleries to update.
+   * Limit how many Galleries to update.
    */
   limit?: number
 }
 
 /**
- * galleries updateManyAndReturn
+ * Galleries updateManyAndReturn
  */
-export type galleriesUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelectUpdateManyAndReturn<ExtArgs> | null
+  select?: Prisma.GalleriesSelectUpdateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
-   * The data used to update galleries.
+   * The data used to update Galleries.
    */
-  data: Prisma.XOR<Prisma.galleriesUpdateManyMutationInput, Prisma.galleriesUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.GalleriesUpdateManyMutationInput, Prisma.GalleriesUncheckedUpdateManyInput>
   /**
-   * Filter which galleries to update
+   * Filter which Galleries to update
    */
-  where?: Prisma.galleriesWhereInput
+  where?: Prisma.GalleriesWhereInput
   /**
-   * Limit how many galleries to update.
+   * Limit how many Galleries to update.
    */
   limit?: number
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesIncludeUpdateManyAndReturn<ExtArgs> | null
+  include?: Prisma.GalleriesIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
- * galleries upsert
+ * Galleries upsert
  */
-export type galleriesUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelect<ExtArgs> | null
+  select?: Prisma.GalleriesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesInclude<ExtArgs> | null
+  include?: Prisma.GalleriesInclude<ExtArgs> | null
   /**
-   * The filter to search for the galleries to update in case it exists.
+   * The filter to search for the Galleries to update in case it exists.
    */
-  where: Prisma.galleriesWhereUniqueInput
+  where: Prisma.GalleriesWhereUniqueInput
   /**
-   * In case the galleries found by the `where` argument doesn't exist, create a new galleries with this data.
+   * In case the Galleries found by the `where` argument doesn't exist, create a new Galleries with this data.
    */
-  create: Prisma.XOR<Prisma.galleriesCreateInput, Prisma.galleriesUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.GalleriesCreateInput, Prisma.GalleriesUncheckedCreateInput>
   /**
-   * In case the galleries was found with the provided `where` argument, update it with this data.
+   * In case the Galleries was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.galleriesUpdateInput, Prisma.galleriesUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.GalleriesUpdateInput, Prisma.GalleriesUncheckedUpdateInput>
 }
 
 /**
- * galleries delete
+ * Galleries delete
  */
-export type galleriesDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelect<ExtArgs> | null
+  select?: Prisma.GalleriesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesInclude<ExtArgs> | null
+  include?: Prisma.GalleriesInclude<ExtArgs> | null
   /**
-   * Filter which galleries to delete.
+   * Filter which Galleries to delete.
    */
-  where: Prisma.galleriesWhereUniqueInput
+  where: Prisma.GalleriesWhereUniqueInput
 }
 
 /**
- * galleries deleteMany
+ * Galleries deleteMany
  */
-export type galleriesDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which galleries to delete
+   * Filter which Galleries to delete
    */
-  where?: Prisma.galleriesWhereInput
+  where?: Prisma.GalleriesWhereInput
   /**
-   * Limit how many galleries to delete.
+   * Limit how many Galleries to delete.
    */
   limit?: number
 }
 
 /**
- * galleries.listings
+ * Galleries.Listings
  */
-export type galleries$listingsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Galleries$ListingsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the listings
+   * Select specific fields to fetch from the Listings
    */
-  select?: Prisma.listingsSelect<ExtArgs> | null
+  select?: Prisma.ListingsSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the listings
+   * Omit specific fields from the Listings
    */
-  omit?: Prisma.listingsOmit<ExtArgs> | null
+  omit?: Prisma.ListingsOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.listingsInclude<ExtArgs> | null
-  where?: Prisma.listingsWhereInput
+  include?: Prisma.ListingsInclude<ExtArgs> | null
+  where?: Prisma.ListingsWhereInput
 }
 
 /**
- * galleries without action
+ * Galleries without action
  */
-export type galleriesDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GalleriesDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the galleries
+   * Select specific fields to fetch from the Galleries
    */
-  select?: Prisma.galleriesSelect<ExtArgs> | null
+  select?: Prisma.GalleriesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the galleries
+   * Omit specific fields from the Galleries
    */
-  omit?: Prisma.galleriesOmit<ExtArgs> | null
+  omit?: Prisma.GalleriesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.galleriesInclude<ExtArgs> | null
+  include?: Prisma.GalleriesInclude<ExtArgs> | null
 }

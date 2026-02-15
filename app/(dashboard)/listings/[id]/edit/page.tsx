@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ListingForm } from "@/components/listings/listing-form";
 import { useListing } from "@/lib/queries/use-listings";
 import BlurFade from "@/components/magicui/blur-fade";
+import { ListingFormValues } from "@/lib/validations";
 
 export default function EditListingPage({
   params,
@@ -55,7 +56,10 @@ export default function EditListingPage({
       </BlurFade>
 
       <BlurFade delay={0.1} inView>
-        <ListingForm mode="edit" initialData={{ ...listing, id }} />
+        <ListingForm
+          mode="edit"
+          initialData={{ ...(listing as ListingFormValues), id }}
+        />
       </BlurFade>
     </div>
   );

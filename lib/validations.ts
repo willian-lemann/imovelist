@@ -15,7 +15,7 @@ export const listingSchema = z.object({
   photos: z.array(z.string()).optional(),
   agency: z.string().optional(),
   ref: z.string().optional(),
-  link: z.string().url().optional().or(z.literal("")),
+  link: z.url().optional().or(z.literal("")),
   published: z.boolean().default(false),
 });
 

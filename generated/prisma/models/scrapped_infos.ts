@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `scrapped_infos` model and its related types.
+ * This file exports the `Scrapped_infos` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
 /**
- * Model scrapped_infos
+ * Model Scrapped_infos
  * 
  */
-export type scrapped_infosModel = runtime.Types.Result.DefaultSelection<Prisma.$scrapped_infosPayload>
+export type Scrapped_infosModel = runtime.Types.Result.DefaultSelection<Prisma.$Scrapped_infosPayload>
 
 export type AggregateScrapped_infos = {
   _count: Scrapped_infosCountAggregateOutputType | null
@@ -109,37 +109,37 @@ export type Scrapped_infosCountAggregateInputType = {
 
 export type Scrapped_infosAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which scrapped_infos to aggregate.
+   * Filter which Scrapped_infos to aggregate.
    */
-  where?: Prisma.scrapped_infosWhereInput
+  where?: Prisma.Scrapped_infosWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of scrapped_infos to fetch.
+   * Determine the order of Scrapped_infos to fetch.
    */
-  orderBy?: Prisma.scrapped_infosOrderByWithRelationInput | Prisma.scrapped_infosOrderByWithRelationInput[]
+  orderBy?: Prisma.Scrapped_infosOrderByWithRelationInput | Prisma.Scrapped_infosOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.scrapped_infosWhereUniqueInput
+  cursor?: Prisma.Scrapped_infosWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` scrapped_infos from the position of the cursor.
+   * Take `±n` Scrapped_infos from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` scrapped_infos.
+   * Skip the first `n` Scrapped_infos.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned scrapped_infos
+   * Count returned Scrapped_infos
   **/
   _count?: true | Scrapped_infosCountAggregateInputType
   /**
@@ -179,11 +179,11 @@ export type GetScrapped_infosAggregateType<T extends Scrapped_infosAggregateArgs
 
 
 
-export type scrapped_infosGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.scrapped_infosWhereInput
-  orderBy?: Prisma.scrapped_infosOrderByWithAggregationInput | Prisma.scrapped_infosOrderByWithAggregationInput[]
+export type Scrapped_infosGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.Scrapped_infosWhereInput
+  orderBy?: Prisma.Scrapped_infosOrderByWithAggregationInput | Prisma.Scrapped_infosOrderByWithAggregationInput[]
   by: Prisma.Scrapped_infosScalarFieldEnum[] | Prisma.Scrapped_infosScalarFieldEnum
-  having?: Prisma.scrapped_infosScalarWhereWithAggregatesInput
+  having?: Prisma.Scrapped_infosScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: Scrapped_infosCountAggregateInputType | true
@@ -207,7 +207,7 @@ export type Scrapped_infosGroupByOutputType = {
   _max: Scrapped_infosMaxAggregateOutputType | null
 }
 
-type GetScrapped_infosGroupByPayload<T extends scrapped_infosGroupByArgs> = Prisma.PrismaPromise<
+type GetScrapped_infosGroupByPayload<T extends Scrapped_infosGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<Scrapped_infosGroupByOutputType, T['by']> &
       {
@@ -222,19 +222,19 @@ type GetScrapped_infosGroupByPayload<T extends scrapped_infosGroupByArgs> = Pris
 
 
 
-export type scrapped_infosWhereInput = {
-  AND?: Prisma.scrapped_infosWhereInput | Prisma.scrapped_infosWhereInput[]
-  OR?: Prisma.scrapped_infosWhereInput[]
-  NOT?: Prisma.scrapped_infosWhereInput | Prisma.scrapped_infosWhereInput[]
-  id?: Prisma.IntFilter<"scrapped_infos"> | number
-  total_pages?: Prisma.IntNullableFilter<"scrapped_infos"> | number | null
-  total_listings?: Prisma.IntNullableFilter<"scrapped_infos"> | number | null
-  agency?: Prisma.StringNullableFilter<"scrapped_infos"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"scrapped_infos"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"scrapped_infos"> | Date | string | null
+export type Scrapped_infosWhereInput = {
+  AND?: Prisma.Scrapped_infosWhereInput | Prisma.Scrapped_infosWhereInput[]
+  OR?: Prisma.Scrapped_infosWhereInput[]
+  NOT?: Prisma.Scrapped_infosWhereInput | Prisma.Scrapped_infosWhereInput[]
+  id?: Prisma.IntFilter<"Scrapped_infos"> | number
+  total_pages?: Prisma.IntNullableFilter<"Scrapped_infos"> | number | null
+  total_listings?: Prisma.IntNullableFilter<"Scrapped_infos"> | number | null
+  agency?: Prisma.StringNullableFilter<"Scrapped_infos"> | string | null
+  created_at?: Prisma.DateTimeNullableFilter<"Scrapped_infos"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"Scrapped_infos"> | Date | string | null
 }
 
-export type scrapped_infosOrderByWithRelationInput = {
+export type Scrapped_infosOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   total_pages?: Prisma.SortOrderInput | Prisma.SortOrder
   total_listings?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -243,45 +243,45 @@ export type scrapped_infosOrderByWithRelationInput = {
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
 }
 
-export type scrapped_infosWhereUniqueInput = Prisma.AtLeast<{
+export type Scrapped_infosWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  AND?: Prisma.scrapped_infosWhereInput | Prisma.scrapped_infosWhereInput[]
-  OR?: Prisma.scrapped_infosWhereInput[]
-  NOT?: Prisma.scrapped_infosWhereInput | Prisma.scrapped_infosWhereInput[]
-  total_pages?: Prisma.IntNullableFilter<"scrapped_infos"> | number | null
-  total_listings?: Prisma.IntNullableFilter<"scrapped_infos"> | number | null
-  agency?: Prisma.StringNullableFilter<"scrapped_infos"> | string | null
-  created_at?: Prisma.DateTimeNullableFilter<"scrapped_infos"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableFilter<"scrapped_infos"> | Date | string | null
+  AND?: Prisma.Scrapped_infosWhereInput | Prisma.Scrapped_infosWhereInput[]
+  OR?: Prisma.Scrapped_infosWhereInput[]
+  NOT?: Prisma.Scrapped_infosWhereInput | Prisma.Scrapped_infosWhereInput[]
+  total_pages?: Prisma.IntNullableFilter<"Scrapped_infos"> | number | null
+  total_listings?: Prisma.IntNullableFilter<"Scrapped_infos"> | number | null
+  agency?: Prisma.StringNullableFilter<"Scrapped_infos"> | string | null
+  created_at?: Prisma.DateTimeNullableFilter<"Scrapped_infos"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableFilter<"Scrapped_infos"> | Date | string | null
 }, "id">
 
-export type scrapped_infosOrderByWithAggregationInput = {
+export type Scrapped_infosOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   total_pages?: Prisma.SortOrderInput | Prisma.SortOrder
   total_listings?: Prisma.SortOrderInput | Prisma.SortOrder
   agency?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  _count?: Prisma.scrapped_infosCountOrderByAggregateInput
-  _avg?: Prisma.scrapped_infosAvgOrderByAggregateInput
-  _max?: Prisma.scrapped_infosMaxOrderByAggregateInput
-  _min?: Prisma.scrapped_infosMinOrderByAggregateInput
-  _sum?: Prisma.scrapped_infosSumOrderByAggregateInput
+  _count?: Prisma.Scrapped_infosCountOrderByAggregateInput
+  _avg?: Prisma.Scrapped_infosAvgOrderByAggregateInput
+  _max?: Prisma.Scrapped_infosMaxOrderByAggregateInput
+  _min?: Prisma.Scrapped_infosMinOrderByAggregateInput
+  _sum?: Prisma.Scrapped_infosSumOrderByAggregateInput
 }
 
-export type scrapped_infosScalarWhereWithAggregatesInput = {
-  AND?: Prisma.scrapped_infosScalarWhereWithAggregatesInput | Prisma.scrapped_infosScalarWhereWithAggregatesInput[]
-  OR?: Prisma.scrapped_infosScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.scrapped_infosScalarWhereWithAggregatesInput | Prisma.scrapped_infosScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"scrapped_infos"> | number
-  total_pages?: Prisma.IntNullableWithAggregatesFilter<"scrapped_infos"> | number | null
-  total_listings?: Prisma.IntNullableWithAggregatesFilter<"scrapped_infos"> | number | null
-  agency?: Prisma.StringNullableWithAggregatesFilter<"scrapped_infos"> | string | null
-  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"scrapped_infos"> | Date | string | null
-  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"scrapped_infos"> | Date | string | null
+export type Scrapped_infosScalarWhereWithAggregatesInput = {
+  AND?: Prisma.Scrapped_infosScalarWhereWithAggregatesInput | Prisma.Scrapped_infosScalarWhereWithAggregatesInput[]
+  OR?: Prisma.Scrapped_infosScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.Scrapped_infosScalarWhereWithAggregatesInput | Prisma.Scrapped_infosScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"Scrapped_infos"> | number
+  total_pages?: Prisma.IntNullableWithAggregatesFilter<"Scrapped_infos"> | number | null
+  total_listings?: Prisma.IntNullableWithAggregatesFilter<"Scrapped_infos"> | number | null
+  agency?: Prisma.StringNullableWithAggregatesFilter<"Scrapped_infos"> | string | null
+  created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Scrapped_infos"> | Date | string | null
+  updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Scrapped_infos"> | Date | string | null
 }
 
-export type scrapped_infosCreateInput = {
+export type Scrapped_infosCreateInput = {
   total_pages?: number | null
   total_listings?: number | null
   agency?: string | null
@@ -289,7 +289,7 @@ export type scrapped_infosCreateInput = {
   updated_at?: Date | string | null
 }
 
-export type scrapped_infosUncheckedCreateInput = {
+export type Scrapped_infosUncheckedCreateInput = {
   id?: number
   total_pages?: number | null
   total_listings?: number | null
@@ -298,7 +298,7 @@ export type scrapped_infosUncheckedCreateInput = {
   updated_at?: Date | string | null
 }
 
-export type scrapped_infosUpdateInput = {
+export type Scrapped_infosUpdateInput = {
   total_pages?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   total_listings?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   agency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -306,7 +306,7 @@ export type scrapped_infosUpdateInput = {
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type scrapped_infosUncheckedUpdateInput = {
+export type Scrapped_infosUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   total_pages?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   total_listings?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -315,7 +315,7 @@ export type scrapped_infosUncheckedUpdateInput = {
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type scrapped_infosCreateManyInput = {
+export type Scrapped_infosCreateManyInput = {
   id?: number
   total_pages?: number | null
   total_listings?: number | null
@@ -324,7 +324,7 @@ export type scrapped_infosCreateManyInput = {
   updated_at?: Date | string | null
 }
 
-export type scrapped_infosUpdateManyMutationInput = {
+export type Scrapped_infosUpdateManyMutationInput = {
   total_pages?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   total_listings?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   agency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -332,7 +332,7 @@ export type scrapped_infosUpdateManyMutationInput = {
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type scrapped_infosUncheckedUpdateManyInput = {
+export type Scrapped_infosUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   total_pages?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   total_listings?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -341,7 +341,7 @@ export type scrapped_infosUncheckedUpdateManyInput = {
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type scrapped_infosCountOrderByAggregateInput = {
+export type Scrapped_infosCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   total_pages?: Prisma.SortOrder
   total_listings?: Prisma.SortOrder
@@ -350,22 +350,13 @@ export type scrapped_infosCountOrderByAggregateInput = {
   updated_at?: Prisma.SortOrder
 }
 
-export type scrapped_infosAvgOrderByAggregateInput = {
+export type Scrapped_infosAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   total_pages?: Prisma.SortOrder
   total_listings?: Prisma.SortOrder
 }
 
-export type scrapped_infosMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  total_pages?: Prisma.SortOrder
-  total_listings?: Prisma.SortOrder
-  agency?: Prisma.SortOrder
-  created_at?: Prisma.SortOrder
-  updated_at?: Prisma.SortOrder
-}
-
-export type scrapped_infosMinOrderByAggregateInput = {
+export type Scrapped_infosMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   total_pages?: Prisma.SortOrder
   total_listings?: Prisma.SortOrder
@@ -374,7 +365,16 @@ export type scrapped_infosMinOrderByAggregateInput = {
   updated_at?: Prisma.SortOrder
 }
 
-export type scrapped_infosSumOrderByAggregateInput = {
+export type Scrapped_infosMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  total_pages?: Prisma.SortOrder
+  total_listings?: Prisma.SortOrder
+  agency?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
+}
+
+export type Scrapped_infosSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   total_pages?: Prisma.SortOrder
   total_listings?: Prisma.SortOrder
@@ -382,7 +382,7 @@ export type scrapped_infosSumOrderByAggregateInput = {
 
 
 
-export type scrapped_infosSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type Scrapped_infosSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   total_pages?: boolean
   total_listings?: boolean
@@ -391,7 +391,7 @@ export type scrapped_infosSelect<ExtArgs extends runtime.Types.Extensions.Intern
   updated_at?: boolean
 }, ExtArgs["result"]["scrapped_infos"]>
 
-export type scrapped_infosSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type Scrapped_infosSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   total_pages?: boolean
   total_listings?: boolean
@@ -400,7 +400,7 @@ export type scrapped_infosSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   updated_at?: boolean
 }, ExtArgs["result"]["scrapped_infos"]>
 
-export type scrapped_infosSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type Scrapped_infosSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   total_pages?: boolean
   total_listings?: boolean
@@ -409,7 +409,7 @@ export type scrapped_infosSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   updated_at?: boolean
 }, ExtArgs["result"]["scrapped_infos"]>
 
-export type scrapped_infosSelectScalar = {
+export type Scrapped_infosSelectScalar = {
   id?: boolean
   total_pages?: boolean
   total_listings?: boolean
@@ -418,10 +418,10 @@ export type scrapped_infosSelectScalar = {
   updated_at?: boolean
 }
 
-export type scrapped_infosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "total_pages" | "total_listings" | "agency" | "created_at" | "updated_at", ExtArgs["result"]["scrapped_infos"]>
+export type Scrapped_infosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "total_pages" | "total_listings" | "agency" | "created_at" | "updated_at", ExtArgs["result"]["scrapped_infos"]>
 
-export type $scrapped_infosPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "scrapped_infos"
+export type $Scrapped_infosPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "Scrapped_infos"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -434,18 +434,18 @@ export type $scrapped_infosPayload<ExtArgs extends runtime.Types.Extensions.Inte
   composites: {}
 }
 
-export type scrapped_infosGetPayload<S extends boolean | null | undefined | scrapped_infosDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload, S>
+export type Scrapped_infosGetPayload<S extends boolean | null | undefined | Scrapped_infosDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload, S>
 
-export type scrapped_infosCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<scrapped_infosFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type Scrapped_infosCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<Scrapped_infosFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: Scrapped_infosCountAggregateInputType | true
   }
 
-export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['scrapped_infos'], meta: { name: 'scrapped_infos' } }
+export interface Scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Scrapped_infos'], meta: { name: 'Scrapped_infos' } }
   /**
    * Find zero or one Scrapped_infos that matches the filter.
-   * @param {scrapped_infosFindUniqueArgs} args - Arguments to find a Scrapped_infos
+   * @param {Scrapped_infosFindUniqueArgs} args - Arguments to find a Scrapped_infos
    * @example
    * // Get one Scrapped_infos
    * const scrapped_infos = await prisma.scrapped_infos.findUnique({
@@ -454,12 +454,12 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    *   }
    * })
    */
-  findUnique<T extends scrapped_infosFindUniqueArgs>(args: Prisma.SelectSubset<T, scrapped_infosFindUniqueArgs<ExtArgs>>): Prisma.Prisma__scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends Scrapped_infosFindUniqueArgs>(args: Prisma.SelectSubset<T, Scrapped_infosFindUniqueArgs<ExtArgs>>): Prisma.Prisma__Scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Scrapped_infos that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {scrapped_infosFindUniqueOrThrowArgs} args - Arguments to find a Scrapped_infos
+   * @param {Scrapped_infosFindUniqueOrThrowArgs} args - Arguments to find a Scrapped_infos
    * @example
    * // Get one Scrapped_infos
    * const scrapped_infos = await prisma.scrapped_infos.findUniqueOrThrow({
@@ -468,13 +468,13 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    *   }
    * })
    */
-  findUniqueOrThrow<T extends scrapped_infosFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, scrapped_infosFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends Scrapped_infosFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, Scrapped_infosFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__Scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Scrapped_infos that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {scrapped_infosFindFirstArgs} args - Arguments to find a Scrapped_infos
+   * @param {Scrapped_infosFindFirstArgs} args - Arguments to find a Scrapped_infos
    * @example
    * // Get one Scrapped_infos
    * const scrapped_infos = await prisma.scrapped_infos.findFirst({
@@ -483,14 +483,14 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    *   }
    * })
    */
-  findFirst<T extends scrapped_infosFindFirstArgs>(args?: Prisma.SelectSubset<T, scrapped_infosFindFirstArgs<ExtArgs>>): Prisma.Prisma__scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends Scrapped_infosFindFirstArgs>(args?: Prisma.SelectSubset<T, Scrapped_infosFindFirstArgs<ExtArgs>>): Prisma.Prisma__Scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Scrapped_infos that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {scrapped_infosFindFirstOrThrowArgs} args - Arguments to find a Scrapped_infos
+   * @param {Scrapped_infosFindFirstOrThrowArgs} args - Arguments to find a Scrapped_infos
    * @example
    * // Get one Scrapped_infos
    * const scrapped_infos = await prisma.scrapped_infos.findFirstOrThrow({
@@ -499,13 +499,13 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    *   }
    * })
    */
-  findFirstOrThrow<T extends scrapped_infosFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, scrapped_infosFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends Scrapped_infosFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, Scrapped_infosFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__Scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Scrapped_infos that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {scrapped_infosFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {Scrapped_infosFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Scrapped_infos
    * const scrapped_infos = await prisma.scrapped_infos.findMany()
@@ -517,11 +517,11 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    * const scrapped_infosWithIdOnly = await prisma.scrapped_infos.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends scrapped_infosFindManyArgs>(args?: Prisma.SelectSubset<T, scrapped_infosFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends Scrapped_infosFindManyArgs>(args?: Prisma.SelectSubset<T, Scrapped_infosFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Scrapped_infos.
-   * @param {scrapped_infosCreateArgs} args - Arguments to create a Scrapped_infos.
+   * @param {Scrapped_infosCreateArgs} args - Arguments to create a Scrapped_infos.
    * @example
    * // Create one Scrapped_infos
    * const Scrapped_infos = await prisma.scrapped_infos.create({
@@ -531,11 +531,11 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    * })
    * 
    */
-  create<T extends scrapped_infosCreateArgs>(args: Prisma.SelectSubset<T, scrapped_infosCreateArgs<ExtArgs>>): Prisma.Prisma__scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends Scrapped_infosCreateArgs>(args: Prisma.SelectSubset<T, Scrapped_infosCreateArgs<ExtArgs>>): Prisma.Prisma__Scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Scrapped_infos.
-   * @param {scrapped_infosCreateManyArgs} args - Arguments to create many Scrapped_infos.
+   * @param {Scrapped_infosCreateManyArgs} args - Arguments to create many Scrapped_infos.
    * @example
    * // Create many Scrapped_infos
    * const scrapped_infos = await prisma.scrapped_infos.createMany({
@@ -545,11 +545,11 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    * })
    *     
    */
-  createMany<T extends scrapped_infosCreateManyArgs>(args?: Prisma.SelectSubset<T, scrapped_infosCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends Scrapped_infosCreateManyArgs>(args?: Prisma.SelectSubset<T, Scrapped_infosCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create many Scrapped_infos and returns the data saved in the database.
-   * @param {scrapped_infosCreateManyAndReturnArgs} args - Arguments to create many Scrapped_infos.
+   * @param {Scrapped_infosCreateManyAndReturnArgs} args - Arguments to create many Scrapped_infos.
    * @example
    * // Create many Scrapped_infos
    * const scrapped_infos = await prisma.scrapped_infos.createManyAndReturn({
@@ -569,11 +569,11 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  createManyAndReturn<T extends scrapped_infosCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, scrapped_infosCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+  createManyAndReturn<T extends Scrapped_infosCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, Scrapped_infosCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Delete a Scrapped_infos.
-   * @param {scrapped_infosDeleteArgs} args - Arguments to delete one Scrapped_infos.
+   * @param {Scrapped_infosDeleteArgs} args - Arguments to delete one Scrapped_infos.
    * @example
    * // Delete one Scrapped_infos
    * const Scrapped_infos = await prisma.scrapped_infos.delete({
@@ -583,11 +583,11 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    * })
    * 
    */
-  delete<T extends scrapped_infosDeleteArgs>(args: Prisma.SelectSubset<T, scrapped_infosDeleteArgs<ExtArgs>>): Prisma.Prisma__scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends Scrapped_infosDeleteArgs>(args: Prisma.SelectSubset<T, Scrapped_infosDeleteArgs<ExtArgs>>): Prisma.Prisma__Scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Scrapped_infos.
-   * @param {scrapped_infosUpdateArgs} args - Arguments to update one Scrapped_infos.
+   * @param {Scrapped_infosUpdateArgs} args - Arguments to update one Scrapped_infos.
    * @example
    * // Update one Scrapped_infos
    * const scrapped_infos = await prisma.scrapped_infos.update({
@@ -600,11 +600,11 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    * })
    * 
    */
-  update<T extends scrapped_infosUpdateArgs>(args: Prisma.SelectSubset<T, scrapped_infosUpdateArgs<ExtArgs>>): Prisma.Prisma__scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends Scrapped_infosUpdateArgs>(args: Prisma.SelectSubset<T, Scrapped_infosUpdateArgs<ExtArgs>>): Prisma.Prisma__Scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Scrapped_infos.
-   * @param {scrapped_infosDeleteManyArgs} args - Arguments to filter Scrapped_infos to delete.
+   * @param {Scrapped_infosDeleteManyArgs} args - Arguments to filter Scrapped_infos to delete.
    * @example
    * // Delete a few Scrapped_infos
    * const { count } = await prisma.scrapped_infos.deleteMany({
@@ -614,13 +614,13 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    * })
    * 
    */
-  deleteMany<T extends scrapped_infosDeleteManyArgs>(args?: Prisma.SelectSubset<T, scrapped_infosDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends Scrapped_infosDeleteManyArgs>(args?: Prisma.SelectSubset<T, Scrapped_infosDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Scrapped_infos.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {scrapped_infosUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {Scrapped_infosUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Scrapped_infos
    * const scrapped_infos = await prisma.scrapped_infos.updateMany({
@@ -633,11 +633,11 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    * })
    * 
    */
-  updateMany<T extends scrapped_infosUpdateManyArgs>(args: Prisma.SelectSubset<T, scrapped_infosUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends Scrapped_infosUpdateManyArgs>(args: Prisma.SelectSubset<T, Scrapped_infosUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Scrapped_infos and returns the data updated in the database.
-   * @param {scrapped_infosUpdateManyAndReturnArgs} args - Arguments to update many Scrapped_infos.
+   * @param {Scrapped_infosUpdateManyAndReturnArgs} args - Arguments to update many Scrapped_infos.
    * @example
    * // Update many Scrapped_infos
    * const scrapped_infos = await prisma.scrapped_infos.updateManyAndReturn({
@@ -663,11 +663,11 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  updateManyAndReturn<T extends scrapped_infosUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, scrapped_infosUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+  updateManyAndReturn<T extends Scrapped_infosUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, Scrapped_infosUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Create or update one Scrapped_infos.
-   * @param {scrapped_infosUpsertArgs} args - Arguments to update or create a Scrapped_infos.
+   * @param {Scrapped_infosUpsertArgs} args - Arguments to update or create a Scrapped_infos.
    * @example
    * // Update or create a Scrapped_infos
    * const scrapped_infos = await prisma.scrapped_infos.upsert({
@@ -682,14 +682,14 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    *   }
    * })
    */
-  upsert<T extends scrapped_infosUpsertArgs>(args: Prisma.SelectSubset<T, scrapped_infosUpsertArgs<ExtArgs>>): Prisma.Prisma__scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$scrapped_infosPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends Scrapped_infosUpsertArgs>(args: Prisma.SelectSubset<T, Scrapped_infosUpsertArgs<ExtArgs>>): Prisma.Prisma__Scrapped_infosClient<runtime.Types.Result.GetResult<Prisma.$Scrapped_infosPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Scrapped_infos.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {scrapped_infosCountArgs} args - Arguments to filter Scrapped_infos to count.
+   * @param {Scrapped_infosCountArgs} args - Arguments to filter Scrapped_infos to count.
    * @example
    * // Count the number of Scrapped_infos
    * const count = await prisma.scrapped_infos.count({
@@ -698,8 +698,8 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    *   }
    * })
   **/
-  count<T extends scrapped_infosCountArgs>(
-    args?: Prisma.Subset<T, scrapped_infosCountArgs>,
+  count<T extends Scrapped_infosCountArgs>(
+    args?: Prisma.Subset<T, Scrapped_infosCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -738,7 +738,7 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    * Group by Scrapped_infos.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {scrapped_infosGroupByArgs} args - Group by arguments.
+   * @param {Scrapped_infosGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -753,14 +753,14 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
    * 
   **/
   groupBy<
-    T extends scrapped_infosGroupByArgs,
+    T extends Scrapped_infosGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: scrapped_infosGroupByArgs['orderBy'] }
-      : { orderBy?: scrapped_infosGroupByArgs['orderBy'] },
+      ? { orderBy: Scrapped_infosGroupByArgs['orderBy'] }
+      : { orderBy?: Scrapped_infosGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -809,20 +809,20 @@ export interface scrapped_infosDelegate<ExtArgs extends runtime.Types.Extensions
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, scrapped_infosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetScrapped_infosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, Scrapped_infosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetScrapped_infosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the scrapped_infos model
+ * Fields of the Scrapped_infos model
  */
-readonly fields: scrapped_infosFieldRefs;
+readonly fields: Scrapped_infosFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for scrapped_infos.
+ * The delegate class that acts as a "Promise-like" for Scrapped_infos.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__scrapped_infosClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__Scrapped_infosClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -850,376 +850,376 @@ export interface Prisma__scrapped_infosClient<T, Null = never, ExtArgs extends r
 
 
 /**
- * Fields of the scrapped_infos model
+ * Fields of the Scrapped_infos model
  */
-export interface scrapped_infosFieldRefs {
-  readonly id: Prisma.FieldRef<"scrapped_infos", 'Int'>
-  readonly total_pages: Prisma.FieldRef<"scrapped_infos", 'Int'>
-  readonly total_listings: Prisma.FieldRef<"scrapped_infos", 'Int'>
-  readonly agency: Prisma.FieldRef<"scrapped_infos", 'String'>
-  readonly created_at: Prisma.FieldRef<"scrapped_infos", 'DateTime'>
-  readonly updated_at: Prisma.FieldRef<"scrapped_infos", 'DateTime'>
+export interface Scrapped_infosFieldRefs {
+  readonly id: Prisma.FieldRef<"Scrapped_infos", 'Int'>
+  readonly total_pages: Prisma.FieldRef<"Scrapped_infos", 'Int'>
+  readonly total_listings: Prisma.FieldRef<"Scrapped_infos", 'Int'>
+  readonly agency: Prisma.FieldRef<"Scrapped_infos", 'String'>
+  readonly created_at: Prisma.FieldRef<"Scrapped_infos", 'DateTime'>
+  readonly updated_at: Prisma.FieldRef<"Scrapped_infos", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * scrapped_infos findUnique
+ * Scrapped_infos findUnique
  */
-export type scrapped_infosFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelect<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
   /**
-   * Filter, which scrapped_infos to fetch.
+   * Filter, which Scrapped_infos to fetch.
    */
-  where: Prisma.scrapped_infosWhereUniqueInput
+  where: Prisma.Scrapped_infosWhereUniqueInput
 }
 
 /**
- * scrapped_infos findUniqueOrThrow
+ * Scrapped_infos findUniqueOrThrow
  */
-export type scrapped_infosFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelect<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
   /**
-   * Filter, which scrapped_infos to fetch.
+   * Filter, which Scrapped_infos to fetch.
    */
-  where: Prisma.scrapped_infosWhereUniqueInput
+  where: Prisma.Scrapped_infosWhereUniqueInput
 }
 
 /**
- * scrapped_infos findFirst
+ * Scrapped_infos findFirst
  */
-export type scrapped_infosFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelect<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
   /**
-   * Filter, which scrapped_infos to fetch.
+   * Filter, which Scrapped_infos to fetch.
    */
-  where?: Prisma.scrapped_infosWhereInput
+  where?: Prisma.Scrapped_infosWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of scrapped_infos to fetch.
+   * Determine the order of Scrapped_infos to fetch.
    */
-  orderBy?: Prisma.scrapped_infosOrderByWithRelationInput | Prisma.scrapped_infosOrderByWithRelationInput[]
+  orderBy?: Prisma.Scrapped_infosOrderByWithRelationInput | Prisma.Scrapped_infosOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for scrapped_infos.
+   * Sets the position for searching for Scrapped_infos.
    */
-  cursor?: Prisma.scrapped_infosWhereUniqueInput
+  cursor?: Prisma.Scrapped_infosWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` scrapped_infos from the position of the cursor.
+   * Take `±n` Scrapped_infos from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` scrapped_infos.
+   * Skip the first `n` Scrapped_infos.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of scrapped_infos.
+   * Filter by unique combinations of Scrapped_infos.
    */
   distinct?: Prisma.Scrapped_infosScalarFieldEnum | Prisma.Scrapped_infosScalarFieldEnum[]
 }
 
 /**
- * scrapped_infos findFirstOrThrow
+ * Scrapped_infos findFirstOrThrow
  */
-export type scrapped_infosFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelect<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
   /**
-   * Filter, which scrapped_infos to fetch.
+   * Filter, which Scrapped_infos to fetch.
    */
-  where?: Prisma.scrapped_infosWhereInput
+  where?: Prisma.Scrapped_infosWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of scrapped_infos to fetch.
+   * Determine the order of Scrapped_infos to fetch.
    */
-  orderBy?: Prisma.scrapped_infosOrderByWithRelationInput | Prisma.scrapped_infosOrderByWithRelationInput[]
+  orderBy?: Prisma.Scrapped_infosOrderByWithRelationInput | Prisma.Scrapped_infosOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for scrapped_infos.
+   * Sets the position for searching for Scrapped_infos.
    */
-  cursor?: Prisma.scrapped_infosWhereUniqueInput
+  cursor?: Prisma.Scrapped_infosWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` scrapped_infos from the position of the cursor.
+   * Take `±n` Scrapped_infos from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` scrapped_infos.
+   * Skip the first `n` Scrapped_infos.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of scrapped_infos.
+   * Filter by unique combinations of Scrapped_infos.
    */
   distinct?: Prisma.Scrapped_infosScalarFieldEnum | Prisma.Scrapped_infosScalarFieldEnum[]
 }
 
 /**
- * scrapped_infos findMany
+ * Scrapped_infos findMany
  */
-export type scrapped_infosFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelect<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
   /**
-   * Filter, which scrapped_infos to fetch.
+   * Filter, which Scrapped_infos to fetch.
    */
-  where?: Prisma.scrapped_infosWhereInput
+  where?: Prisma.Scrapped_infosWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of scrapped_infos to fetch.
+   * Determine the order of Scrapped_infos to fetch.
    */
-  orderBy?: Prisma.scrapped_infosOrderByWithRelationInput | Prisma.scrapped_infosOrderByWithRelationInput[]
+  orderBy?: Prisma.Scrapped_infosOrderByWithRelationInput | Prisma.Scrapped_infosOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing scrapped_infos.
+   * Sets the position for listing Scrapped_infos.
    */
-  cursor?: Prisma.scrapped_infosWhereUniqueInput
+  cursor?: Prisma.Scrapped_infosWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` scrapped_infos from the position of the cursor.
+   * Take `±n` Scrapped_infos from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` scrapped_infos.
+   * Skip the first `n` Scrapped_infos.
    */
   skip?: number
   distinct?: Prisma.Scrapped_infosScalarFieldEnum | Prisma.Scrapped_infosScalarFieldEnum[]
 }
 
 /**
- * scrapped_infos create
+ * Scrapped_infos create
  */
-export type scrapped_infosCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelect<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
   /**
-   * The data needed to create a scrapped_infos.
+   * The data needed to create a Scrapped_infos.
    */
-  data?: Prisma.XOR<Prisma.scrapped_infosCreateInput, Prisma.scrapped_infosUncheckedCreateInput>
+  data?: Prisma.XOR<Prisma.Scrapped_infosCreateInput, Prisma.Scrapped_infosUncheckedCreateInput>
 }
 
 /**
- * scrapped_infos createMany
+ * Scrapped_infos createMany
  */
-export type scrapped_infosCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many scrapped_infos.
+   * The data used to create many Scrapped_infos.
    */
-  data: Prisma.scrapped_infosCreateManyInput | Prisma.scrapped_infosCreateManyInput[]
+  data: Prisma.Scrapped_infosCreateManyInput | Prisma.Scrapped_infosCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * scrapped_infos createManyAndReturn
+ * Scrapped_infos createManyAndReturn
  */
-export type scrapped_infosCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelectCreateManyAndReturn<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelectCreateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
   /**
-   * The data used to create many scrapped_infos.
+   * The data used to create many Scrapped_infos.
    */
-  data: Prisma.scrapped_infosCreateManyInput | Prisma.scrapped_infosCreateManyInput[]
+  data: Prisma.Scrapped_infosCreateManyInput | Prisma.Scrapped_infosCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * scrapped_infos update
+ * Scrapped_infos update
  */
-export type scrapped_infosUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelect<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
   /**
-   * The data needed to update a scrapped_infos.
+   * The data needed to update a Scrapped_infos.
    */
-  data: Prisma.XOR<Prisma.scrapped_infosUpdateInput, Prisma.scrapped_infosUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.Scrapped_infosUpdateInput, Prisma.Scrapped_infosUncheckedUpdateInput>
   /**
-   * Choose, which scrapped_infos to update.
+   * Choose, which Scrapped_infos to update.
    */
-  where: Prisma.scrapped_infosWhereUniqueInput
+  where: Prisma.Scrapped_infosWhereUniqueInput
 }
 
 /**
- * scrapped_infos updateMany
+ * Scrapped_infos updateMany
  */
-export type scrapped_infosUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update scrapped_infos.
+   * The data used to update Scrapped_infos.
    */
-  data: Prisma.XOR<Prisma.scrapped_infosUpdateManyMutationInput, Prisma.scrapped_infosUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.Scrapped_infosUpdateManyMutationInput, Prisma.Scrapped_infosUncheckedUpdateManyInput>
   /**
-   * Filter which scrapped_infos to update
+   * Filter which Scrapped_infos to update
    */
-  where?: Prisma.scrapped_infosWhereInput
+  where?: Prisma.Scrapped_infosWhereInput
   /**
-   * Limit how many scrapped_infos to update.
+   * Limit how many Scrapped_infos to update.
    */
   limit?: number
 }
 
 /**
- * scrapped_infos updateManyAndReturn
+ * Scrapped_infos updateManyAndReturn
  */
-export type scrapped_infosUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelectUpdateManyAndReturn<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelectUpdateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
   /**
-   * The data used to update scrapped_infos.
+   * The data used to update Scrapped_infos.
    */
-  data: Prisma.XOR<Prisma.scrapped_infosUpdateManyMutationInput, Prisma.scrapped_infosUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.Scrapped_infosUpdateManyMutationInput, Prisma.Scrapped_infosUncheckedUpdateManyInput>
   /**
-   * Filter which scrapped_infos to update
+   * Filter which Scrapped_infos to update
    */
-  where?: Prisma.scrapped_infosWhereInput
+  where?: Prisma.Scrapped_infosWhereInput
   /**
-   * Limit how many scrapped_infos to update.
+   * Limit how many Scrapped_infos to update.
    */
   limit?: number
 }
 
 /**
- * scrapped_infos upsert
+ * Scrapped_infos upsert
  */
-export type scrapped_infosUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelect<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
   /**
-   * The filter to search for the scrapped_infos to update in case it exists.
+   * The filter to search for the Scrapped_infos to update in case it exists.
    */
-  where: Prisma.scrapped_infosWhereUniqueInput
+  where: Prisma.Scrapped_infosWhereUniqueInput
   /**
-   * In case the scrapped_infos found by the `where` argument doesn't exist, create a new scrapped_infos with this data.
+   * In case the Scrapped_infos found by the `where` argument doesn't exist, create a new Scrapped_infos with this data.
    */
-  create: Prisma.XOR<Prisma.scrapped_infosCreateInput, Prisma.scrapped_infosUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.Scrapped_infosCreateInput, Prisma.Scrapped_infosUncheckedCreateInput>
   /**
-   * In case the scrapped_infos was found with the provided `where` argument, update it with this data.
+   * In case the Scrapped_infos was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.scrapped_infosUpdateInput, Prisma.scrapped_infosUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.Scrapped_infosUpdateInput, Prisma.Scrapped_infosUncheckedUpdateInput>
 }
 
 /**
- * scrapped_infos delete
+ * Scrapped_infos delete
  */
-export type scrapped_infosDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelect<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
   /**
-   * Filter which scrapped_infos to delete.
+   * Filter which Scrapped_infos to delete.
    */
-  where: Prisma.scrapped_infosWhereUniqueInput
+  where: Prisma.Scrapped_infosWhereUniqueInput
 }
 
 /**
- * scrapped_infos deleteMany
+ * Scrapped_infos deleteMany
  */
-export type scrapped_infosDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which scrapped_infos to delete
+   * Filter which Scrapped_infos to delete
    */
-  where?: Prisma.scrapped_infosWhereInput
+  where?: Prisma.Scrapped_infosWhereInput
   /**
-   * Limit how many scrapped_infos to delete.
+   * Limit how many Scrapped_infos to delete.
    */
   limit?: number
 }
 
 /**
- * scrapped_infos without action
+ * Scrapped_infos without action
  */
-export type scrapped_infosDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Scrapped_infosDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the scrapped_infos
+   * Select specific fields to fetch from the Scrapped_infos
    */
-  select?: Prisma.scrapped_infosSelect<ExtArgs> | null
+  select?: Prisma.Scrapped_infosSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the scrapped_infos
+   * Omit specific fields from the Scrapped_infos
    */
-  omit?: Prisma.scrapped_infosOmit<ExtArgs> | null
+  omit?: Prisma.Scrapped_infosOmit<ExtArgs> | null
 }

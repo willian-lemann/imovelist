@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { listingSchema, type ListingFormValues } from "@/lib/validations";
+
 import { useCreateListing, useUpdateListing } from "@/lib/queries/use-listings";
 
 interface ListingFormProps {
@@ -38,8 +39,9 @@ export function ListingForm({ initialData, mode }: ListingFormProps) {
     watch,
     setValue,
   } = useForm<ListingFormValues>({
-    resolver: zodResolver(listingSchema),
+    resolver: zodResolver(listingSchema as never),
     defaultValues: {
+      photos: initialData?.photos || [],
       name: initialData?.name || "",
       address: initialData?.address || "",
       price: initialData?.price || undefined,
