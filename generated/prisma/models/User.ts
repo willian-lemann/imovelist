@@ -28,7 +28,8 @@ export type UserMinAggregateOutputType = {
   id: string | null
   email: string | null
   profile_photo: string | null
-  whatsapp: string | null
+  cellphone: string | null
+  taxId: string | null
   profile_url: string | null
   logo: string | null
   abacatepay_customer_id: string | null
@@ -45,7 +46,8 @@ export type UserMaxAggregateOutputType = {
   id: string | null
   email: string | null
   profile_photo: string | null
-  whatsapp: string | null
+  cellphone: string | null
+  taxId: string | null
   profile_url: string | null
   logo: string | null
   abacatepay_customer_id: string | null
@@ -62,7 +64,8 @@ export type UserCountAggregateOutputType = {
   id: number
   email: number
   profile_photo: number
-  whatsapp: number
+  cellphone: number
+  taxId: number
   profile_url: number
   logo: number
   abacatepay_customer_id: number
@@ -81,7 +84,8 @@ export type UserMinAggregateInputType = {
   id?: true
   email?: true
   profile_photo?: true
-  whatsapp?: true
+  cellphone?: true
+  taxId?: true
   profile_url?: true
   logo?: true
   abacatepay_customer_id?: true
@@ -98,7 +102,8 @@ export type UserMaxAggregateInputType = {
   id?: true
   email?: true
   profile_photo?: true
-  whatsapp?: true
+  cellphone?: true
+  taxId?: true
   profile_url?: true
   logo?: true
   abacatepay_customer_id?: true
@@ -115,7 +120,8 @@ export type UserCountAggregateInputType = {
   id?: true
   email?: true
   profile_photo?: true
-  whatsapp?: true
+  cellphone?: true
+  taxId?: true
   profile_url?: true
   logo?: true
   abacatepay_customer_id?: true
@@ -205,7 +211,8 @@ export type UserGroupByOutputType = {
   id: string
   email: string
   profile_photo: string | null
-  whatsapp: string | null
+  cellphone: string | null
+  taxId: string | null
   profile_url: string | null
   logo: string | null
   abacatepay_customer_id: string | null
@@ -243,7 +250,8 @@ export type UserWhereInput = {
   id?: Prisma.StringFilter<"User"> | string
   email?: Prisma.StringFilter<"User"> | string
   profile_photo?: Prisma.StringNullableFilter<"User"> | string | null
-  whatsapp?: Prisma.StringNullableFilter<"User"> | string | null
+  cellphone?: Prisma.StringNullableFilter<"User"> | string | null
+  taxId?: Prisma.StringNullableFilter<"User"> | string | null
   profile_url?: Prisma.StringNullableFilter<"User"> | string | null
   logo?: Prisma.StringNullableFilter<"User"> | string | null
   abacatepay_customer_id?: Prisma.StringNullableFilter<"User"> | string | null
@@ -264,7 +272,8 @@ export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   profile_photo?: Prisma.SortOrderInput | Prisma.SortOrder
-  whatsapp?: Prisma.SortOrderInput | Prisma.SortOrder
+  cellphone?: Prisma.SortOrderInput | Prisma.SortOrder
+  taxId?: Prisma.SortOrderInput | Prisma.SortOrder
   profile_url?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -290,7 +299,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   profile_photo?: Prisma.StringNullableFilter<"User"> | string | null
-  whatsapp?: Prisma.StringNullableFilter<"User"> | string | null
+  cellphone?: Prisma.StringNullableFilter<"User"> | string | null
+  taxId?: Prisma.StringNullableFilter<"User"> | string | null
   logo?: Prisma.StringNullableFilter<"User"> | string | null
   instagramToken?: Prisma.StringNullableFilter<"User"> | string | null
   instagramUserId?: Prisma.StringNullableFilter<"User"> | string | null
@@ -309,7 +319,8 @@ export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   profile_photo?: Prisma.SortOrderInput | Prisma.SortOrder
-  whatsapp?: Prisma.SortOrderInput | Prisma.SortOrder
+  cellphone?: Prisma.SortOrderInput | Prisma.SortOrder
+  taxId?: Prisma.SortOrderInput | Prisma.SortOrder
   profile_url?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -332,7 +343,8 @@ export type UserScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"User"> | string
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
   profile_photo?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  whatsapp?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  cellphone?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  taxId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   profile_url?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   logo?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   abacatepay_customer_id?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
@@ -349,7 +361,8 @@ export type UserCreateInput = {
   id?: string
   email: string
   profile_photo?: string | null
-  whatsapp?: string | null
+  cellphone?: string | null
+  taxId?: string | null
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
@@ -370,7 +383,8 @@ export type UserUncheckedCreateInput = {
   id?: string
   email: string
   profile_photo?: string | null
-  whatsapp?: string | null
+  cellphone?: string | null
+  taxId?: string | null
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
@@ -391,7 +405,8 @@ export type UserUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -412,7 +427,8 @@ export type UserUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -433,7 +449,8 @@ export type UserCreateManyInput = {
   id?: string
   email: string
   profile_photo?: string | null
-  whatsapp?: string | null
+  cellphone?: string | null
+  taxId?: string | null
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
@@ -450,7 +467,8 @@ export type UserUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -467,7 +485,8 @@ export type UserUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -494,7 +513,8 @@ export type UserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   profile_photo?: Prisma.SortOrder
-  whatsapp?: Prisma.SortOrder
+  cellphone?: Prisma.SortOrder
+  taxId?: Prisma.SortOrder
   profile_url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrder
@@ -511,7 +531,8 @@ export type UserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   profile_photo?: Prisma.SortOrder
-  whatsapp?: Prisma.SortOrder
+  cellphone?: Prisma.SortOrder
+  taxId?: Prisma.SortOrder
   profile_url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrder
@@ -528,7 +549,8 @@ export type UserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   profile_photo?: Prisma.SortOrder
-  whatsapp?: Prisma.SortOrder
+  cellphone?: Prisma.SortOrder
+  taxId?: Prisma.SortOrder
   profile_url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrder
@@ -607,7 +629,8 @@ export type UserCreateWithoutListingsInput = {
   id?: string
   email: string
   profile_photo?: string | null
-  whatsapp?: string | null
+  cellphone?: string | null
+  taxId?: string | null
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
@@ -627,7 +650,8 @@ export type UserUncheckedCreateWithoutListingsInput = {
   id?: string
   email: string
   profile_photo?: string | null
-  whatsapp?: string | null
+  cellphone?: string | null
+  taxId?: string | null
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
@@ -663,7 +687,8 @@ export type UserUpdateWithoutListingsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -683,7 +708,8 @@ export type UserUncheckedUpdateWithoutListingsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -703,7 +729,8 @@ export type UserCreateWithoutSubscriptionsInput = {
   id?: string
   email: string
   profile_photo?: string | null
-  whatsapp?: string | null
+  cellphone?: string | null
+  taxId?: string | null
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
@@ -723,7 +750,8 @@ export type UserUncheckedCreateWithoutSubscriptionsInput = {
   id?: string
   email: string
   profile_photo?: string | null
-  whatsapp?: string | null
+  cellphone?: string | null
+  taxId?: string | null
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
@@ -759,7 +787,8 @@ export type UserUpdateWithoutSubscriptionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -779,7 +808,8 @@ export type UserUncheckedUpdateWithoutSubscriptionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -799,7 +829,8 @@ export type UserCreateWithoutSessionsInput = {
   id?: string
   email: string
   profile_photo?: string | null
-  whatsapp?: string | null
+  cellphone?: string | null
+  taxId?: string | null
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
@@ -819,7 +850,8 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   id?: string
   email: string
   profile_photo?: string | null
-  whatsapp?: string | null
+  cellphone?: string | null
+  taxId?: string | null
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
@@ -855,7 +887,8 @@ export type UserUpdateWithoutSessionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -875,7 +908,8 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -895,7 +929,8 @@ export type UserCreateWithoutAccountsInput = {
   id?: string
   email: string
   profile_photo?: string | null
-  whatsapp?: string | null
+  cellphone?: string | null
+  taxId?: string | null
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
@@ -915,7 +950,8 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   id?: string
   email: string
   profile_photo?: string | null
-  whatsapp?: string | null
+  cellphone?: string | null
+  taxId?: string | null
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
@@ -951,7 +987,8 @@ export type UserUpdateWithoutAccountsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -971,7 +1008,8 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  whatsapp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1049,7 +1087,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   id?: boolean
   email?: boolean
   profile_photo?: boolean
-  whatsapp?: boolean
+  cellphone?: boolean
+  taxId?: boolean
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
@@ -1071,7 +1110,8 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   id?: boolean
   email?: boolean
   profile_photo?: boolean
-  whatsapp?: boolean
+  cellphone?: boolean
+  taxId?: boolean
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
@@ -1088,7 +1128,8 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   id?: boolean
   email?: boolean
   profile_photo?: boolean
-  whatsapp?: boolean
+  cellphone?: boolean
+  taxId?: boolean
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
@@ -1105,7 +1146,8 @@ export type UserSelectScalar = {
   id?: boolean
   email?: boolean
   profile_photo?: boolean
-  whatsapp?: boolean
+  cellphone?: boolean
+  taxId?: boolean
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
@@ -1118,7 +1160,7 @@ export type UserSelectScalar = {
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "profile_photo" | "whatsapp" | "profile_url" | "logo" | "abacatepay_customer_id" | "instagramToken" | "instagramUserId" | "name" | "emailVerified" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "profile_photo" | "cellphone" | "taxId" | "profile_url" | "logo" | "abacatepay_customer_id" | "instagramToken" | "instagramUserId" | "name" | "emailVerified" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Listings?: boolean | Prisma.User$ListingsArgs<ExtArgs>
   Subscriptions?: boolean | Prisma.User$SubscriptionsArgs<ExtArgs>
@@ -1141,7 +1183,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     id: string
     email: string
     profile_photo: string | null
-    whatsapp: string | null
+    cellphone: string | null
+    taxId: string | null
     profile_url: string | null
     logo: string | null
     abacatepay_customer_id: string | null
@@ -1582,7 +1625,8 @@ export interface UserFieldRefs {
   readonly id: Prisma.FieldRef<"User", 'String'>
   readonly email: Prisma.FieldRef<"User", 'String'>
   readonly profile_photo: Prisma.FieldRef<"User", 'String'>
-  readonly whatsapp: Prisma.FieldRef<"User", 'String'>
+  readonly cellphone: Prisma.FieldRef<"User", 'String'>
+  readonly taxId: Prisma.FieldRef<"User", 'String'>
   readonly profile_url: Prisma.FieldRef<"User", 'String'>
   readonly logo: Prisma.FieldRef<"User", 'String'>
   readonly abacatepay_customer_id: Prisma.FieldRef<"User", 'String'>

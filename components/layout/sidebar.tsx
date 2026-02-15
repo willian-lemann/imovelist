@@ -15,10 +15,11 @@ import {
   Crown,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { signOut } from "@/lib/auth-client";
+import { authClient, signOut } from "@/lib/auth-client";
 import { useUser } from "@/lib/queries/use-user";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useRouter } from "next/navigation";
 
 const menuItems = [
   { icon: Home, label: "Painel", href: "/dashboard", premium: false },
@@ -43,6 +44,7 @@ const menuItems = [
 export function Sidebar() {
   const pathname = usePathname();
   const { user, isPremium } = useUser();
+  const router = useRouter();
 
   return (
     <aside className="hidden lg:flex w-64 flex-col border-r border-sidebar-border bg-sidebar text-sidebar-foreground h-screen sticky top-0">
@@ -119,7 +121,20 @@ export function Sidebar() {
               </Badge>
             </div>
           </div>
-          <Button variant="ghost" size="icon-sm" onClick={() => signOut()}>
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            className="cursor-pointer"
+            onClick={async () => {
+              await authClient.signOut({
+                fetchOptions: {
+                  onSuccess() {
+                    router.push("/sign-in");
+                  },
+                },
+              });
+            }}
+          >
             <LogOut className="w-3.5 h-3.5" />
           </Button>
         </div>

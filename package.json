@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dbpush": "npx prisma db push",
+    "dbreset": "npx prisma migrate reset",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

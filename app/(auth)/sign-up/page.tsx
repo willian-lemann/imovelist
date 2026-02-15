@@ -22,6 +22,8 @@ export default function SignUpPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cellphone, setCellphone] = useState("");
+  const [taxId, setTaxId] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -32,13 +34,27 @@ export default function SignUpPage() {
 
     try {
       const result = await signUp.email({ name, email, password });
+
       if (result.error) {
-        setError(result.error.message || "Sign up failed");
-      } else {
-        router.push("/");
+        setError(result.error.message || "Falha ao criar conta");
+        return;
       }
+
+      console.log(cellphone, taxId);
+      // Criar customer na AbacatePay com os dados adicionais
+      try {
+        await fetch("/api/user/setup-customer", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ cellphone, taxId }),
+        });
+      } catch (error) {
+        console.error("Erro ao configurar customer:", error);
+      }
+
+      router.push("/");
     } catch {
-      setError("Something went wrong");
+      setError("Algo deu errado");
     } finally {
       setLoading(false);
     }
@@ -91,6 +107,27 @@ export default function SignUpPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="cellphone">Número de celular ou WhatsApp</Label>
+              <Input
+                id="cellphone"
+                type="tel"
+                value={cellphone}
+                onChange={(e) => setCellphone(e.target.value)}
+                placeholder="(11) 99999-9999"
+                required
+              />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="taxId">CNPJ ou CPF</Label>
+              <Input
+                id="taxId"
+                value={taxId}
+                onChange={(e) => setTaxId(e.target.value)}
+                placeholder="000.000.000-00 ou 00.000.000/0000-00"
                 required
               />
             </div>
