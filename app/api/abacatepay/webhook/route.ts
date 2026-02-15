@@ -21,6 +21,7 @@ export async function POST(req: NextRequest) {
       case "billing.paid": {
         const billingId = data.id as string;
         const customerEmail = data.customer?.metadata?.email as string;
+        console.log("data", data);
 
         if (!customerEmail) {
           Sentry.logger.info("Webhook billing.paid sem email do cliente");
