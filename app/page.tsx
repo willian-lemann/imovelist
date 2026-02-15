@@ -15,7 +15,7 @@ export default async function HomePage() {
   const session = await auth.api.getSession({
     headers: await headers(), // you need to pass the headers object.
   });
-  const isLogged = !!session?.user;
+  const isLogged = !!session;
 
   return (
     <div className="min-h-screen bg-background">

@@ -2,15 +2,12 @@
 
 import { Sidebar } from "@/components/layout/sidebar";
 import { Header } from "@/components/layout/header";
-import { useRequireAuth } from "@/hooks/use-auth";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  useRequireAuth();
-
   return (
     <div className="flex min-h-screen">
       <Sidebar />
