@@ -11,12 +11,12 @@ function SubscriptionContent() {
   const searchParams = useSearchParams();
   const success = searchParams.get("success") === "true";
 
-  async function handleUpgrade() {
+  async function handleUpgrade(plan: string) {
     try {
       const res = await fetch("/api/abacatepay/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan: "professional" }),
+        body: JSON.stringify({ plan }),
       });
 
       const data = await res.json();

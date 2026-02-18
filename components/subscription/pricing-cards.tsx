@@ -16,9 +16,9 @@ import BlurFade from "@/components/magicui/blur-fade";
 
 const plans = [
   {
-    name: "Grátis",
-    price: "R$ 0",
-    period: "/para sempre",
+    name: "Starter",
+    price: "R$ 47",
+    period: "/mês",
     description: "Comece com anúncios básicos de imóveis",
     features: [
       "Até 5 imóveis",
@@ -31,12 +31,12 @@ const plans = [
       "Sem integração com Instagram",
       "Sem landing pages personalizadas",
     ],
-    cta: "Plano Atual",
+    cta: "Fazer Upgrade para Starter",
     popular: false,
   },
   {
     name: "Profissional",
-    price: "R$ 349",
+    price: "R$ 149",
     period: "/mês",
     description: "Desbloqueie ferramentas IA poderosas e integrações",
     features: [
@@ -49,14 +49,14 @@ const plans = [
       "Suporte prioritário",
     ],
     limitations: [],
-    cta: "Fazer Upgrade para Pro",
+    cta: "Fazer Upgrade para Profissional",
     popular: true,
   },
 ];
 
 interface PricingCardsProps {
   currentPlan?: string;
-  onUpgrade?: () => void;
+  onUpgrade?: (plan: string) => void;
 }
 
 export function PricingCards({
@@ -128,7 +128,9 @@ export function PricingCards({
                   className="w-full"
                   variant={plan.popular ? "default" : "outline"}
                   disabled={isCurrentPlan}
-                  onClick={plan.popular ? onUpgrade : undefined}
+                  onClick={() =>
+                    onUpgrade && onUpgrade(plan.name.toLowerCase())
+                  }
                 >
                   {isCurrentPlan ? "Plano Atual" : plan.cta}
                 </Button>

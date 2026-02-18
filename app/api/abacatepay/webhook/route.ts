@@ -20,12 +20,13 @@ export async function POST(req: NextRequest) {
     switch (event) {
       case "billing.paid": {
         const billingId = data.id as string;
+        const customerId = data.customer?.id as string;
         const customerEmail = data.customer?.metadata?.email as string;
         console.log("data", data);
 
-        if (!customerEmail) {
+        if (!customerId && !customerEmail) {
           Sentry.captureMessage(
-            `Webhook billing.paid sem email do cliente (billingId: ${billingId})`,
+            `Webhook billing.paid sem identificação do cliente (billingId: ${billingId})`,
             {
               level: "error",
               extra: { billingId },
@@ -34,17 +35,25 @@ export async function POST(req: NextRequest) {
           break;
         }
 
-        // Busca o usuário pelo email
-        const user = await prisma.user.findUnique({
-          where: { email: customerEmail },
-        });
+        // Busca o usuário pelo abacatepay_customer_id (mais confiável) ou pelo email como fallback
+        let user = customerId
+          ? await prisma.user.findUnique({
+              where: { abacatepay_customer_id: customerId },
+            })
+          : null;
+
+        if (!user && customerEmail) {
+          user = await prisma.user.findUnique({
+            where: { email: customerEmail },
+          });
+        }
 
         if (!user) {
           Sentry.captureMessage(
-            `Usuário não encontrado para email: ${customerEmail}`,
+            `Usuário não encontrado (customerId: ${customerId}, email: ${customerEmail})`,
             {
               level: "error",
-              extra: { customerEmail, billingId },
+              extra: { customerId, customerEmail, billingId },
             },
           );
           break;
