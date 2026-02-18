@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma";
 import { abacatePayClient } from "@/lib/abacatepay";
 import * as Sentry from "@sentry/nextjs";
 import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 /**
  * Webhook da AbacatePay
@@ -10,7 +11,9 @@ import { auth } from "@/lib/auth";
  */
 export async function POST(req: NextRequest) {
   try {
-    const session = await auth.api.getSession();
+    const session = await auth.api.getSession({
+      headers: await headers(),
+    });
     if (!session?.user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
