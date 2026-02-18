@@ -22,7 +22,8 @@ export async function POST(req: NextRequest) {
         const billingId = data.id as string;
         const customerId = data.customer?.id as string;
         const customerEmail = data.customer?.metadata?.email as string;
-        console.log("data", data);
+        console.log("data.billing", data.billing);
+        console.log("data.payment", data.payment);
 
         if (!customerId && !customerEmail) {
           Sentry.captureMessage(
