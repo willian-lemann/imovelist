@@ -28,7 +28,7 @@ function SubscriptionContent() {
   }
 
   async function handleCancel() {
-    if (!confirm("Tem certeza que deseja cancelar sua assinatura?")) return;
+    if (!confirm("Tem certeza que deseja cancelar sua assinatura?.")) return;
 
     try {
       await authClient.subscription.cancel({
