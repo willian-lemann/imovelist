@@ -20,11 +20,8 @@ export async function POST(req: NextRequest) {
     switch (event) {
       case "billing.paid": {
         const billingId = data.id as string;
-        const customerId = data.customer?.id as string;
-        const customerEmail = data.customer?.metadata?.email as string;
-        console.log("data.billing", data.billing);
-        console.log("data.payment", data.payment);
-        console.log("data.customer", data.customer.metadata);
+        const customerId = data.billing.customer?.id as string;
+        const customerEmail = data.billing.customer?.metadata?.email as string;
 
         if (!customerId && !customerEmail) {
           Sentry.captureMessage(
@@ -86,7 +83,7 @@ export async function POST(req: NextRequest) {
             },
             create: {
               user_id: user.id,
-              abacatepay_customer_id: data.customer?.id || "",
+              abacatepay_customer_id: data.billing.customer?.id || "",
               abacatepay_billing_id: billingId,
               plan: "professional",
               status: "active",
