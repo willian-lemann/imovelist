@@ -26,7 +26,7 @@ import { useUser } from "@/lib/queries/use-user";
 import { ListingGrid } from "@/components/listings/listing-grid";
 
 export default function DashboardHomePage() {
-  const { user, isPremium } = useUser();
+  const { user, isPremium, subscriptionPlan } = useUser();
   const { data: myListings } = useListings({ agentId: user?.id, limit: 6 });
 
   const totalListings = myListings?.total || 0;
@@ -70,7 +70,12 @@ export default function DashboardHomePage() {
           },
           {
             label: "Plano",
-            value: isPremium ? "Profissional" : "Grátis",
+            value:
+              subscriptionPlan === "professional"
+                ? "Profissional"
+                : subscriptionPlan === "starter"
+                  ? "Starter"
+                  : "Grátis",
             icon: Sparkles,
             change: null,
           },

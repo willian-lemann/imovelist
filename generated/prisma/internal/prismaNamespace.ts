@@ -394,7 +394,8 @@ export const ModelName = {
   User: 'User',
   Session: 'Session',
   Account: 'Account',
-  Verification: 'Verification'
+  Verification: 'Verification',
+  Subscription: 'Subscription'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -410,7 +411,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "add_listing_indices" | "galleries" | "listings" | "policies" | "scrapped_infos" | "scrapped_listings" | "subscriptions" | "user" | "session" | "account" | "verification"
+    modelProps: "add_listing_indices" | "galleries" | "listings" | "policies" | "scrapped_infos" | "scrapped_listings" | "subscriptions" | "user" | "session" | "account" | "verification" | "subscription"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1228,6 +1229,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Subscription: {
+      payload: Prisma.$SubscriptionPayload<ExtArgs>
+      fields: Prisma.SubscriptionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SubscriptionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SubscriptionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionPayload>
+        }
+        findFirst: {
+          args: Prisma.SubscriptionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SubscriptionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionPayload>
+        }
+        findMany: {
+          args: Prisma.SubscriptionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionPayload>[]
+        }
+        create: {
+          args: Prisma.SubscriptionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionPayload>
+        }
+        createMany: {
+          args: Prisma.SubscriptionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SubscriptionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionPayload>[]
+        }
+        delete: {
+          args: Prisma.SubscriptionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionPayload>
+        }
+        update: {
+          args: Prisma.SubscriptionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionPayload>
+        }
+        deleteMany: {
+          args: Prisma.SubscriptionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SubscriptionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SubscriptionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionPayload>[]
+        }
+        upsert: {
+          args: Prisma.SubscriptionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionPayload>
+        }
+        aggregate: {
+          args: Prisma.SubscriptionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSubscription>
+        }
+        groupBy: {
+          args: Prisma.SubscriptionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SubscriptionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SubscriptionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SubscriptionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1394,6 +1469,7 @@ export const UserScalarFieldEnum = {
   profile_url: 'profile_url',
   logo: 'logo',
   abacatepay_customer_id: 'abacatepay_customer_id',
+  stripeCustomerId: 'stripeCustomerId',
   instagramToken: 'instagramToken',
   instagramUserId: 'instagramUserId',
   name: 'name',
@@ -1449,6 +1525,28 @@ export const VerificationScalarFieldEnum = {
 } as const
 
 export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
+
+
+export const SubscriptionScalarFieldEnum = {
+  id: 'id',
+  plan: 'plan',
+  referenceId: 'referenceId',
+  stripeCustomerId: 'stripeCustomerId',
+  stripeSubscriptionId: 'stripeSubscriptionId',
+  status: 'status',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  cancelAtPeriodEnd: 'cancelAtPeriodEnd',
+  seats: 'seats',
+  trialStart: 'trialStart',
+  trialEnd: 'trialEnd',
+  limits: 'limits',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SubscriptionScalarFieldEnum = (typeof SubscriptionScalarFieldEnum)[keyof typeof SubscriptionScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1694,6 +1792,7 @@ export type GlobalOmitConfig = {
   session?: Prisma.SessionOmit
   account?: Prisma.AccountOmit
   verification?: Prisma.VerificationOmit
+  subscription?: Prisma.SubscriptionOmit
 }
 
 /* Types for Logging */

@@ -1,10 +1,15 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
+import { stripe } from "@better-auth/stripe";
+import Stripe from "stripe";
 import prisma from "@/lib/prisma";
-import { abacatePayClient } from "@/lib/abacatepay";
 
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+
+const stripeClient = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2026-01-28.clover",
+});
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
@@ -20,6 +25,33 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     },
   },
+
+  plugins: [
+    stripe({
+      stripeClient,
+      stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
+      createCustomerOnSignUp: true,
+      subscription: {
+        enabled: true,
+        plans: [
+          {
+            name: "starter",
+            priceId: process.env.STRIPE_STARTER_PRICE_ID!,
+            limits: {
+              listings: 5,
+            },
+          },
+          {
+            name: "professional",
+            priceId: process.env.STRIPE_PROFESSIONAL_PRICE_ID!,
+            limits: {
+              listings: Infinity,
+            },
+          },
+        ],
+      },
+    }),
+  ],
 });
 
 export type Session = typeof auth.$Infer.Session;

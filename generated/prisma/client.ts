@@ -94,3 +94,8 @@ export type Account = Prisma.AccountModel
  * 
  */
 export type Verification = Prisma.VerificationModel
+/**
+ * Model Subscription
+ * 
+ */
+export type Subscription = Prisma.SubscriptionModel

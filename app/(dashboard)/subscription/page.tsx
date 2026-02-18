@@ -1,34 +1,53 @@
 "use client";
 
 import { useUser } from "@/lib/queries/use-user";
+import { authClient } from "@/lib/auth-client";
 import { PricingCards } from "@/components/subscription/pricing-cards";
 import BlurFade from "@/components/magicui/blur-fade";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { Button } from "@/components/ui/button";
+import { CreditCard, XCircle } from "lucide-react";
 
 function SubscriptionContent() {
-  const { user, isPremium } = useUser();
+  const { isPremium, subscriptionPlan } = useUser();
   const searchParams = useSearchParams();
   const success = searchParams.get("success") === "true";
 
   async function handleUpgrade(plan: string) {
     try {
-      const res = await fetch("/api/abacatepay/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan }),
+      await authClient.subscription.upgrade({
+        plan,
+        successUrl: `${window.location.origin}/subscription?success=true`,
+        cancelUrl: `${window.location.origin}/subscription`,
       });
-
-      const data = await res.json();
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert("Erro ao criar checkout. Tente novamente.");
-      }
     } catch (err) {
       console.error("Upgrade failed:", err);
       alert("Erro ao processar pagamento. Tente novamente.");
+    }
+  }
+
+  async function handleCancel() {
+    if (!confirm("Tem certeza que deseja cancelar sua assinatura?")) return;
+
+    try {
+      await authClient.subscription.cancel({
+        returnUrl: `${window.location.origin}/subscription`,
+      });
+    } catch (err) {
+      console.error("Cancel failed:", err);
+      alert("Erro ao cancelar assinatura. Tente novamente.");
+    }
+  }
+
+  async function handleBillingPortal() {
+    try {
+      await authClient.subscription.billingPortal({
+        returnUrl: `${window.location.origin}/subscription`,
+      });
+    } catch (err) {
+      console.error("Billing portal failed:", err);
+      alert("Erro ao abrir portal de cobrança. Tente novamente.");
     }
   }
 
@@ -38,8 +57,7 @@ function SubscriptionContent() {
         <div className="text-center max-w-lg mx-auto">
           {success && (
             <div className="mb-4 p-4 bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-300 rounded-lg text-sm">
-              Pagamento realizado com sucesso! Seu plano será ativado em
-              instantes.
+              Pagamento realizado com sucesso! Seu plano foi ativado.
             </div>
           )}
           <h2 className="text-2xl font-bold tracking-tight">
@@ -54,9 +72,32 @@ function SubscriptionContent() {
       </BlurFade>
 
       <PricingCards
-        currentPlan={user?.subscriptionTier || "free"}
+        currentPlan={subscriptionPlan || "free"}
         onUpgrade={handleUpgrade}
       />
+
+      {subscriptionPlan && subscriptionPlan !== "free" && (
+        <BlurFade delay={0.2}>
+          <div className="flex justify-center gap-4 pt-4">
+            <Button
+              variant="outline"
+              className="gap-2"
+              onClick={handleBillingPortal}
+            >
+              <CreditCard className="w-4 h-4" />
+              Gerenciar Cobrança
+            </Button>
+            <Button
+              variant="outline"
+              className="gap-2 text-destructive hover:text-destructive"
+              onClick={handleCancel}
+            >
+              <XCircle className="w-4 h-4" />
+              Cancelar Assinatura
+            </Button>
+          </div>
+        </BlurFade>
+      )}
     </div>
   );
 }

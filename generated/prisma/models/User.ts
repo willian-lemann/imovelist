@@ -33,6 +33,7 @@ export type UserMinAggregateOutputType = {
   profile_url: string | null
   logo: string | null
   abacatepay_customer_id: string | null
+  stripeCustomerId: string | null
   instagramToken: string | null
   instagramUserId: string | null
   name: string | null
@@ -51,6 +52,7 @@ export type UserMaxAggregateOutputType = {
   profile_url: string | null
   logo: string | null
   abacatepay_customer_id: string | null
+  stripeCustomerId: string | null
   instagramToken: string | null
   instagramUserId: string | null
   name: string | null
@@ -69,6 +71,7 @@ export type UserCountAggregateOutputType = {
   profile_url: number
   logo: number
   abacatepay_customer_id: number
+  stripeCustomerId: number
   instagramToken: number
   instagramUserId: number
   name: number
@@ -89,6 +92,7 @@ export type UserMinAggregateInputType = {
   profile_url?: true
   logo?: true
   abacatepay_customer_id?: true
+  stripeCustomerId?: true
   instagramToken?: true
   instagramUserId?: true
   name?: true
@@ -107,6 +111,7 @@ export type UserMaxAggregateInputType = {
   profile_url?: true
   logo?: true
   abacatepay_customer_id?: true
+  stripeCustomerId?: true
   instagramToken?: true
   instagramUserId?: true
   name?: true
@@ -125,6 +130,7 @@ export type UserCountAggregateInputType = {
   profile_url?: true
   logo?: true
   abacatepay_customer_id?: true
+  stripeCustomerId?: true
   instagramToken?: true
   instagramUserId?: true
   name?: true
@@ -216,6 +222,7 @@ export type UserGroupByOutputType = {
   profile_url: string | null
   logo: string | null
   abacatepay_customer_id: string | null
+  stripeCustomerId: string | null
   instagramToken: string | null
   instagramUserId: string | null
   name: string
@@ -255,6 +262,7 @@ export type UserWhereInput = {
   profile_url?: Prisma.StringNullableFilter<"User"> | string | null
   logo?: Prisma.StringNullableFilter<"User"> | string | null
   abacatepay_customer_id?: Prisma.StringNullableFilter<"User"> | string | null
+  stripeCustomerId?: Prisma.StringNullableFilter<"User"> | string | null
   instagramToken?: Prisma.StringNullableFilter<"User"> | string | null
   instagramUserId?: Prisma.StringNullableFilter<"User"> | string | null
   name?: Prisma.StringFilter<"User"> | string
@@ -264,6 +272,7 @@ export type UserWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   Listings?: Prisma.ListingsListRelationFilter
   Subscriptions?: Prisma.SubscriptionsListRelationFilter
+  stripeSubscriptions?: Prisma.SubscriptionListRelationFilter
   sessions?: Prisma.SessionListRelationFilter
   accounts?: Prisma.AccountListRelationFilter
 }
@@ -277,6 +286,7 @@ export type UserOrderByWithRelationInput = {
   profile_url?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrderInput | Prisma.SortOrder
   instagramToken?: Prisma.SortOrderInput | Prisma.SortOrder
   instagramUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -286,6 +296,7 @@ export type UserOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   Listings?: Prisma.ListingsOrderByRelationAggregateInput
   Subscriptions?: Prisma.SubscriptionsOrderByRelationAggregateInput
+  stripeSubscriptions?: Prisma.SubscriptionOrderByRelationAggregateInput
   sessions?: Prisma.SessionOrderByRelationAggregateInput
   accounts?: Prisma.AccountOrderByRelationAggregateInput
 }
@@ -295,6 +306,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   email?: string
   profile_url?: string
   abacatepay_customer_id?: string
+  stripeCustomerId?: string
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
@@ -311,9 +323,10 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   Listings?: Prisma.ListingsListRelationFilter
   Subscriptions?: Prisma.SubscriptionsListRelationFilter
+  stripeSubscriptions?: Prisma.SubscriptionListRelationFilter
   sessions?: Prisma.SessionListRelationFilter
   accounts?: Prisma.AccountListRelationFilter
-}, "id" | "email" | "profile_url" | "abacatepay_customer_id">
+}, "id" | "email" | "profile_url" | "abacatepay_customer_id" | "stripeCustomerId">
 
 export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -324,6 +337,7 @@ export type UserOrderByWithAggregationInput = {
   profile_url?: Prisma.SortOrderInput | Prisma.SortOrder
   logo?: Prisma.SortOrderInput | Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrderInput | Prisma.SortOrder
   instagramToken?: Prisma.SortOrderInput | Prisma.SortOrder
   instagramUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -348,6 +362,7 @@ export type UserScalarWhereWithAggregatesInput = {
   profile_url?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   logo?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   abacatepay_customer_id?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  stripeCustomerId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   instagramToken?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   instagramUserId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   name?: Prisma.StringWithAggregatesFilter<"User"> | string
@@ -366,6 +381,7 @@ export type UserCreateInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
   instagramToken?: string | null
   instagramUserId?: string | null
   name: string
@@ -375,6 +391,7 @@ export type UserCreateInput = {
   updatedAt?: Date | string
   Listings?: Prisma.ListingsCreateNestedManyWithoutUserInput
   Subscriptions?: Prisma.SubscriptionsCreateNestedManyWithoutUserInput
+  stripeSubscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
 }
@@ -388,6 +405,7 @@ export type UserUncheckedCreateInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
   instagramToken?: string | null
   instagramUserId?: string | null
   name: string
@@ -397,6 +415,7 @@ export type UserUncheckedCreateInput = {
   updatedAt?: Date | string
   Listings?: Prisma.ListingsUncheckedCreateNestedManyWithoutUserInput
   Subscriptions?: Prisma.SubscriptionsUncheckedCreateNestedManyWithoutUserInput
+  stripeSubscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
 }
@@ -410,6 +429,7 @@ export type UserUpdateInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -419,6 +439,7 @@ export type UserUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Listings?: Prisma.ListingsUpdateManyWithoutUserNestedInput
   Subscriptions?: Prisma.SubscriptionsUpdateManyWithoutUserNestedInput
+  stripeSubscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
 }
@@ -432,6 +453,7 @@ export type UserUncheckedUpdateInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -441,6 +463,7 @@ export type UserUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Listings?: Prisma.ListingsUncheckedUpdateManyWithoutUserNestedInput
   Subscriptions?: Prisma.SubscriptionsUncheckedUpdateManyWithoutUserNestedInput
+  stripeSubscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -454,6 +477,7 @@ export type UserCreateManyInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
   instagramToken?: string | null
   instagramUserId?: string | null
   name: string
@@ -472,6 +496,7 @@ export type UserUpdateManyMutationInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -490,6 +515,7 @@ export type UserUncheckedUpdateManyInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -518,6 +544,7 @@ export type UserCountOrderByAggregateInput = {
   profile_url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrder
   instagramToken?: Prisma.SortOrder
   instagramUserId?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -536,6 +563,7 @@ export type UserMaxOrderByAggregateInput = {
   profile_url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrder
   instagramToken?: Prisma.SortOrder
   instagramUserId?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -554,6 +582,7 @@ export type UserMinOrderByAggregateInput = {
   profile_url?: Prisma.SortOrder
   logo?: Prisma.SortOrder
   abacatepay_customer_id?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrder
   instagramToken?: Prisma.SortOrder
   instagramUserId?: Prisma.SortOrder
   name?: Prisma.SortOrder
@@ -625,6 +654,20 @@ export type UserUpdateOneRequiredWithoutAccountsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAccountsInput, Prisma.UserUpdateWithoutAccountsInput>, Prisma.UserUncheckedUpdateWithoutAccountsInput>
 }
 
+export type UserCreateNestedOneWithoutStripeSubscriptionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutStripeSubscriptionsInput, Prisma.UserUncheckedCreateWithoutStripeSubscriptionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutStripeSubscriptionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutStripeSubscriptionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutStripeSubscriptionsInput, Prisma.UserUncheckedCreateWithoutStripeSubscriptionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutStripeSubscriptionsInput
+  upsert?: Prisma.UserUpsertWithoutStripeSubscriptionsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutStripeSubscriptionsInput, Prisma.UserUpdateWithoutStripeSubscriptionsInput>, Prisma.UserUncheckedUpdateWithoutStripeSubscriptionsInput>
+}
+
 export type UserCreateWithoutListingsInput = {
   id?: string
   email: string
@@ -634,6 +677,7 @@ export type UserCreateWithoutListingsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
   instagramToken?: string | null
   instagramUserId?: string | null
   name: string
@@ -642,6 +686,7 @@ export type UserCreateWithoutListingsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   Subscriptions?: Prisma.SubscriptionsCreateNestedManyWithoutUserInput
+  stripeSubscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
 }
@@ -655,6 +700,7 @@ export type UserUncheckedCreateWithoutListingsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
   instagramToken?: string | null
   instagramUserId?: string | null
   name: string
@@ -663,6 +709,7 @@ export type UserUncheckedCreateWithoutListingsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   Subscriptions?: Prisma.SubscriptionsUncheckedCreateNestedManyWithoutUserInput
+  stripeSubscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
 }
@@ -692,6 +739,7 @@ export type UserUpdateWithoutListingsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -700,6 +748,7 @@ export type UserUpdateWithoutListingsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subscriptions?: Prisma.SubscriptionsUpdateManyWithoutUserNestedInput
+  stripeSubscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
 }
@@ -713,6 +762,7 @@ export type UserUncheckedUpdateWithoutListingsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -721,6 +771,7 @@ export type UserUncheckedUpdateWithoutListingsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subscriptions?: Prisma.SubscriptionsUncheckedUpdateManyWithoutUserNestedInput
+  stripeSubscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -734,6 +785,7 @@ export type UserCreateWithoutSubscriptionsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
   instagramToken?: string | null
   instagramUserId?: string | null
   name: string
@@ -742,6 +794,7 @@ export type UserCreateWithoutSubscriptionsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   Listings?: Prisma.ListingsCreateNestedManyWithoutUserInput
+  stripeSubscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
 }
@@ -755,6 +808,7 @@ export type UserUncheckedCreateWithoutSubscriptionsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
   instagramToken?: string | null
   instagramUserId?: string | null
   name: string
@@ -763,6 +817,7 @@ export type UserUncheckedCreateWithoutSubscriptionsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   Listings?: Prisma.ListingsUncheckedCreateNestedManyWithoutUserInput
+  stripeSubscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
 }
@@ -792,6 +847,7 @@ export type UserUpdateWithoutSubscriptionsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -800,6 +856,7 @@ export type UserUpdateWithoutSubscriptionsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Listings?: Prisma.ListingsUpdateManyWithoutUserNestedInput
+  stripeSubscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
 }
@@ -813,6 +870,7 @@ export type UserUncheckedUpdateWithoutSubscriptionsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -821,6 +879,7 @@ export type UserUncheckedUpdateWithoutSubscriptionsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Listings?: Prisma.ListingsUncheckedUpdateManyWithoutUserNestedInput
+  stripeSubscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -834,6 +893,7 @@ export type UserCreateWithoutSessionsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
   instagramToken?: string | null
   instagramUserId?: string | null
   name: string
@@ -843,6 +903,7 @@ export type UserCreateWithoutSessionsInput = {
   updatedAt?: Date | string
   Listings?: Prisma.ListingsCreateNestedManyWithoutUserInput
   Subscriptions?: Prisma.SubscriptionsCreateNestedManyWithoutUserInput
+  stripeSubscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
 }
 
@@ -855,6 +916,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
   instagramToken?: string | null
   instagramUserId?: string | null
   name: string
@@ -864,6 +926,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   updatedAt?: Date | string
   Listings?: Prisma.ListingsUncheckedCreateNestedManyWithoutUserInput
   Subscriptions?: Prisma.SubscriptionsUncheckedCreateNestedManyWithoutUserInput
+  stripeSubscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -892,6 +955,7 @@ export type UserUpdateWithoutSessionsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -901,6 +965,7 @@ export type UserUpdateWithoutSessionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Listings?: Prisma.ListingsUpdateManyWithoutUserNestedInput
   Subscriptions?: Prisma.SubscriptionsUpdateManyWithoutUserNestedInput
+  stripeSubscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
 }
 
@@ -913,6 +978,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -922,6 +988,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Listings?: Prisma.ListingsUncheckedUpdateManyWithoutUserNestedInput
   Subscriptions?: Prisma.SubscriptionsUncheckedUpdateManyWithoutUserNestedInput
+  stripeSubscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -934,6 +1001,7 @@ export type UserCreateWithoutAccountsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
   instagramToken?: string | null
   instagramUserId?: string | null
   name: string
@@ -943,6 +1011,7 @@ export type UserCreateWithoutAccountsInput = {
   updatedAt?: Date | string
   Listings?: Prisma.ListingsCreateNestedManyWithoutUserInput
   Subscriptions?: Prisma.SubscriptionsCreateNestedManyWithoutUserInput
+  stripeSubscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
 }
 
@@ -955,6 +1024,7 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   profile_url?: string | null
   logo?: string | null
   abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
   instagramToken?: string | null
   instagramUserId?: string | null
   name: string
@@ -964,6 +1034,7 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   updatedAt?: Date | string
   Listings?: Prisma.ListingsUncheckedCreateNestedManyWithoutUserInput
   Subscriptions?: Prisma.SubscriptionsUncheckedCreateNestedManyWithoutUserInput
+  stripeSubscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -992,6 +1063,7 @@ export type UserUpdateWithoutAccountsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1001,6 +1073,7 @@ export type UserUpdateWithoutAccountsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Listings?: Prisma.ListingsUpdateManyWithoutUserNestedInput
   Subscriptions?: Prisma.SubscriptionsUpdateManyWithoutUserNestedInput
+  stripeSubscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
 }
 
@@ -1013,6 +1086,115 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Listings?: Prisma.ListingsUncheckedUpdateManyWithoutUserNestedInput
+  Subscriptions?: Prisma.SubscriptionsUncheckedUpdateManyWithoutUserNestedInput
+  stripeSubscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutStripeSubscriptionsInput = {
+  id?: string
+  email: string
+  profile_photo?: string | null
+  cellphone?: string | null
+  taxId?: string | null
+  profile_url?: string | null
+  logo?: string | null
+  abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
+  name: string
+  emailVerified?: boolean
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  Listings?: Prisma.ListingsCreateNestedManyWithoutUserInput
+  Subscriptions?: Prisma.SubscriptionsCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutStripeSubscriptionsInput = {
+  id?: string
+  email: string
+  profile_photo?: string | null
+  cellphone?: string | null
+  taxId?: string | null
+  profile_url?: string | null
+  logo?: string | null
+  abacatepay_customer_id?: string | null
+  stripeCustomerId?: string | null
+  instagramToken?: string | null
+  instagramUserId?: string | null
+  name: string
+  emailVerified?: boolean
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  Listings?: Prisma.ListingsUncheckedCreateNestedManyWithoutUserInput
+  Subscriptions?: Prisma.SubscriptionsUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutStripeSubscriptionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutStripeSubscriptionsInput, Prisma.UserUncheckedCreateWithoutStripeSubscriptionsInput>
+}
+
+export type UserUpsertWithoutStripeSubscriptionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutStripeSubscriptionsInput, Prisma.UserUncheckedUpdateWithoutStripeSubscriptionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutStripeSubscriptionsInput, Prisma.UserUncheckedCreateWithoutStripeSubscriptionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutStripeSubscriptionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutStripeSubscriptionsInput, Prisma.UserUncheckedUpdateWithoutStripeSubscriptionsInput>
+}
+
+export type UserUpdateWithoutStripeSubscriptionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Listings?: Prisma.ListingsUpdateManyWithoutUserNestedInput
+  Subscriptions?: Prisma.SubscriptionsUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutStripeSubscriptionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  profile_photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cellphone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profile_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  abacatepay_customer_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1023,6 +1205,7 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   Listings?: Prisma.ListingsUncheckedUpdateManyWithoutUserNestedInput
   Subscriptions?: Prisma.SubscriptionsUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -1033,6 +1216,7 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
 export type UserCountOutputType = {
   Listings: number
   Subscriptions: number
+  stripeSubscriptions: number
   sessions: number
   accounts: number
 }
@@ -1040,6 +1224,7 @@ export type UserCountOutputType = {
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Listings?: boolean | UserCountOutputTypeCountListingsArgs
   Subscriptions?: boolean | UserCountOutputTypeCountSubscriptionsArgs
+  stripeSubscriptions?: boolean | UserCountOutputTypeCountStripeSubscriptionsArgs
   sessions?: boolean | UserCountOutputTypeCountSessionsArgs
   accounts?: boolean | UserCountOutputTypeCountAccountsArgs
 }
@@ -1071,6 +1256,13 @@ export type UserCountOutputTypeCountSubscriptionsArgs<ExtArgs extends runtime.Ty
 /**
  * UserCountOutputType without action
  */
+export type UserCountOutputTypeCountStripeSubscriptionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SubscriptionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
 export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.SessionWhereInput
 }
@@ -1092,6 +1284,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
+  stripeCustomerId?: boolean
   instagramToken?: boolean
   instagramUserId?: boolean
   name?: boolean
@@ -1101,6 +1294,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   updatedAt?: boolean
   Listings?: boolean | Prisma.User$ListingsArgs<ExtArgs>
   Subscriptions?: boolean | Prisma.User$SubscriptionsArgs<ExtArgs>
+  stripeSubscriptions?: boolean | Prisma.User$stripeSubscriptionsArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
   accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1115,6 +1309,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
+  stripeCustomerId?: boolean
   instagramToken?: boolean
   instagramUserId?: boolean
   name?: boolean
@@ -1133,6 +1328,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
+  stripeCustomerId?: boolean
   instagramToken?: boolean
   instagramUserId?: boolean
   name?: boolean
@@ -1151,6 +1347,7 @@ export type UserSelectScalar = {
   profile_url?: boolean
   logo?: boolean
   abacatepay_customer_id?: boolean
+  stripeCustomerId?: boolean
   instagramToken?: boolean
   instagramUserId?: boolean
   name?: boolean
@@ -1160,10 +1357,11 @@ export type UserSelectScalar = {
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "profile_photo" | "cellphone" | "taxId" | "profile_url" | "logo" | "abacatepay_customer_id" | "instagramToken" | "instagramUserId" | "name" | "emailVerified" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "profile_photo" | "cellphone" | "taxId" | "profile_url" | "logo" | "abacatepay_customer_id" | "stripeCustomerId" | "instagramToken" | "instagramUserId" | "name" | "emailVerified" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Listings?: boolean | Prisma.User$ListingsArgs<ExtArgs>
   Subscriptions?: boolean | Prisma.User$SubscriptionsArgs<ExtArgs>
+  stripeSubscriptions?: boolean | Prisma.User$stripeSubscriptionsArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
   accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1176,6 +1374,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   objects: {
     Listings: Prisma.$ListingsPayload<ExtArgs>[]
     Subscriptions: Prisma.$SubscriptionsPayload<ExtArgs>[]
+    stripeSubscriptions: Prisma.$SubscriptionPayload<ExtArgs>[]
     sessions: Prisma.$SessionPayload<ExtArgs>[]
     accounts: Prisma.$AccountPayload<ExtArgs>[]
   }
@@ -1188,6 +1387,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     profile_url: string | null
     logo: string | null
     abacatepay_customer_id: string | null
+    stripeCustomerId: string | null
     instagramToken: string | null
     instagramUserId: string | null
     name: string
@@ -1591,6 +1791,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   readonly [Symbol.toStringTag]: "PrismaPromise"
   Listings<T extends Prisma.User$ListingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$ListingsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ListingsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Subscriptions<T extends Prisma.User$SubscriptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$SubscriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubscriptionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  stripeSubscriptions<T extends Prisma.User$stripeSubscriptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$stripeSubscriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   sessions<T extends Prisma.User$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   accounts<T extends Prisma.User$accountsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -1630,6 +1831,7 @@ export interface UserFieldRefs {
   readonly profile_url: Prisma.FieldRef<"User", 'String'>
   readonly logo: Prisma.FieldRef<"User", 'String'>
   readonly abacatepay_customer_id: Prisma.FieldRef<"User", 'String'>
+  readonly stripeCustomerId: Prisma.FieldRef<"User", 'String'>
   readonly instagramToken: Prisma.FieldRef<"User", 'String'>
   readonly instagramUserId: Prisma.FieldRef<"User", 'String'>
   readonly name: Prisma.FieldRef<"User", 'String'>
@@ -2070,6 +2272,30 @@ export type User$SubscriptionsArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.SubscriptionsScalarFieldEnum | Prisma.SubscriptionsScalarFieldEnum[]
+}
+
+/**
+ * User.stripeSubscriptions
+ */
+export type User$stripeSubscriptionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Subscription
+   */
+  select?: Prisma.SubscriptionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Subscription
+   */
+  omit?: Prisma.SubscriptionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SubscriptionInclude<ExtArgs> | null
+  where?: Prisma.SubscriptionWhereInput
+  orderBy?: Prisma.SubscriptionOrderByWithRelationInput | Prisma.SubscriptionOrderByWithRelationInput[]
+  cursor?: Prisma.SubscriptionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SubscriptionScalarFieldEnum | Prisma.SubscriptionScalarFieldEnum[]
 }
 
 /**
