@@ -1,7 +1,6 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import prisma from "@/lib/prisma";
-import { abacatePayClient } from "@/lib/abacatepay";
 
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
