@@ -1,0 +1,43 @@
+export const plans = [
+  {
+    id: "starter",
+    name: "Starter",
+    price: 4700,
+    priceFormatted: "R$ 47",
+    period: "/mês",
+    description: "Comece com anúncios básicos de imóveis",
+    features: [
+      "Até 5 imóveis",
+      "Busca básica de propriedades",
+      "Páginas de listagem padrão",
+      "Suporte por email",
+    ],
+    limitations: [
+      "Sem recursos de IA",
+      "Sem integração com Instagram",
+      "Sem landing pages personalizadas",
+    ],
+    cta: "Fazer Upgrade para Starter",
+    popular: false,
+  },
+  {
+    id: "professional",
+    name: "Profissional",
+    price: 14900,
+    priceFormatted: "R$ 149",
+    period: "/mês",
+    description: "Desbloqueie ferramentas IA poderosas e integrações",
+    features: [
+      "Imóveis ilimitados",
+      "Gerador de landing pages com IA",
+      "Editor de imagens com IA",
+      "Integração e auto-publicação no Instagram",
+      "Legendas e hashtags geradas por IA",
+      "Analíticas avançadas",
+      "Suporte prioritário",
+    ],
+    limitations: [],
+    cta: "Fazer Upgrade para Profissional",
+    popular: true,
+  },
+];

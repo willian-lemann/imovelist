@@ -3,6 +3,7 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { abacatePayClient } from "@/lib/abacatepay";
 import prisma from "@/lib/prisma";
+import { plans } from "@/components/subscription/plans";
 
 export async function POST(req: NextRequest) {
   try {
@@ -31,20 +32,26 @@ export async function POST(req: NextRequest) {
 
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
-    const price = plan === "professional" ? 14900 : 4700; // Preços em centavos
+    const selectedPlan = plans.find((p) => p.id === plan);
+
+    if (!selectedPlan) {
+      return NextResponse.json(
+        { error: "Plano selecionado não encontrado" },
+        { status: 400 },
+      );
+    }
 
     // Se o usuário já tem um customerId, usa ele; senão cria inline
     const billingData: Parameters<typeof abacatePayClient.createBilling>[0] = {
       frequency: "MULTIPLE_PAYMENTS",
-      methods: ["PIX"],
+      methods: ["CARD"],
       products: [
         {
-          externalId: "professional-plan",
-          name: "Plano Profissional - ImovelList",
-          description:
-            "Acesso a todos os recursos premium: IA, Instagram, landing pages e imóveis ilimitados.",
+          externalId: `${selectedPlan?.id}-plan`,
+          name: `Plano ${selectedPlan?.name} - ImovelList`,
+          description: selectedPlan?.description,
           quantity: 1,
-          price,
+          price: selectedPlan.price,
         },
       ],
       returnUrl: `${appUrl}/subscription`,
