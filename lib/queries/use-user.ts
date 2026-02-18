@@ -1,6 +1,7 @@
 "use client";
 
 import { useSession } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { useQuery } from "@tanstack/react-query";
 
 export interface User {
@@ -10,6 +11,12 @@ export interface User {
   image: string | null;
   subscriptionTier: string;
   instagramUserId: string | null;
+}
+
+interface StripeSubscription {
+  plan: string;
+  status: string;
+  periodEnd?: string;
 }
 
 export function useUser() {
@@ -29,6 +36,22 @@ export function useUser() {
     enabled: !!session?.user,
   });
 
+  const { data: subscriptions } = useQuery<StripeSubscription[]>({
+    queryKey: ["stripe-subscriptions"],
+    queryFn: async () => {
+      const { data } = await authClient.subscription.list();
+      return (data as StripeSubscription[]) || [];
+    },
+    enabled: !!session?.user,
+  });
+
+  const activeSubscription = subscriptions?.find(
+    (s) => s.status === "active" || s.status === "trialing",
+  );
+
+  const subscriptionPlan =
+    activeSubscription?.plan || user?.subscriptionTier || "free";
+
   const isLoading = isSessionPending || isUserLoading;
 
   return {
@@ -36,6 +59,8 @@ export function useUser() {
     isLoading,
     error,
     isAuthenticated: !!session?.user,
-    isPremium: user?.subscriptionTier === "professional",
+    isPremium: subscriptionPlan === "professional",
+    subscriptionPlan,
+    activeSubscription,
   };
 }
