@@ -24,13 +24,14 @@ export async function POST(req: NextRequest) {
         const customerEmail = data.customer?.metadata?.email as string;
         console.log("data.billing", data.billing);
         console.log("data.payment", data.payment);
+        console.log("data.customer", data.customer.metadata);
 
         if (!customerId && !customerEmail) {
           Sentry.captureMessage(
             `Webhook billing.paid sem identificação do cliente (billingId: ${billingId})`,
             {
               level: "error",
-              extra: { billingId },
+              extra: { billingId, customerId, customerEmail },
             },
           );
           break;
