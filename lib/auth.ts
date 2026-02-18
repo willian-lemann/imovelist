@@ -31,6 +31,9 @@ export const auth = betterAuth({
       stripeClient,
       stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
       createCustomerOnSignUp: true,
+      onEvent: async (event) => {
+        console.log("[Stripe Webhook] event received:", event.type);
+      },
       subscription: {
         enabled: true,
         plans: [
@@ -49,6 +52,27 @@ export const auth = betterAuth({
             },
           },
         ],
+        onSubscriptionComplete: async ({ subscription, plan }) => {
+          console.log(
+            `[Stripe] Subscription complete: plan=${plan.name} status=${subscription.status}`,
+          );
+        },
+        onSubscriptionCreated: async ({ subscription, plan }) => {
+          console.log(
+            `[Stripe] Subscription created: plan=${plan.name} id=${subscription.id}`,
+          );
+        },
+        onSubscriptionUpdate: async ({ subscription }) => {
+          console.log(
+            `[Stripe] Subscription updated: status=${subscription.status}`,
+          );
+        },
+        onSubscriptionDeleted: async ({ subscription }) => {
+          console.log(`[Stripe] Subscription deleted: id=${subscription.id}`);
+        },
+        onSubscriptionCancel: async ({ subscription }) => {
+          console.log(`[Stripe] Subscription cancelled: id=${subscription.id}`);
+        },
       },
     }),
   ],
