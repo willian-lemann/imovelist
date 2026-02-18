@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
     // Se o usuário já tem um customerId, usa ele; senão cria inline
     const billingData: Parameters<typeof abacatePayClient.createBilling>[0] = {
       frequency: "MULTIPLE_PAYMENTS",
-      methods: ["CARD"],
+      methods: ["PIX"],
       products: [
         {
           externalId: `${selectedPlan?.id}-plan`,
