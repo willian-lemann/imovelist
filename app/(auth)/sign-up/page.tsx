@@ -41,18 +41,7 @@ export default function SignUpPage() {
             return;
           },
           onSuccess: async () => {
-            console.log(cellphone, taxId);
-            // Criar customer na AbacatePay com os dados adicionais
-            try {
-              await fetch("/api/user/setup-customer", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ cellphone, taxId }),
-              });
-              router.push("/");
-            } catch (error) {
-              console.error("Erro ao configurar customer:", error);
-            }
+            router.push("/dashboard");
           },
         },
       );
