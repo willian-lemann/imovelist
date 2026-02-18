@@ -33,26 +33,29 @@ export default function SignUpPage() {
     setError("");
 
     try {
-      const result = await signUp.email({ name, email, password });
-
-      if (result.error) {
-        setError(result.error.message || "Falha ao criar conta");
-        return;
-      }
-
-      console.log(cellphone, taxId);
-      // Criar customer na AbacatePay com os dados adicionais
-      try {
-        await fetch("/api/user/setup-customer", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ cellphone, taxId }),
-        });
-      } catch (error) {
-        console.error("Erro ao configurar customer:", error);
-      }
-
-      router.push("/");
+      await signUp.email(
+        { name, email, password },
+        {
+          onError: ({ error }) => {
+            setError(error.message || "Falha ao criar conta");
+            return;
+          },
+          onSuccess: async () => {
+            console.log(cellphone, taxId);
+            // Criar customer na AbacatePay com os dados adicionais
+            try {
+              await fetch("/api/user/setup-customer", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ cellphone, taxId }),
+              });
+              router.push("/");
+            } catch (error) {
+              console.error("Erro ao configurar customer:", error);
+            }
+          },
+        },
+      );
     } catch {
       setError("Algo deu errado");
     } finally {

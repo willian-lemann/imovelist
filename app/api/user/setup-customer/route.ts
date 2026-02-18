@@ -13,6 +13,11 @@ export async function POST(req: NextRequest) {
   try {
     const { cellphone, taxId } = await req.json();
 
+    console.log("getting request", {
+      cellphone,
+      taxId,
+    });
+
     // Criar customer na AbacatePay
     const abacateCustomer = await abacatePayClient.createCustomer({
       name: session.user.name,
