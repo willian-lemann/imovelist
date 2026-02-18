@@ -41,6 +41,7 @@ export type SubscriptionsMinAggregateOutputType = {
   abacatepay_billing_id: string | null
   plan: string | null
   status: string | null
+  nextBilling: Date | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -52,6 +53,7 @@ export type SubscriptionsMaxAggregateOutputType = {
   abacatepay_billing_id: string | null
   plan: string | null
   status: string | null
+  nextBilling: Date | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -63,6 +65,7 @@ export type SubscriptionsCountAggregateOutputType = {
   abacatepay_billing_id: number
   plan: number
   status: number
+  nextBilling: number
   created_at: number
   updated_at: number
   _all: number
@@ -84,6 +87,7 @@ export type SubscriptionsMinAggregateInputType = {
   abacatepay_billing_id?: true
   plan?: true
   status?: true
+  nextBilling?: true
   created_at?: true
   updated_at?: true
 }
@@ -95,6 +99,7 @@ export type SubscriptionsMaxAggregateInputType = {
   abacatepay_billing_id?: true
   plan?: true
   status?: true
+  nextBilling?: true
   created_at?: true
   updated_at?: true
 }
@@ -106,6 +111,7 @@ export type SubscriptionsCountAggregateInputType = {
   abacatepay_billing_id?: true
   plan?: true
   status?: true
+  nextBilling?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -204,6 +210,7 @@ export type SubscriptionsGroupByOutputType = {
   abacatepay_billing_id: string
   plan: string
   status: string | null
+  nextBilling: Date | null
   created_at: Date | null
   updated_at: Date | null
   _count: SubscriptionsCountAggregateOutputType | null
@@ -238,6 +245,7 @@ export type SubscriptionsWhereInput = {
   abacatepay_billing_id?: Prisma.StringFilter<"Subscriptions"> | string
   plan?: Prisma.StringFilter<"Subscriptions"> | string
   status?: Prisma.StringNullableFilter<"Subscriptions"> | string | null
+  nextBilling?: Prisma.DateTimeNullableFilter<"Subscriptions"> | Date | string | null
   created_at?: Prisma.DateTimeNullableFilter<"Subscriptions"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"Subscriptions"> | Date | string | null
   User?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -250,6 +258,7 @@ export type SubscriptionsOrderByWithRelationInput = {
   abacatepay_billing_id?: Prisma.SortOrder
   plan?: Prisma.SortOrder
   status?: Prisma.SortOrderInput | Prisma.SortOrder
+  nextBilling?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
   User?: Prisma.UserOrderByWithRelationInput
@@ -265,6 +274,7 @@ export type SubscriptionsWhereUniqueInput = Prisma.AtLeast<{
   abacatepay_customer_id?: Prisma.StringFilter<"Subscriptions"> | string
   plan?: Prisma.StringFilter<"Subscriptions"> | string
   status?: Prisma.StringNullableFilter<"Subscriptions"> | string | null
+  nextBilling?: Prisma.DateTimeNullableFilter<"Subscriptions"> | Date | string | null
   created_at?: Prisma.DateTimeNullableFilter<"Subscriptions"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"Subscriptions"> | Date | string | null
   User?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -277,6 +287,7 @@ export type SubscriptionsOrderByWithAggregationInput = {
   abacatepay_billing_id?: Prisma.SortOrder
   plan?: Prisma.SortOrder
   status?: Prisma.SortOrderInput | Prisma.SortOrder
+  nextBilling?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.SubscriptionsCountOrderByAggregateInput
@@ -296,6 +307,7 @@ export type SubscriptionsScalarWhereWithAggregatesInput = {
   abacatepay_billing_id?: Prisma.StringWithAggregatesFilter<"Subscriptions"> | string
   plan?: Prisma.StringWithAggregatesFilter<"Subscriptions"> | string
   status?: Prisma.StringNullableWithAggregatesFilter<"Subscriptions"> | string | null
+  nextBilling?: Prisma.DateTimeNullableWithAggregatesFilter<"Subscriptions"> | Date | string | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Subscriptions"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Subscriptions"> | Date | string | null
 }
@@ -305,6 +317,7 @@ export type SubscriptionsCreateInput = {
   abacatepay_billing_id: string
   plan?: string
   status?: string | null
+  nextBilling?: Date | string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
   User: Prisma.UserCreateNestedOneWithoutSubscriptionsInput
@@ -317,6 +330,7 @@ export type SubscriptionsUncheckedCreateInput = {
   abacatepay_billing_id: string
   plan?: string
   status?: string | null
+  nextBilling?: Date | string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
 }
@@ -326,6 +340,7 @@ export type SubscriptionsUpdateInput = {
   abacatepay_billing_id?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextBilling?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   User?: Prisma.UserUpdateOneRequiredWithoutSubscriptionsNestedInput
@@ -338,6 +353,7 @@ export type SubscriptionsUncheckedUpdateInput = {
   abacatepay_billing_id?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextBilling?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
@@ -349,6 +365,7 @@ export type SubscriptionsCreateManyInput = {
   abacatepay_billing_id: string
   plan?: string
   status?: string | null
+  nextBilling?: Date | string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
 }
@@ -358,6 +375,7 @@ export type SubscriptionsUpdateManyMutationInput = {
   abacatepay_billing_id?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextBilling?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
@@ -369,6 +387,7 @@ export type SubscriptionsUncheckedUpdateManyInput = {
   abacatepay_billing_id?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextBilling?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
@@ -380,6 +399,7 @@ export type SubscriptionsCountOrderByAggregateInput = {
   abacatepay_billing_id?: Prisma.SortOrder
   plan?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  nextBilling?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -395,6 +415,7 @@ export type SubscriptionsMaxOrderByAggregateInput = {
   abacatepay_billing_id?: Prisma.SortOrder
   plan?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  nextBilling?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -406,6 +427,7 @@ export type SubscriptionsMinOrderByAggregateInput = {
   abacatepay_billing_id?: Prisma.SortOrder
   plan?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  nextBilling?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -471,6 +493,7 @@ export type SubscriptionsCreateWithoutUserInput = {
   abacatepay_billing_id: string
   plan?: string
   status?: string | null
+  nextBilling?: Date | string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
 }
@@ -481,6 +504,7 @@ export type SubscriptionsUncheckedCreateWithoutUserInput = {
   abacatepay_billing_id: string
   plan?: string
   status?: string | null
+  nextBilling?: Date | string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
 }
@@ -521,6 +545,7 @@ export type SubscriptionsScalarWhereInput = {
   abacatepay_billing_id?: Prisma.StringFilter<"Subscriptions"> | string
   plan?: Prisma.StringFilter<"Subscriptions"> | string
   status?: Prisma.StringNullableFilter<"Subscriptions"> | string | null
+  nextBilling?: Prisma.DateTimeNullableFilter<"Subscriptions"> | Date | string | null
   created_at?: Prisma.DateTimeNullableFilter<"Subscriptions"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"Subscriptions"> | Date | string | null
 }
@@ -531,6 +556,7 @@ export type SubscriptionsCreateManyUserInput = {
   abacatepay_billing_id: string
   plan?: string
   status?: string | null
+  nextBilling?: Date | string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
 }
@@ -540,6 +566,7 @@ export type SubscriptionsUpdateWithoutUserInput = {
   abacatepay_billing_id?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextBilling?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
@@ -550,6 +577,7 @@ export type SubscriptionsUncheckedUpdateWithoutUserInput = {
   abacatepay_billing_id?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextBilling?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
@@ -560,6 +588,7 @@ export type SubscriptionsUncheckedUpdateManyWithoutUserInput = {
   abacatepay_billing_id?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nextBilling?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
@@ -573,6 +602,7 @@ export type SubscriptionsSelect<ExtArgs extends runtime.Types.Extensions.Interna
   abacatepay_billing_id?: boolean
   plan?: boolean
   status?: boolean
+  nextBilling?: boolean
   created_at?: boolean
   updated_at?: boolean
   User?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -585,6 +615,7 @@ export type SubscriptionsSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   abacatepay_billing_id?: boolean
   plan?: boolean
   status?: boolean
+  nextBilling?: boolean
   created_at?: boolean
   updated_at?: boolean
   User?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -597,6 +628,7 @@ export type SubscriptionsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   abacatepay_billing_id?: boolean
   plan?: boolean
   status?: boolean
+  nextBilling?: boolean
   created_at?: boolean
   updated_at?: boolean
   User?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -609,11 +641,12 @@ export type SubscriptionsSelectScalar = {
   abacatepay_billing_id?: boolean
   plan?: boolean
   status?: boolean
+  nextBilling?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type SubscriptionsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "abacatepay_customer_id" | "abacatepay_billing_id" | "plan" | "status" | "created_at" | "updated_at", ExtArgs["result"]["subscriptions"]>
+export type SubscriptionsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "abacatepay_customer_id" | "abacatepay_billing_id" | "plan" | "status" | "nextBilling" | "created_at" | "updated_at", ExtArgs["result"]["subscriptions"]>
 export type SubscriptionsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   User?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -636,6 +669,7 @@ export type $SubscriptionsPayload<ExtArgs extends runtime.Types.Extensions.Inter
     abacatepay_billing_id: string
     plan: string
     status: string | null
+    nextBilling: Date | null
     created_at: Date | null
     updated_at: Date | null
   }, ExtArgs["result"]["subscriptions"]>
@@ -1068,6 +1102,7 @@ export interface SubscriptionsFieldRefs {
   readonly abacatepay_billing_id: Prisma.FieldRef<"Subscriptions", 'String'>
   readonly plan: Prisma.FieldRef<"Subscriptions", 'String'>
   readonly status: Prisma.FieldRef<"Subscriptions", 'String'>
+  readonly nextBilling: Prisma.FieldRef<"Subscriptions", 'DateTime'>
   readonly created_at: Prisma.FieldRef<"Subscriptions", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"Subscriptions", 'DateTime'>
 }

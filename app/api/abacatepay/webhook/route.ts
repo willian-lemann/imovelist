@@ -29,6 +29,8 @@ export async function POST(req: NextRequest) {
       case "billing.paid": {
         const billingId = data.id as string;
 
+        console.log(data);
+
         // Busca detalhes da cobrança para verificar o produto
         let billing;
 
@@ -38,6 +40,10 @@ export async function POST(req: NextRequest) {
           console.error(`Erro ao buscar billing ${billingId}`);
           break;
         }
+
+        const subscriptionDate = new Date();
+        const nextBillingDate = new Date(subscriptionDate);
+        nextBillingDate.setMonth(nextBillingDate.getMonth() + 1);
 
         await prisma.subscriptions.upsert({
           where: {
@@ -55,6 +61,7 @@ export async function POST(req: NextRequest) {
               ? "professional"
               : "starter",
             status: "active",
+            nextBilling: nextBillingDate,
             created_at: new Date(),
             updated_at: new Date(),
           },

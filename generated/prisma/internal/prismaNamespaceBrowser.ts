@@ -191,6 +191,7 @@ export const SubscriptionsScalarFieldEnum = {
   abacatepay_billing_id: 'abacatepay_billing_id',
   plan: 'plan',
   status: 'status',
+  nextBilling: 'nextBilling',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
