@@ -65,7 +65,7 @@ function SubscriptionContent() {
           </h2>
           <p className="text-muted-foreground text-sm mt-2">
             {isPremium
-              ? "Você está no plano Profissional. Aproveite todos os recursos premium!"
+              ? "Você está no plano Profissional. Aproveite todos os recursos premium!."
               : "Desbloqueie ferramentas com IA e integrações para o seu negócio imobiliário."}
           </p>
         </div>
