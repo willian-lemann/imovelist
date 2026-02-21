@@ -20,9 +20,8 @@ interface StripeSubscription {
 }
 
 export function useUser() {
-  const { data: session, isPending: isSessionPending } = useSession();
+  const { data: session, isPending: isSessionPending, error } = useSession();
 
-  console.log("Session data:", session);
   const { data: subscriptions } = useQuery<StripeSubscription[]>({
     queryKey: ["stripe-subscriptions"],
     queryFn: async () => {
@@ -36,16 +35,15 @@ export function useUser() {
     (s) => s.status === "active" || s.status === "trialing",
   );
 
-  const subscriptionPlan =
-    activeSubscription?.plan || user?.subscriptionTier || "free";
+  const subscriptionPlan = activeSubscription?.plan || "free";
 
-  const isLoading = isSessionPending || isUserLoading;
+  const isLoading = isSessionPending;
 
   return {
-    user,
+    user: session?.user ? session.user : null,
     isLoading,
     error,
-    isAuthenticated: !!session?.user,
+    isAuthenticated: !!session,
     isPremium: subscriptionPlan === "professional",
     subscriptionPlan,
     activeSubscription,

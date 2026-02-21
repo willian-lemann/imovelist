@@ -57,7 +57,6 @@ export const ModelName = {
   Policies: 'Policies',
   Scrapped_infos: 'Scrapped_infos',
   Scrapped_listings: 'Scrapped_listings',
-  Subscriptions: 'Subscriptions',
   User: 'User',
   Session: 'Session',
   Account: 'Account',
@@ -185,21 +184,6 @@ export const Scrapped_listingsScalarFieldEnum = {
 export type Scrapped_listingsScalarFieldEnum = (typeof Scrapped_listingsScalarFieldEnum)[keyof typeof Scrapped_listingsScalarFieldEnum]
 
 
-export const SubscriptionsScalarFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  abacatepay_customer_id: 'abacatepay_customer_id',
-  abacatepay_billing_id: 'abacatepay_billing_id',
-  plan: 'plan',
-  status: 'status',
-  nextBilling: 'nextBilling',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type SubscriptionsScalarFieldEnum = (typeof SubscriptionsScalarFieldEnum)[keyof typeof SubscriptionsScalarFieldEnum]
-
-
 export const UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
@@ -272,7 +256,7 @@ export const SubscriptionScalarFieldEnum = {
   plan: 'plan',
   referenceId: 'referenceId',
   stripeCustomerId: 'stripeCustomerId',
-  stripeSubscriptionId: 'stripeSubscriptionId',
+  subscriptionId: 'subscriptionId',
   status: 'status',
   periodStart: 'periodStart',
   periodEnd: 'periodEnd',

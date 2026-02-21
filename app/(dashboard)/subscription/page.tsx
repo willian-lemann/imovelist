@@ -15,11 +15,13 @@ function SubscriptionContent() {
   const success = searchParams.get("success") === "true";
 
   async function handleUpgrade(plan: string) {
+    console.log(`${window.location.origin}/api/subscription?success=true`);
     try {
       await authClient.subscription.upgrade({
         plan,
         successUrl: `${window.location.origin}/subscription?success=true`,
         cancelUrl: `${window.location.origin}/subscription`,
+        locale: "pt-BR",
       });
     } catch (err) {
       console.error("Upgrade failed:", err);

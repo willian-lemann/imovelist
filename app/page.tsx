@@ -59,16 +59,10 @@ export default async function HomePage() {
               </Button>
             </Link>
             <Link href={isLogged ? "/dashboard" : "/login"}>
-              <Button variant="ghost" size="sm">
+              <Button variant="default" size="sm" className={"cursor-pointer"}>
                 Entrar
               </Button>
             </Link>
-
-            {!isLogged && (
-              <Link href="/sign-up">
-                <Button size="sm">Começar</Button>
-              </Link>
-            )}
           </div>
         </div>
       </nav>

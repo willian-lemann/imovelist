@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { redirect } from "next/navigation";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
@@ -29,5 +30,5 @@ export async function GET(req: NextRequest) {
     console.error("[subscription/success] DB update failed:", err);
   }
 
-  return NextResponse.redirect(new URL(callbackURL, req.url));
+  return redirect(callbackURL);
 }

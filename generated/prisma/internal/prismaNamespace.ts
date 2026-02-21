@@ -390,7 +390,6 @@ export const ModelName = {
   Policies: 'Policies',
   Scrapped_infos: 'Scrapped_infos',
   Scrapped_listings: 'Scrapped_listings',
-  Subscriptions: 'Subscriptions',
   User: 'User',
   Session: 'Session',
   Account: 'Account',
@@ -411,7 +410,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "add_listing_indices" | "galleries" | "listings" | "policies" | "scrapped_infos" | "scrapped_listings" | "subscriptions" | "user" | "session" | "account" | "verification" | "subscription"
+    modelProps: "add_listing_indices" | "galleries" | "listings" | "policies" | "scrapped_infos" | "scrapped_listings" | "user" | "session" | "account" | "verification" | "subscription"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -856,80 +855,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.Scrapped_listingsCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.Scrapped_listingsCountAggregateOutputType> | number
-        }
-      }
-    }
-    Subscriptions: {
-      payload: Prisma.$SubscriptionsPayload<ExtArgs>
-      fields: Prisma.SubscriptionsFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.SubscriptionsFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionsPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.SubscriptionsFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionsPayload>
-        }
-        findFirst: {
-          args: Prisma.SubscriptionsFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionsPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.SubscriptionsFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionsPayload>
-        }
-        findMany: {
-          args: Prisma.SubscriptionsFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionsPayload>[]
-        }
-        create: {
-          args: Prisma.SubscriptionsCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionsPayload>
-        }
-        createMany: {
-          args: Prisma.SubscriptionsCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.SubscriptionsCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionsPayload>[]
-        }
-        delete: {
-          args: Prisma.SubscriptionsDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionsPayload>
-        }
-        update: {
-          args: Prisma.SubscriptionsUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionsPayload>
-        }
-        deleteMany: {
-          args: Prisma.SubscriptionsDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.SubscriptionsUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.SubscriptionsUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionsPayload>[]
-        }
-        upsert: {
-          args: Prisma.SubscriptionsUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubscriptionsPayload>
-        }
-        aggregate: {
-          args: Prisma.SubscriptionsAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateSubscriptions>
-        }
-        groupBy: {
-          args: Prisma.SubscriptionsGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SubscriptionsGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.SubscriptionsCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SubscriptionsCountAggregateOutputType> | number
         }
       }
     }
@@ -1446,21 +1371,6 @@ export const Scrapped_listingsScalarFieldEnum = {
 export type Scrapped_listingsScalarFieldEnum = (typeof Scrapped_listingsScalarFieldEnum)[keyof typeof Scrapped_listingsScalarFieldEnum]
 
 
-export const SubscriptionsScalarFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  abacatepay_customer_id: 'abacatepay_customer_id',
-  abacatepay_billing_id: 'abacatepay_billing_id',
-  plan: 'plan',
-  status: 'status',
-  nextBilling: 'nextBilling',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type SubscriptionsScalarFieldEnum = (typeof SubscriptionsScalarFieldEnum)[keyof typeof SubscriptionsScalarFieldEnum]
-
-
 export const UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
@@ -1533,7 +1443,7 @@ export const SubscriptionScalarFieldEnum = {
   plan: 'plan',
   referenceId: 'referenceId',
   stripeCustomerId: 'stripeCustomerId',
-  stripeSubscriptionId: 'stripeSubscriptionId',
+  subscriptionId: 'subscriptionId',
   status: 'status',
   periodStart: 'periodStart',
   periodEnd: 'periodEnd',
@@ -1788,7 +1698,6 @@ export type GlobalOmitConfig = {
   policies?: Prisma.PoliciesOmit
   scrapped_infos?: Prisma.Scrapped_infosOmit
   scrapped_listings?: Prisma.Scrapped_listingsOmit
-  subscriptions?: Prisma.SubscriptionsOmit
   user?: Prisma.UserOmit
   session?: Prisma.SessionOmit
   account?: Prisma.AccountOmit

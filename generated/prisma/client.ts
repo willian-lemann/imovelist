@@ -70,11 +70,6 @@ export type Scrapped_infos = Prisma.Scrapped_infosModel
  */
 export type Scrapped_listings = Prisma.Scrapped_listingsModel
 /**
- * Model Subscriptions
- * 
- */
-export type Subscriptions = Prisma.SubscriptionsModel
-/**
  * Model User
  * 
  */

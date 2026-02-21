@@ -208,7 +208,7 @@ export default function SearchPage() {
               </Button>
             </Link>
             <Link href="/sign-up">
-              <Button size="sm">Começar</Button>
+              <Button size="sm">Não tenho conta, Começar.</Button>
             </Link>
           </div>
         </div>

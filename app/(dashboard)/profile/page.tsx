@@ -99,7 +99,7 @@ export default function ProfilePage() {
                   </>
                 ) : (
                   <>
-                    <Save className="w-4 h-4" /> Save Changes
+                    <Save className="w-4 h-4" /> Salvar alterações
                   </>
                 )}
               </Button>
