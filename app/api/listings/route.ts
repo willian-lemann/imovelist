@@ -54,8 +54,6 @@ export async function GET(req: NextRequest) {
     prisma.listings.count({ where }),
   ]);
 
-  console.log("caiu aqui ");
-
   return NextResponse.json({
     listings,
     total,

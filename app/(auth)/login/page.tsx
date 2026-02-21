@@ -15,10 +15,19 @@ import {
   CardDescription,
   CardFooter,
 } from "@/components/ui/card";
-import { signIn } from "@/lib/auth-client";
+import { signIn, useSession } from "@/lib/auth-client";
+import { useEffect } from "react";
 
 export default function SignInPage() {
+  const { data: session, isPending } = useSession();
   const router = useRouter();
+
+  // useEffect(() => {
+  //   if (!isPending && session) {
+  //     router.replace("/dashboard");
+  //   }
+  // }, [session, isPending, router]);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -58,7 +67,7 @@ export default function SignInPage() {
             <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center">
               <Building2 className="w-4 h-4" />
             </div>
-            <span className="font-semibold">EstateHub</span>
+            <span className="font-semibold">Imovelist</span>
           </Link>
           <CardTitle>Bem-vindo de volta</CardTitle>
           <CardDescription>Entre na sua conta para continuar</CardDescription>

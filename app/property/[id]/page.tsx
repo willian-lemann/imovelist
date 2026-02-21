@@ -48,7 +48,7 @@ export default async function PublicListingPage({
             <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center">
               <Building2 className="w-4 h-4" />
             </div>
-            <span className="font-semibold">EstateHub</span>
+            <span className="font-semibold">Imovelist</span>
           </Link>
           <Link href="/search">
             <Button variant="ghost" size="sm">

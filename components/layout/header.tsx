@@ -19,7 +19,7 @@ const pageTitles: Record<string, string> = {
 
 export function Header() {
   const pathname = usePathname();
-  const title = pageTitles[pathname] || "EstateHub";
+  const title = pageTitles[pathname] || "Imovelist";
 
   return (
     <header className="h-16 border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-30 flex items-center justify-between px-4 lg:px-6">

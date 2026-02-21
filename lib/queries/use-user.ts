@@ -22,20 +22,7 @@ interface StripeSubscription {
 export function useUser() {
   const { data: session, isPending: isSessionPending } = useSession();
 
-  const {
-    data: user,
-    isLoading: isUserLoading,
-    error,
-  } = useQuery<User>({
-    queryKey: ["user-profile"],
-    queryFn: async () => {
-      const res = await fetch("/api/user");
-      if (!res.ok) throw new Error("Failed to fetch user profile");
-      return res.json();
-    },
-    enabled: !!session?.user,
-  });
-
+  console.log("Session data:", session);
   const { data: subscriptions } = useQuery<StripeSubscription[]>({
     queryKey: ["stripe-subscriptions"],
     queryFn: async () => {

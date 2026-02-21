@@ -9,7 +9,7 @@ export const useRequireAuth = () => {
 
   useEffect(() => {
     if (!session) {
-      router.push("/sign-in");
+      router.push("/login");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

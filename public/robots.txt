@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap: https://imovelist.vercel.app/sitemap.xml
+
+# Crawler directives
+Crawl-delay: 1

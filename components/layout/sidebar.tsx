@@ -54,7 +54,7 @@ export function Sidebar() {
           <Building2 className="w-4 h-4" />
         </div>
         <span className="font-semibold text-base tracking-tight">
-          EstateHub
+          Imovelist
         </span>
       </div>
 
@@ -129,7 +129,7 @@ export function Sidebar() {
               await authClient.signOut({
                 fetchOptions: {
                   onSuccess() {
-                    router.push("/sign-in");
+                    router.push("/login");
                   },
                 },
               });

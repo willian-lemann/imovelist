@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Plus, LayoutGrid, List } from "lucide-react";
+import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useListings } from "@/lib/queries/use-listings";
 import { useUser } from "@/lib/queries/use-user";

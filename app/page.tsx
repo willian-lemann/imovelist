@@ -1,32 +1,56 @@
 import Link from "next/link";
+import NextImage from "next/image";
 import {
   Building2,
   Sparkles,
-  Image,
   Instagram,
   ArrowRight,
+  Image,
+  LayoutDashboard,
+  Kanban,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { auth } from "@/lib/auth";
 import { headers } from "next/dist/server/request/headers";
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Imovelist",
+  description:
+    "Plataforma imobiliária com IA para corretores e imobiliárias em Imbituba e região",
+  url: "https://imovelist.vercel.app",
+  logo: "https://imovelist.vercel.app/logo.png",
+  areaServed: ["Imbituba", "Garopaba", "Santa Catarina", "Brasil"],
+  serviceType: "Real Estate Platform",
+  offers: {
+    "@type": "Offer",
+    description: "Plataforma de anúncios imobiliários com recursos de IA",
+  },
+};
+
 export default async function HomePage() {
   const session = await auth.api.getSession({
-    headers: await headers(), // you need to pass the headers object.
+    headers: await headers(),
   });
   const isLogged = !!session;
 
   return (
     <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       {/* Navbar */}
       <nav className="border-b border-border/50 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center">
-              <Building2 className="w-4 h-4" />
+            <div className="rounded-lg text-primary-foreground flex items-center justify-center">
+              <NextImage src="/logo.png" alt="Logo" width={18} height={18} />
             </div>
-            <span className="font-semibold text-base">EstateHub</span>
+            <span className="font-semibold text-base">Imovelist</span>
           </Link>
           <div className="flex items-center gap-3">
             <Link href="/search">
@@ -34,7 +58,7 @@ export default async function HomePage() {
                 Procurar Imóveis
               </Button>
             </Link>
-            <Link href={isLogged ? "/dashboard" : "/sign-in"}>
+            <Link href={isLogged ? "/dashboard" : "/login"}>
               <Button variant="ghost" size="sm">
                 Entrar
               </Button>
@@ -70,7 +94,7 @@ export default async function HomePage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link href="/sign-up">
                 <Button size="lg" className="gap-2 text-base px-6">
-                  Comece Grátis <ArrowRight className="w-4 h-4" />
+                  Comece agora <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
               <Link href="/search">
@@ -108,13 +132,25 @@ export default async function HomePage() {
                 icon: Image,
                 title: "Edição de Imagem com IA",
                 description:
-                  "Melhore fotos de propriedades com IA. Decore ambientes, melhore a iluminação e crie visuais incríveis.",
+                  "Melhore fotos de propriedades com IA. Decore ambientes, melhore a iluminação e crie visuais incríveis com a nossa galeria.",
               },
               {
                 icon: Instagram,
                 title: "Integração Social",
                 description:
-                  "Gere legendas com IA e publique diretamente no Instagram. Cresça sua audiência sem esforço.",
+                  "Publique diretamente no Instagram. Facilite a gestão de suas redes sociais e cresça sua audiência sem esforço.",
+              },
+              {
+                icon: Kanban,
+                title: "CRM simples e eficaz",
+                description:
+                  "Gerencie seus clientes e leads de forma eficiente com nosso CRM integrado.",
+              },
+              {
+                icon: Kanban,
+                title: "Hotsites e páginas públicas",
+                description:
+                  "Crie hotsites e páginas públicas para seus imóveis de forma rápida e fácil. sua carteira pronta para ser compartilhada com clientes e nas redes sociais.",
               },
             ].map((feature, i) => (
               <div
@@ -130,6 +166,26 @@ export default async function HomePage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features for normal users */}
+      <section className="py-20 border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight mb-3">
+              Tudo que você precisa para encontrar seu imóvel ideal
+            </h2>
+            <p className="text-muted-foreground max-w-md mx-auto">
+              Para voce que esta procurando imoveis, pare de procurar em cada
+              site imobiliara por vez. feche as abas do navegador e procure
+              aqui. Todas imobiliarias de imbituba e região em um só lugar
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/*TOOD: Foto com a imagem dos imoveis scrapados */}
           </div>
         </div>
       </section>
@@ -157,10 +213,10 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Building2 className="w-4 h-4 text-muted-foreground" />
-            <span className="text-sm text-muted-foreground">EstateHub</span>
+            <span className="text-sm text-muted-foreground">Imovelist</span>
           </div>
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} EstateHub. All rights reserved.
+            &copy; {new Date().getFullYear()} Imovelist. All rights reserved.
           </p>
         </div>
       </footer>

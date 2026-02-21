@@ -62,7 +62,7 @@ export function MobileNav() {
                 <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                   <Building2 className="w-4 h-4" />
                 </div>
-                <span className="font-semibold">EstateHub</span>
+                <span className="font-semibold">Imovelist</span>
               </div>
               <Button
                 variant="ghost"
